@@ -3,24 +3,24 @@
 # # # # # # # # # # # # #
 
 # Basic
-name:               "Kiko Plus"
+name:               "Front-end engineering blog | jennybe"
 
 author:
-  facebook:         your-id
-  youtubeUser:      your-id
+  facebook:         https://www.facebook.com/jennybe0117
+  #youtubeUser:      your-id
   youtubeChannel:   your-id
-  twitter:          your-id
-  github:           your-id
+  #twitter:          your-id
+  github:           https://github.com/jennybehan
   stackoverflow:    your-id
-  quora:            your-id
+  #quora:            your-id
   linkedin:         your-id
-  pinterest:        your-id
-  googlePlus:       your-id
-  instagram:        your-id
-  reddit:           your-id
+  #pinterest:        your-id
+  #googlePlus:       your-id
+  #instagram:        your-id
+  #reddit:           your-id
   medium:           your-id
-  tumblr:           your-id
-  email:            your-id@your-email.com
+  #tumblr:           your-id
+  email:            jennybe0117@gmail.com
 
 copyright:
   year:             2017
@@ -32,12 +32,12 @@ google-analytics:
 
 # Disqus
 disqus:
-  id:               "kiko-plus"
+  id:               "https://disqus.com/by/Jennybe0117/"
 
 # URL
-url:                "https://jennybeblog.github.io" # the base hostname & protocol for your site
+url:                "https://jennybeblog.github.io/" # the base hostname & protocol for your site
 # url:                "http://localhost:4000" # use this url when you develop
-baseurl:            "" # the subpath of your site, e.g. /blog
+baseurl:             # the subpath of your site, e.g. /blog
 
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
