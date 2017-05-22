@@ -89,11 +89,11 @@ gems:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-admin
-      hidden_links:
-        - posts
-        - pages
-        - staticfiles
-        - datafiles
-        - configuration
+      # hidden_links:
+      #   - posts
+      #   - pages
+      #   - staticfiles
+      #   - datafiles
+      #   - configuration
 
 exclude:            [vendor]
