@@ -1,102 +1,130 @@
-# Progress
+# Kiko Plus Theme
 
-Progress was built by [Alexander Russell](http://) and inspired by [Cody House's](https://codyhouse.co/) [Reading Progress Indicator](https://codyhouse.co/demo/reading-progress-indicator/index.html). The folks over at Cody House are pretty fantastic and are making some awesome things. They're also super responsive to comments, so head on over there and check out what they've been doing. 
+![image](/images/image.png)
 
-Progress features a quick and simple environment that is set up so users can input all the necesarry info in the config file and start blogging. Further reiterations are in progress to turn this into a Wordpress theme or make it fully editable with Cloudcannon CMS. I cannot let you resell this unless you [contact me](mailto:alex@collectivelymade.com).
+You can see live demo [here](https://aweekj.github.io/Kiko-plus). This theme is inspired by [Kiko](http://github.com/gfjaru/Kiko) theme.
 
-If you'd like give credit somewhere on your blog or tweet a shout out to
-[@alexanderussell](https://twitter.com/alexanderussell), that would be pretty sweet. 
+## Features
 
-If you feel like donating — [Give it a thought.](https://flattr.com/profile/alexanderussell)
+- Disqus comment system
+- Google analytics
+- Pagination support
+- Custom tags
+- SEO support
 
 
+## Installation
 
-## Features:
-- flexible, uses max-width for responsive goodness
-- beautiful reading progress indicator courtesy of [CodyHouse](https://codyhouse.co/)
-- retina images using @2x
-- post loop showing 5 posts per page
-- archive for posterity sake
+#### Method 1: new master's repository (The Best)
 
-## Basic Setup
+1. First [fork](https://github.com/AWEEKJ/Kiko-plus/fork) it.
+2. Change your forked repository name _Kiko-plus_ to __USERNAME.github.io__ where __USERNAME__ is your github username.
+3. Access your new blog via [https://username.github.io](https://username.github.io).
+4. [See configuration](#configuration).
 
-1. [Install Jekyll](http://jekyllrb.com) if you haven't already.
-2. Download this bad boy.
-3. Fork the [Progress repo](http://github.com/alexanderussell/progress-for-jekyll/)
-4. Twerk it out so it's just for you.
-5. ???
-6. Profit
+#### Method 2: gh-pages in existing repository
 
-## [Preview the Theme](http://alexanderussell.github.io/progress-for-jekyll/)
-<br>
+1. Create a new branch called _gh-pages_ in the repository where you want to add a template [managing branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/).
+2. From command line run `git clone https://github.com/AWEEKJ/Kiko-plus.git` - this will clone _Kiko-plus_ template to your computer.
+3. Create new branch `git checkout -b gh-pages` where _gh-pages_ will be your branch name.
+4. Add remote, which is your repo from the first step, to your new branch `git remote add gh-pages https://github.com/<yourName>/<yourMaster>/gh-pages`. _yourName_ is your account name and _yourMaster_ is your repository.
+5. Push new branch to remote `git push gh-pages`.
+6. Update `_config.yml` file by changing `baseurl: "<branchName>"` _branchName_ is your branch name where _gh-pages_ resides. See [configuration](#configuration).
 
-``` bash
-jennybeblog.github.io/
-├── data
-|    ├── navigation.yml  //an array of navigation items for easy editing
-├── _includes
-|    ├── _footer.html  //site footer
-|    ├── _head.html  //site head
-|    ├── _header.html  //header for navigation and logo/title
-|    ├── _share-post.html  //share buttons
-├── _layouts
-|    ├── default.html  //all the bare necessities
-|    ├── page.html  //page layout
-|    └── post.html  //post layout
-├── _posts
-├── css  //preprocessed styles. good idea to minify
-├── img  //images and graphics used in css and js
-├── js
-|   ├── jquery-2.1.4.js  //jQuery for the win.
-|   ├── main.js  //jQuery plugins and settings for the progress indicator.
-|   └── modernizer.js  //modernize it, yo.
-├── images  //images for posts and pages
-├── about.md  //about page
-├── archive.md  //lists all posts from latest to oldest organized by date
-└── index.html  //homepage. lists 5 most recent posts w/ pagination
+## Configuration
+
+All configuration is done via `_config.yml` file which you will find in your main repo folder. Change this `<something>` to yours.
+
+### Basic
+
+- Config your blog name.
+
+```yml
+name: <blog-name>
 ```
 
-# Customization
+- These configuration in `author:` is for links to icons in footer. If you want to add more link icons, modify `_includes/footer.html` file.
 
-### _config.yml
-
-Most of the variables found here are used in the .html files found in `_includes` if you need to add or remove anything. A good place to start would be to change the title, tagline, description, and url of your site. When working locally comment out `url` or else you will get a bunch of broken links because they are absolute and prefixed with `{{ site.url }}` in the various `_includes` and `_layouts`. Just remember to uncomment `url` when building for deployment or pushing to **gh-pages**...
-
-### Owner/Author Information
-
-Change your name, bio, Twitter url, email, Dribbble URL, etc.
-
-### Top Navigation Links
-
-Edit page/post titles and URLs to include in the site's navigation. For external links use "external: true".
-
-``` yaml
-# sample top navigation links
-links:
-  - title: About Page
-    href: /about
-  - title: Other Page
-    href: /other-page
-  - title: External Page
-    href: https://jennybeblog.github.io
-    external: true
+```yml
+author:
+  facebook:         your-id
+  twitter:          your-id
+  github:           your-id
+  linkedin:         your-id
+  medium:           your-id
+  tumblr:           your-id
+  email:            your-id@your-email.com
 ```
-<br>
 
-## Other Stuff
+- Change copyright year and name in footer.
 
-The rest is just your average Jekyll config settings. Nothing too crazy here...
+```yml
+copyright:
+  year:             2017
+  name:             Kiko
+```
 
-### _includes
+### Google analytics
 
-For the most part you can leave these as is since the author/owner details are pulled from `_config.yml`. That said you'll probably want to customize the copyright stuff in `_footer.html` to your liking.
+- Change this to your Google Analytic ID.
 
-### Adding Posts and Pages
+```yml
+google-analytics:
+  id:               "your-id"
+```
 
-There are two main content layouts: `post.html` (for posts) and `page.html` (for pages). Pages span the full-width of the content, while posts leave space for related posts and the reading progress indicator when on the longform view.
+### Disqus
 
+- Change this to your Disqus short name.
 
+```yml
+disqus:
+  id:               "your-id"
+```
+
+### URL
+
+- Config your domain.
+
+```yml
+url: "https://<your-name>.github.io"
+```
+
+- **NOTE** When if running locally, change url to 
+
+```yml
+url: "https://localhost:4000"
+```
+
+- Change this to your branch name where _gh-pages_ resides. 
+- **NOTE** apply only if you used __Method 2__ for installation.
+
+```yml
+baseurl: "/<branch-name>"
+```
+
+## Run in Local
+
+1. Download or clone your remote repository.
+2. Go inside folder. First, run `rake geminstall`. 
+3. Second, run `jekyll serve` or `rake preview`. This will build a website which you can access [https://localhost:4000](https://localhost:4000). Make sure that `url` in `_config.yml` file is `url: "https://localhost:4000"`. You need to have [Jekyll](https://jekyllrb.com/docs/installation/) installed to do this.
+
+## Rakefile Usage
+
+```bash
+# Create new post
+$ rake post title="A Title" [date="2015-08-16"] [tags="[tag1, tag2]"] 
+
+# Create new draft post
+$ rake draft title="A Title" [date="2015-08-16"] [tags="[tag1, tag2]"]
+
+# Install Jekyll Plugins. Do before running in local.
+$ rake geminstall
+
+# Run in Local
+$ rake preview
+```
 
 ## License
 
-This is free to use, fork, do whatever you want. Please *do not* sell this design though. You don't need to link me to it, but please contact me if you intend to market this theme. I am releasing premium versions of this design for select CMS's. 
+This theme is released under MIT License.

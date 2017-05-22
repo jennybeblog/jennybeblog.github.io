@@ -1,40 +1,131 @@
 ---
-layout: page
 title: About
+permalink: /about/
 ---
 
-Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
+You can see live demo [here](https://aweekj.github.io/Kiko-plus). This theme is inspired by [Kiko](http://github.com/gfjaru/Kiko) theme.
 
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* inspired by [Cody House's](https://codyhouse.co/) [Reading Progress Indicator](https://codyhouse.co/demo/reading-progress-indicator/index.html).
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed in an afternoon.
+## Features
 
----
+- Disqus comment system
+- Google analytics
+- Pagination support
+- Custom tags
+- SEO support
 
-## Progress
 
-Progress was built and inspired by [Cody House's](https://codyhouse.co/) [Reading Progress Indicator](https://codyhouse.co/demo/reading-progress-indicator/index.html). The folks over at Cody House are pretty fantastic and are making some awesome things. They're also super responsive to comments, so head on over there and check out what they've been doing. 
+## Installation
 
-Progress features quick and simple environment is set up so users can input all the necesarry info in the config file and start blogging. Further reiterations are in progress to turn this into a Wordpress theme or make it fully editable with Cloudcannon CMS. I cannot let you resell this unless you [contact me](mailto:alex@collectivelymade.com)
+#### Method 1: new master's repository (The Best)
 
-If you'd like give credit somewhere on your blog or tweet a shout out to
-[@alexanderussell](https://twitter.com/alexanderussell), that would be pretty sweet. 
+1. First [fork](https://github.com/AWEEKJ/Kiko-plus/fork) it.
+2. Change your forked repository name _Kiko-plus_ to __USERNAME.github.io__ where __USERNAME__ is your github username.
+3. Access your new blog via [https://username.github.io](https://username.github.io).
+4. [See configuration](#configuration).
 
-If you feel like donating — [Give it a thought.](https://flattr.com/profile/alexanderussell)
+#### Method 2: gh-pages in existing repository
 
----
+1. Create a new branch called _gh-pages_ in the repository where you want to add a template [managing branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/).
+2. From command line run `git clone https://github.com/AWEEKJ/Kiko-plus.git` - this will clone _Kiko-plus_ template to your computer.
+3. Create new branch `git checkout -b gh-pages` where _gh-pages_ will be your branch name.
+4. Add remote, which is your repo from the first step, to your new branch `git remote add gh-pages https://github.com/<yourName>/<yourMaster>/gh-pages`. _yourName_ is your account name and _yourMaster_ is your repository.
+5. Push new branch to remote `git push gh-pages`.
+6. Update `_config.yml` file by changing `baseurl: "<branchName>"` _branchName_ is your branch name where _gh-pages_ resides. See [configuration](#configuration).
 
-## Basic Setup
+#### Method 3: Run it locally
 
-1. [Install Jekyll](http://jekyllrb.com) if you haven't already.
-2. Download this bad boy. 
-3. Fork the [Progress repo](http://github.com/alexanderussell/jennybeblog.github.io/)
-4. Twerk it out so it's just for you.
-5.  ???
-6.  Profit
+1. Download [zip](https://github.com/AWEEKJ/Kiko-plus/archive/master.zip) or clone it `git clone https://github.com/AWEEKJ/Kiko-plus`.
+2. Go inside folder and run `jekyll serve` or `rake preview`. This will build a website which you can access [https://localhost:4000](https://localhost:4000). You need to have [Jekyll](https://jekyllrb.com/docs/installation/) installed to do this.
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/alexanderussell/jennybeblog.github.io/issues/new) or [ask me on Twitter](https://twitter.com/alexanderussell).
 
-Thanks!
+## Configuration
+
+All configuration is done via `_config.yml` file which you will find in your main repo folder. Change this `<something>` to yours.
+
+### Basic
+
+- Config your blog name.
+
+```yml
+name: <blog-name>
+```
+
+- These configuration in `author:` is for links to icons in footer. If you want to add more link icons, modify `_includes/footer.html` file.
+
+```yml
+author:
+  facebook:         your-id
+  twitter:          your-id
+  github:           your-id
+  linkedin:         your-id
+  medium:           your-id
+  tumblr:           your-id
+  email:            your-id@your-email.com
+```
+
+- Change copyright year and name in footer.
+
+```yml
+copyright:
+  year:             2017
+  name:             Kiko
+```
+
+### Google analytics
+
+- Change this to your Google Analytic ID.
+
+```yml
+google-analytics:
+  id:               "your-id"
+```
+
+### Disqus
+
+- Change this to your Disqus short name.
+
+```yml
+disqus:
+  id:               "your-id"
+```
+
+### URL
+
+- Config your domain.
+
+```yml
+url: "https://<your-name>.github.io"
+```
+
+- **NOTE** When if running locally, change url to 
+
+```yml
+url: "https://localhost:4000"
+```
+
+- Change this to your branch name where _gh-pages_ resides. 
+- **NOTE** apply only if you used __Method 2__ for installation.
+
+```yml
+baseurl: "/<branch-name>"
+```
+
+## Rakefile Usage
+
+```bash
+# Create new post
+$ rake post title="A Title" [date="2015-08-16"] [tags="[tag1, tag2]"] 
+
+# Create new draft post
+$ rake draft title="A Title" [date="2015-08-16"] [tags="[tag1, tag2]"]
+
+# Install Jekyll Plugins. Do before running in local.
+$ rake geminstall
+
+# Run in Local
+$ rake preview
+```
+
+## License
+
+This theme is released under MIT License.

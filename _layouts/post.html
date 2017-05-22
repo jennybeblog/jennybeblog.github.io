@@ -1,33 +1,37 @@
 ---
 layout: default
 ---
+<header>
+  <div class="header-small">
+    <a href="{{site.url}}{{site.baseurl}}">{{ site.name }}</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">{{ page.title }}</div>
+  <span class="post-date">
+    <time>{{ page.date | date_to_string }}</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      {% for tag in page.tags %}
+      <li>
+        <a href="{{ site.url }}{{ site.baseurl }}/tags#{{ tag }}">
+          <span>{{ tag }}</span>
+        </a>
+      </li>
+      {% unless forloop.last %}{% endunless %}
+      {% endfor %}
+    </ul>
+  </div>
 
-<div class="articles">
-  <article class="post">
-    <header>
-      {% if page.img %}
-      <img src="{{site.baseurl}}/img/{{page.img}}" alt="{{page.img}}">
-      {% endif %}
-      <h1> {{ page.title }} </h1>
-    </header>
-    
-    {{ content }}
-    {% include _share-post.html %}
-  </article>
+  {{ content }}
 
-  <aside class="related">
-      <ul>
-        {% for post in site.related_posts limit: 5 %}
-        {% unless post.draft %}
-        <li>
-          <a href="{{site.baseurl}}{{post.url}}">
-            <h3><em>{{post.title}}</em></h3>
-            <small><b>{{post.author}}</b></small>
-          </a>
-        </li>
-        {% endunless %}
-        {% endfor %}
-      </ul>
+  <!-- Disqus -->
+  {% if page.comments != false and site.disqus.id %}
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      {% include disqus.html %}
+  </div>
+  {% endif %}
 
-    </aside>
 </div>

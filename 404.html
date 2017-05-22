@@ -1,114 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>
-
-        404: Page not found &middot; Progress
-
-    </title>
-
-    <!-- Social Metadata -->
-
-    <meta content="your_facebook_app_id" property="fb:app_id">
-    <meta content="Progress" property="og:site_name">
-
-    <meta content="Progress" property="og:title">
-
-
-    <meta content="website" property="og:type">
-
-
-    <meta content="" property="og:description">
-
-
-
-
-    <meta content="/img/logo.png" property="og:image">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@alexanderussell">
-    <meta name="twitter:creator" content="@alexanderussell">
-
-    <meta name="twitter:title" content="Progress">
-
-
-
-    <meta name="twitter:description" content="">
-
-
-
-
-    <link rel="stylesheet" href="/jennybeblog.github.io/css/reset.css">
-    <link rel="stylesheet" href="/jennybeblog.github.io/css/style.css">
-
-    <script src="/jennybeblog.github.io/js/modernizr.js"></script>
-
-
-
-</head>
-
-
-<body>
-    <header class="header">
-        <h1>
-            <a href="http://alexanderussell.github.io/jennybeblog.github.io/" title="Home">Progress</a>
-        </h1>
-        <nav>
-            <ul>
-
-                <li>
-                    <a href="/jennybeblog.github.io/" ">Home</a>
-      </li>
-    
-      <li>
-        <a href="/jennybeblog.github.io/about "">About</a>
-                </li>
-
-                <li>
-                    <a href="/jennybeblog.github.io/archive" ">Archive</a>
-      </li>
-    
-      <li>
-        <a href="https://flattr.com/profile/alexanderussell "">Donate</a>
-                </li>
-
-                <li>
-                    <a href="https://jennybeblog.github.io">Who?</a>
-                </li>
-
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <div class="articles full-width ">
-            <article>
-                <h1>404: Page not found</h1>
-                <p>Sorry, we’ve misplaced that URL or it’s pointing to something that doesn’t exist. <a href="/jennybeblog.github.io/ ">Head back home</a> to try finding it again.</p>
-
-
-            </article>
-        </div>
-    </main>
-
-    <footer class="footer tc ">
-        <small>
-    &copy; 2016 Alex Russell
-    <br>
-    Powered by <a href="http://jekyllrb.com ">Jekyll</a> using the <a href="http://alexanderussell.org/jennybeblog.github.io/ ">Progress Theme</a>.
-  </small>
-    </footer>
-
-
-
-    <script src="/jennybeblog.github.io/js/jquery-2.1.4.js "></script>
-    <script src="/jennybeblog.github.io/js/main.js "></script>
-
-
-</body>
-
-</html>
+---
+layout: default
+permalink: /404.html
+title: 404 Not Found
+---
+<header>
+  <h1 class="header-small">
+    <a href="{{site.url}}{{site.baseurl}}">{{ site.name }}</a>
+  </h1>
+</header>
+<div class="page">
+  <h1 class="page-title">{{ page.title }}</h1>
+  <span>Sorry, but the page you were trying to view does not exist.</span>
+</div>
