@@ -22,12 +22,12 @@ If you feel like donating — [Give it a thought.](https://flattr.com/profile/al
 
 1. [Install Jekyll](http://jekyllrb.com) if you haven't already.
 2. Download this bad boy.
-3. Fork the [Progress repo](http://github.com/alexanderussell/jennybeblog.github.io/)
+3. Fork the [Progress repo](http://github.com/alexanderussell/progress-for-jekyll/)
 4. Twerk it out so it's just for you.
 5. ???
 6. Profit
 
-## [Preview the Theme](http://alexanderussell.github.io/jennybeblog.github.io)
+## [Preview the Theme](http://alexanderussell.github.io/progress-for-jekyll/)
 <br>
 
 ``` bash
