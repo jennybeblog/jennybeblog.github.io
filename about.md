@@ -30,11 +30,11 @@ If you feel like donating — [Give it a thought.](https://flattr.com/profile/al
 
 1. [Install Jekyll](http://jekyllrb.com) if you haven't already.
 2. Download this bad boy. 
-3. Fork the [Progress repo](http://github.com/alexanderussell/progress-for-jekyll/)
+3. Fork the [Progress repo](http://github.com/alexanderussell/jennybeblog.github.io/)
 4. Twerk it out so it's just for you.
 5.  ???
 6.  Profit
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/alexanderussell/progress-for-jekyll/issues/new) or [ask me on Twitter](https://twitter.com/alexanderussell).
+Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/alexanderussell/jennybeblog.github.io/issues/new) or [ask me on Twitter](https://twitter.com/alexanderussell).
 
 Thanks!
