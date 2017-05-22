@@ -83,7 +83,7 @@ links:
   - title: Other Page
     href: /other-page
   - title: External Page
-    href: http://alexanderussell.org
+    href: https://jennybehan.github.io
     external: true
 ```
 <br>
