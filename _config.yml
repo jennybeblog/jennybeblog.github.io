@@ -6,11 +6,11 @@
 name:               "Front-end engineering blog | jennybe"
 
 author:
-  facebook:         https://www.facebook.com/jennybe0117
+  facebook:         jennybe0117
   #youtubeUser:      your-id
   youtubeChannel:   your-id
   #twitter:          your-id
-  github:           https://github.com/jennybehan
+  github:           jennybehan
   stackoverflow:    your-id
   #quora:            your-id
   linkedin:         your-id
@@ -24,7 +24,7 @@ author:
 
 copyright:
   year:             2017
-  name:             Kiko
+  name:             Jennybe
 
 # Google-analytics
 google-analytics:
@@ -32,7 +32,7 @@ google-analytics:
 
 # Disqus
 disqus:
-  id:               "https://disqus.com/by/Jennybe0117/"
+  id:               "Jennybe0117/"
 
 # URL
 url:                "https://jennybeblog.github.io/" # the base hostname & protocol for your site
