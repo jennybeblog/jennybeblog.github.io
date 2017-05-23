@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About</title>
+  <title>Front end engineering blog</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
@@ -15,14 +15,15 @@
 
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for Front end engineering blog" href="/feed.xml" />
   <!-- Begin Jekyll SEO tag v2.2.3 -->
-<title>About | Front end engineering blog</title>
-<meta property="og:title" content="About" />
+<title>Front end engineering blog</title>
+<meta property="og:title" content="Front end engineering blog" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="http://localhost:4000/about/" />
-<meta property="og:url" content="http://localhost:4000/about/" />
+<link rel="canonical" href="http://localhost:4000/page3/" />
+<meta property="og:url" content="http://localhost:4000/page3/" />
 <meta property="og:site_name" content="Front end engineering blog" />
+<link rel="prev" href="http://localhost:4000/page2/">
 <script type="application/ld+json">
-{"@context":"http://schema.org","@type":"WebSite","name":"Front end engineering blog","headline":"About","author":{"@type":"Person","name":null},"url":"http://localhost:4000/about/"}</script>
+{"@context":"http://schema.org","@type":"WebPage","headline":"Front end engineering blog","author":{"@type":"Person","name":null},"url":"http://localhost:4000/page3/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -46,44 +47,72 @@ ga('send', 'pageview');
 
 <body>
   <div class="content-container">
-    <header>
-  <div class="header-small">
+    <header class="header">
+  <div class="header-title">
     <a href="http://localhost:4000">Front end engineering blog</a>
   </div>
+  <nav class="header-nav">
+    
+    
+    <a href="/about">About</a>
+    
+    
+    
+    <a href="/archive">Archive</a>
+    
+    
+    
+    <a href="/tags">Tags</a>
+    
+    
+    
+    <a href="https://github.com/jennybehan/">Github</a>
+    
+    
+  </nav>
 </header>
-<div class="page">
-  <div class="page-title">About</div>
-  <p>You can see live demo <a href="https://aweekj.github.io/Kiko-plus">here</a>. This theme is inspired by <a href="http://github.com/gfjaru/Kiko">Kiko</a> theme.</p>
 
-<h2 id="features">Features</h2>
+<div class="list">
 
-<ul>
-  <li>Disqus comment system</li>
-</ul>
+<!-- This loops through the paginated posts -->
 
-<h2 id="installation">Installation</h2>
+  <div class="list-post">
+    
+    <a href="/2012-05-22/readability-post/">
+      
+      <div class="list-post-date">
+        <time>22 May 2012</time>
+      </div>
+      <div class="list-post-title">
+        Testing Readability with a Bunch of Text
+      </div>
+      
+      <div class="list-post-desc">
+        A ton of text to test readability.
+      </div>
+      
+    </a>
 
-<h4 id="method-1-new-masters-repository-the-best">Method 1: new master’s repository (The Best)</h4>
 
-<ol>
-  <li>First <a href="https://github.com/AWEEKJ/Kiko-plus/fork">fork</a> it.</li>
-</ol>
+  </div>
 
-<h4 id="method-2-gh-pages-in-existing-repository">Method 2: gh-pages in existing repository</h4>
+  <!-- Pagination links -->
+  <div class="list-pagination">
+    <span class="list-pagination-previous">
+      
+        <a href="/page2/" class="previous">
+          &#xE000; previous
+        </a>
+      
+    </span>
 
-<ol>
-  <li>Create a new branch called <em>gh-pages</em> in the repository where you want to add a template <a href="https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/">managing branches</a>.</li>
-</ol>
+    <span class="list-pagination-next">
+      
 
-<h4 id="method-3-run-it-locally">Method 3: Run it locally</h4>
+      
+    </span>
 
-<ol>
-  <li>Download <a href="https://github.com/AWEEKJ/Kiko-plus/archive/master.zip">zip</a> or clone it <code class="highlighter-rouge">git clone https://github.com/AWEEKJ/Kiko-plus</code>.</li>
-</ol>
-
-<h2 id="license">License</h2>
-
-<p>This theme is released under MIT License.</p>
+  </div>
 
 </div>
 

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>알고리즘 문제풀이 3 - 조건문 만들기</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Front end engineering blog" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>알고리즘 문제풀이 3 - 조건문 만들기 | Front end engineering blog</title>
+<meta property="og:title" content="알고리즘 문제풀이 3 - 조건문 만들기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="알고리즘 문제풀이 3 - 조건문 만들기" />
+<meta property="og:description" content="알고리즘 문제풀이 3 - 조건문 만들기" />
+<link rel="canonical" href="http://localhost:4000/2017-05-22/algorithm3/" />
+<meta property="og:url" content="http://localhost:4000/2017-05-22/algorithm3/" />
+<meta property="og:site_name" content="Front end engineering blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-05-22T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"알고리즘 문제풀이 3 - 조건문 만들기","author":{"@type":"Person","name":null},"datePublished":"2017-05-22T00:00:00+09:00","dateModified":"2017-05-22T00:00:00+09:00","description":"알고리즘 문제풀이 3 - 조건문 만들기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-05-22/algorithm3/"},"url":"http://localhost:4000/2017-05-22/algorithm3/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Front end engineering blog</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">알고리즘 문제풀이 3 - 조건문 만들기</div>
+  <span class="post-date">
+    <time>22 May 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#javascritp">
+          <span>javascritp</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#algorithm">
+          <span>algorithm</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#tryhelloworld">
+          <span>tryhelloworld</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#function">
+          <span>function</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Level 1">
+          <span>Level 1</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h2 id="문제"><a href="http://tryhelloworld.co.kr/challenge_codes/122">문제</a></h2>
+
+<h2 id="조건에-따라-다른-값을-출력하기">조건에 따라 다른 값을 출력하기</h2>
+
+<p>evenOrOdd 메소드는 int형 num을 매개변수로 받습니다. num이 짝수일 경우 “Even”을 반환하고 홀수인 경우 “Odd”를 반환하도록 evenOrOdd에 코드를 작성해 보세요. num은 0이상의 정수이며, num이 음수인 경우는 없습니다.</p>
+
+<h2 id="나의-풀이-방법">나의 풀이 방법</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">evenOrOdd</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="s1">''</span>
+  <span class="k">if</span><span class="p">(</span> <span class="nx">num</span> <span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+  	<span class="k">return</span> <span class="s2">"Even"</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span><span class="p">{</span>
+  	<span class="k">return</span> <span class="s2">"Odd"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// 아래는 테스트로 출력해 보기 위한 코드입니다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"결과 : "</span> <span class="o">+</span> <span class="nx">evenOrOdd</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"결과 : "</span> <span class="o">+</span> <span class="nx">evenOrOdd</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+</code></pre>
+</div>
+
+<h2 id="참고---삼항식으로-표현하는-법에-익숙해지자">참고 - 삼항식으로 표현하는 법에 익숙해지자!</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">evenOrOdd</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+ <span class="k">return</span> <span class="p">(</span><span class="nx">num</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)?</span> <span class="s2">"Odd"</span><span class="p">:</span><span class="s2">"Even"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="정리">정리</h2>
+
+<ul>
+  <li></li>
+</ul>
+
+<hr />
+
+<h2 id="다른-사람들의-풀이">다른 사람들의 풀이</h2>
+
+<hr />
+
+<h2 id="참고">참고</h2>
+
+<hr />
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//Jennybe0117/.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jennybe0117"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+    <a href="https://www.youtube.com/channel/your-id"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+    <a href="https://github.com/jennybehan"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+    <a href="http://stackoverflow.com/users/your-id"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
+    
+	
+	
+
+    
+    <a href="https://www.linkedin.com/in/your-id"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+    <a href="https://medium.com/@your-id"><i class="fa fa-medium" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+    <a href="mailto:jennybe0117@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jennybe. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>
