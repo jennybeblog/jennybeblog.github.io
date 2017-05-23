@@ -382,6 +382,65 @@
       </item>
     
       <item>
+        <title>변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</title>
+        <description>&lt;h2 id=&quot;자바스크립트의-타입-강제와-약한-형식화-자바스크립트의-암묵적-강제-형변환-javascript-type-coercion-and-weak-typing&quot;&gt;자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-자바스크립트-연산자의-종류-javascript-operators&quot;&gt;1. 자바스크립트 연산자의 종류 Javascript Operators&lt;/h3&gt;
+
+&lt;p&gt;어떤 코드가 수행될 지 평가, 판단하기 위해서는 조건문(if, if-else, switch)과 루프문(for, while)을 사용한다. 이러한 구문들은 연산자를 사용해 연산대상(operands)을 비교하여 true/false 값, 즉 Boolean 형식의 데이터를 가져와 의사결정을 한다. 이때 사용하는 연산자 세 종류가 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;동등비교연산자 &lt;code class=&quot;highlighter-rouge&quot;&gt;==, !=&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;일치비교연산자 &lt;code class=&quot;highlighter-rouge&quot;&gt;===, !==&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;관계비교연산자 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;, =&amp;lt;, &amp;gt;, =&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;논리연산자 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;, ||, !&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이 중 동등비교연산자와 일치비교연산자 간의 차이를 살펴보자.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt; , &lt;code class=&quot;highlighter-rouge&quot;&gt;!=&lt;/code&gt; : 값이 동일한지 다른 지 여부를 비교&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt; , &lt;code class=&quot;highlighter-rouge&quot;&gt;!==&lt;/code&gt; : 같은 데이터타입인지 다른 데이터타입인지 비교&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;즉, 일치비교연산자는 연산대상 간의 타입까지 비교한다.
+예를 들어,&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;'3' !== 3&lt;/code&gt; 의 경우, ‘3’은 문자열이고 3은 숫자이므로 결과는 true다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;'3' != 3&lt;/code&gt; 의 경우, 결과는 false 다. 왜냐하면 자바스크립트는 타입 강제를 통해 &lt;code class=&quot;highlighter-rouge&quot;&gt;'3'&lt;/code&gt; 을 숫자 &lt;code class=&quot;highlighter-rouge&quot;&gt;3&lt;/code&gt; 으로 바꾸기 때문이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;정리--변수-값-비교시-동등비교연산자-대신-일치비교연산자를-써야-하는-이유&quot;&gt;정리 : 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;자바스크립트는 &lt;strong&gt;타입 강제&lt;/strong&gt; 라는 속성을 가진다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;타입강제는 데이터 타입을 변환해서라도 작업을 완료하려는 특성이다.&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ex) &lt;/code&gt;‘1’ &amp;gt; 0&lt;code class=&quot;highlighter-rouge&quot;&gt; —&amp;gt; 문자열 &lt;/code&gt;‘1’&lt;code class=&quot;highlighter-rouge&quot;&gt; 이 숫자 &lt;/code&gt;1&lt;code class=&quot;highlighter-rouge&quot;&gt; 로 변환되어 처리된다.&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이렇게 타입강제로 인해 값의 데이터 타입이 바뀔 수 있으므로 자바스크립트는 &lt;strong&gt;약한 형식화&lt;/strong&gt; 를 사용하며, 모든 자바스크립트의 값들은 &lt;code class=&quot;highlighter-rouge&quot;&gt;true/false&lt;/code&gt; 의 불리언 값이 될 수 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;추가--자바스크립트의-모든-값들은-truefalse-값으로-취급될-수-있다&quot;&gt;추가 : 자바스크립트의 모든 값들은 true/false 값으로 취급될 수 있다.&lt;/h2&gt;
+
+&lt;p&gt;// 이어서&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;참고 : &amp;lt;자바스크립트 &amp;amp; 제이쿼리&amp;gt;, 존 두캣&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.slideshare.net/senxation/ss-16791882&quot;&gt;더 알아보기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 15 May 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2017-05-15/js1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-05-15/js1/</guid>
+      </item>
+    
+      <item>
         <title>한글 문서 스타일 샘플</title>
         <description>&lt;p&gt;이 글은 스타일을 모아둔 것입니다. 소스 코드를 확인하여 스타일을 적용하는 방법을 알아보세요.&lt;/p&gt;
 

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Front end engineering blog" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유 | Front end engineering blog</title>
+<meta property="og:title" content="변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유" />
+<meta property="og:description" content="변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유" />
+<link rel="canonical" href="http://localhost:4000/2017-05-15/js1/" />
+<meta property="og:url" content="http://localhost:4000/2017-05-15/js1/" />
+<meta property="og:site_name" content="Front end engineering blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-05-15T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유","author":{"@type":"Person","name":null},"datePublished":"2017-05-15T00:00:00+09:00","dateModified":"2017-05-15T00:00:00+09:00","description":"변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-05-15/js1/"},"url":"http://localhost:4000/2017-05-15/js1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Front end engineering blog</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</div>
+  <span class="post-date">
+    <time>15 May 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#javascript">
+          <span>javascript</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#type coercion">
+          <span>type coercion</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#weak typing">
+          <span>weak typing</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#javascript operators">
+          <span>javascript operators</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h2 id="자바스크립트의-타입-강제와-약한-형식화-자바스크립트의-암묵적-강제-형변환-javascript-type-coercion-and-weak-typing">자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing</h2>
+
+<h3 id="1-자바스크립트-연산자의-종류-javascript-operators">1. 자바스크립트 연산자의 종류 Javascript Operators</h3>
+
+<p>어떤 코드가 수행될 지 평가, 판단하기 위해서는 조건문(if, if-else, switch)과 루프문(for, while)을 사용한다. 이러한 구문들은 연산자를 사용해 연산대상(operands)을 비교하여 true/false 값, 즉 Boolean 형식의 데이터를 가져와 의사결정을 한다. 이때 사용하는 연산자 세 종류가 있다.</p>
+
+<ol>
+  <li>동등비교연산자 <code class="highlighter-rouge">==, !=</code></li>
+  <li>일치비교연산자 <code class="highlighter-rouge">===, !==</code></li>
+  <li>관계비교연산자 <code class="highlighter-rouge">&lt;, =&lt;, &gt;, =&gt;</code></li>
+  <li>논리연산자 <code class="highlighter-rouge">&amp;&amp;, ||, !</code></li>
+</ol>
+
+<p>이 중 동등비교연산자와 일치비교연산자 간의 차이를 살펴보자.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">==</code> , <code class="highlighter-rouge">!=</code> : 값이 동일한지 다른 지 여부를 비교</li>
+  <li><code class="highlighter-rouge">===</code> , <code class="highlighter-rouge">!==</code> : 같은 데이터타입인지 다른 데이터타입인지 비교</li>
+</ul>
+
+<p>즉, 일치비교연산자는 연산대상 간의 타입까지 비교한다.
+예를 들어,</p>
+
+<p><code class="highlighter-rouge">'3' !== 3</code> 의 경우, ‘3’은 문자열이고 3은 숫자이므로 결과는 true다.</p>
+
+<p><code class="highlighter-rouge">'3' != 3</code> 의 경우, 결과는 false 다. 왜냐하면 자바스크립트는 타입 강제를 통해 <code class="highlighter-rouge">'3'</code> 을 숫자 <code class="highlighter-rouge">3</code> 으로 바꾸기 때문이다.</p>
+
+<hr />
+
+<h2 id="정리--변수-값-비교시-동등비교연산자-대신-일치비교연산자를-써야-하는-이유">정리 : 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</h2>
+
+<ol>
+  <li>자바스크립트는 <strong>타입 강제</strong> 라는 속성을 가진다.</li>
+  <li>
+    <p>타입강제는 데이터 타입을 변환해서라도 작업을 완료하려는 특성이다.</p>
+
+    <p><code class="highlighter-rouge">ex) </code>‘1’ &gt; 0<code class="highlighter-rouge"> —&gt; 문자열 </code>‘1’<code class="highlighter-rouge"> 이 숫자 </code>1<code class="highlighter-rouge"> 로 변환되어 처리된다.</code></p>
+  </li>
+  <li>이렇게 타입강제로 인해 값의 데이터 타입이 바뀔 수 있으므로 자바스크립트는 <strong>약한 형식화</strong> 를 사용하며, 모든 자바스크립트의 값들은 <code class="highlighter-rouge">true/false</code> 의 불리언 값이 될 수 있다.</li>
+</ol>
+
+<h2 id="추가--자바스크립트의-모든-값들은-truefalse-값으로-취급될-수-있다">추가 : 자바스크립트의 모든 값들은 true/false 값으로 취급될 수 있다.</h2>
+
+<p>// 이어서</p>
+
+<hr />
+
+<ul>
+  <li>참고 : &lt;자바스크립트 &amp; 제이쿼리&gt;, 존 두캣</li>
+  <li><a href="https://www.slideshare.net/senxation/ss-16791882">더 알아보기</a></li>
+</ul>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//Jennybe0117/.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jennybe0117"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+    <a href="https://www.youtube.com/channel/your-id"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+    <a href="https://github.com/jennybehan"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+    <a href="http://stackoverflow.com/users/your-id"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
+    
+	
+	
+
+    
+    <a href="https://www.linkedin.com/in/your-id"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+    <a href="https://medium.com/@your-id"><i class="fa fa-medium" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+    <a href="mailto:jennybe0117@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jennybe. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>
