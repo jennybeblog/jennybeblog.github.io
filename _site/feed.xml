@@ -1,9 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>Front end engineering blog</title>
-    <link>http://localhost:4000</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <title>Jennybe / Front-end engineering</title>
+    <link>http://localhost:4000/master/</link>
+    <atom:link href="http://localhost:4000/master//feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>jQuery 1</title>
+        <description>&lt;h1 id=&quot;jquery&quot;&gt;jQuery&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;정의&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자바스크립트 파일의 일종&lt;/li&gt;
+  &lt;li&gt;CSS 셀렉터로 요소를 찾고, jQuery 내의 메서드로 작업을 수행함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;0-1. 요소의 선택&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DOM 쿼리처럼 웹 문서의 요소를 선택하는 방법 중 하나.&lt;/li&gt;
+  &lt;li&gt;CSS 셀렉터를 이용해 보다 강력하고 유연하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;0-2. 작업&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DOM 트리 수정을 위한 기능, 요소에 애니메이션 효과 적용, 여러 요소에 루프 수행 등&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이벤트 처리(구 버전 브라우저를 고려하지 않아도 된다는 장점)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;참고 : DOM과의 차이&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;크로스 브라우저 환경 지원&lt;/li&gt;
+  &lt;li&gt;요소 선택이 정확하고 쉽다.&lt;/li&gt;
+  &lt;li&gt;이벤트 처리가 모든 브라우저에서 동작하는 하나의 메서드로 이루어져 간편하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;작업 과정&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1-1. CSS 스타일 셀렉터를 이용해 요소 찾기&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery()&lt;/code&gt;함수는 하나 이상의 요소를 찾는다.&lt;/li&gt;
+  &lt;li&gt;그 요소들에 대한 참조를 저장하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery 객체&lt;/code&gt;를 생성한다.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;$()&lt;/em&gt; : 단축이름&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// jQuery 객체를 생성하는 함수&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'li.hot'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;이때 CSS 스타일 셀렉터는 매개변수다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1-2. jQuery 메서드를 이용해 요소 조작&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;위에서 설명한 것처럼 요소들에 대한 참조를 저장하는 jQuery 객체들을 &lt;code class=&quot;highlighter-rouge&quot;&gt;매치드 셋(matched Set)&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery 객체집합(selection)&lt;/code&gt;이라고 부름&lt;/li&gt;
+  &lt;li&gt;jQuery 객체가 제공하는 메서드를 이용해 저장된 요소들의 정보를 수정한다. (ex. class 속성 값 변경 등)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// addClass: 메서드&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 'complete': 매개변수&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'li.hot'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'complete'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 23 May 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/master//2017-05-23/jq1/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2017-05-23/jq1/</guid>
+      </item>
     
       <item>
         <title>알고리즘 문제풀이 3 - 조건문 만들기</title>
@@ -124,8 +200,8 @@
 &lt;hr /&gt;
 </description>
         <pubDate>Tue, 23 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-23/algorithm4/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-23/algorithm4/</guid>
+        <link>http://localhost:4000/master//2017-05-23/algorithm4/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2017-05-23/algorithm4/</guid>
       </item>
     
       <item>
@@ -133,8 +209,8 @@
         <description>&lt;p&gt;첫번째 블로그 포스트 테스트.&lt;/p&gt;
 </description>
         <pubDate>Mon, 22 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-22/blog-test/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-22/blog-test/</guid>
+        <link>http://localhost:4000/master//2017-05-22/blog-test/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2017-05-22/blog-test/</guid>
       </item>
     
       <item>
@@ -187,8 +263,8 @@
 &lt;hr /&gt;
 </description>
         <pubDate>Mon, 22 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-22/algorithm3/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-22/algorithm3/</guid>
+        <link>http://localhost:4000/master//2017-05-22/algorithm3/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2017-05-22/algorithm3/</guid>
       </item>
     
       <item>
@@ -252,15 +328,17 @@
 &lt;hr /&gt;
 </description>
         <pubDate>Fri, 19 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-19/algorithm2/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-19/algorithm2/</guid>
+        <link>http://localhost:4000/master//2017-05-19/algorithm2/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2017-05-19/algorithm2/</guid>
       </item>
     
       <item>
         <title>알고리즘 문제풀이 1 - 자바스크립트 내장 메서드 사용하여 함수 짜기</title>
         <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;a href=&quot;http://tryhelloworld.co.kr/challenge_codes/132&quot;&gt;문제&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;별이는 헬로월드텔레콤에서 고지서를 보내는 일을 하고 있습니다. 개인정보 보호를 위해 고객들의 전화번호는 맨 뒷자리 4자리를 제외한 나머지를 “&lt;em&gt;“으로 바꿔야 합니다. 전화번호를 문자열 s로 입력받는 hide_numbers함수를 완성해 별이를 도와주세요. 예를들어 s가 “01033334444”면 “&lt;/em&gt;&lt;strong&gt;**&lt;/strong&gt;4444”를 리턴하고, “027778888”인 경우는 “*****8888”을 리턴하면 됩니다.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;별이는 헬로월드텔레콤에서 고지서를 보내는 일을 하고 있습니다. 개인정보 보호를 위해 고객들의 전화번호는 맨 뒷자리 4자리를 제외한 나머지를 &lt;span class=&quot;s2&quot;&gt;&quot;*&quot;&lt;/span&gt;으로 바꿔야 합니다. 전화번호를 문자열 s로 입력받는 hide_numbers함수를 완성해 별이를 도와주세요. 예를들어 s가 &lt;span class=&quot;s2&quot;&gt;&quot;01033334444&quot;&lt;/span&gt;면 &lt;span class=&quot;s2&quot;&gt;&quot;*******4444&quot;&lt;/span&gt;를 리턴하고, &lt;span class=&quot;s2&quot;&gt;&quot;027778888&quot;&lt;/span&gt;인 경우는 &lt;span class=&quot;s2&quot;&gt;&quot;*****8888&quot;&lt;/span&gt;을 리턴하면 됩니다.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;나의-풀이-방법&quot;&gt;나의 풀이 방법&lt;/h2&gt;
 
@@ -377,13 +455,13 @@
 &lt;hr /&gt;
 </description>
         <pubDate>Thu, 18 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-18/algorithm1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-18/algorithm1/</guid>
+        <link>http://localhost:4000/master//2017-05-18/algorithm1/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2017-05-18/algorithm1/</guid>
       </item>
     
       <item>
-        <title>변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</title>
-        <description>&lt;h2 id=&quot;자바스크립트의-타입-강제와-약한-형식화-자바스크립트의-암묵적-강제-형변환-javascript-type-coercion-and-weak-typing&quot;&gt;자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing&lt;/h2&gt;
+        <title>Javascript | 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</title>
+        <description>&lt;h4 id=&quot;자바스크립트의-타입-강제와-약한-형식화-자바스크립트의-암묵적-강제-형변환-javascript-type-coercion-and-weak-typing&quot;&gt;자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing&lt;/h4&gt;
 
 &lt;h3 id=&quot;1-자바스크립트-연산자의-종류-javascript-operators&quot;&gt;1. 자바스크립트 연산자의 종류 Javascript Operators&lt;/h3&gt;
 
@@ -436,8 +514,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 15 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-15/js1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-15/js1/</guid>
+        <link>http://localhost:4000/master//2017-05-15/js1/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2017-05-15/js1/</guid>
       </item>
     
       <item>
@@ -594,8 +672,8 @@
 &lt;p&gt;이 문서는 &lt;a href=&quot;http://guny.kr/stuff/klorem/&quot;&gt;한글 Lorem Ipsum&lt;/a&gt;으로 생성되었습니다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 19 Jan 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-01-19/style-test-ko/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-19/style-test-ko/</guid>
+        <link>http://localhost:4000/master//2017-01-19/style-test-ko/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2017-01-19/style-test-ko/</guid>
       </item>
     
       <item>
@@ -644,8 +722,8 @@
 &lt;p&gt;이 문서는 &lt;a href=&quot;http://guny.kr/stuff/klorem/&quot;&gt;한글 Lorem Ipsum&lt;/a&gt;으로 생성되었습니다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 19 Jan 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-01-19/readability-post-ko/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-19/readability-post-ko/</guid>
+        <link>http://localhost:4000/master//2017-01-19/readability-post-ko/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2017-01-19/readability-post-ko/</guid>
       </item>
     
       <item>
@@ -798,8 +876,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 15 Aug 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2016-08-15/style-test/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-08-15/style-test/</guid>
+        <link>http://localhost:4000/master//2016-08-15/style-test/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2016-08-15/style-test/</guid>
       </item>
     
       <item>
@@ -877,8 +955,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Fri, 16 Aug 2013 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2013-08-16/code-highlighting-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/2013-08-16/code-highlighting-post/</guid>
+        <link>http://localhost:4000/master//2013-08-16/code-highlighting-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2013-08-16/code-highlighting-post/</guid>
       </item>
     
       <item>
@@ -886,8 +964,8 @@
         <description>
 </description>
         <pubDate>Mon, 12 Aug 2013 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2013-08-12/sample-link-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/2013-08-12/sample-link-post/</guid>
+        <link>http://localhost:4000/master//2013-08-12/sample-link-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2013-08-12/sample-link-post/</guid>
       </item>
     
       <item>
@@ -934,8 +1012,8 @@
 &lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 May 2012 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2012-05-22/readability-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/2012-05-22/readability-post/</guid>
+        <link>http://localhost:4000/master//2012-05-22/readability-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/master//2012-05-22/readability-post/</guid>
       </item>
     
   </channel>

@@ -3,30 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</title>
+  <title>Javascript | 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <link rel="stylesheet" href="/master//assets/css/main.css" type="text/css">
 
   <!-- Font -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
 
-  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Front end engineering blog" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Jennybe / Front-end engineering" href="/master//feed.xml" />
   <!-- Begin Jekyll SEO tag v2.2.3 -->
-<title>변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유 | Front end engineering blog</title>
-<meta property="og:title" content="변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유" />
+<title>Javascript 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유 | Jennybe / Front-end engineering</title>
+<meta property="og:title" content="Javascript 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유" />
-<meta property="og:description" content="변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유" />
-<link rel="canonical" href="http://localhost:4000/2017-05-15/js1/" />
-<meta property="og:url" content="http://localhost:4000/2017-05-15/js1/" />
-<meta property="og:site_name" content="Front end engineering blog" />
+<meta name="description" content="자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing" />
+<meta property="og:description" content="자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing" />
+<link rel="canonical" href="http://localhost:4000/master//2017-05-15/js1/" />
+<meta property="og:url" content="http://localhost:4000/master//2017-05-15/js1/" />
+<meta property="og:site_name" content="Jennybe / Front-end engineering" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-05-15T00:00:00+09:00" />
 <script type="application/ld+json">
-{"@context":"http://schema.org","@type":"BlogPosting","headline":"변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유","author":{"@type":"Person","name":null},"datePublished":"2017-05-15T00:00:00+09:00","dateModified":"2017-05-15T00:00:00+09:00","description":"변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-05-15/js1/"},"url":"http://localhost:4000/2017-05-15/js1/"}</script>
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Javascript 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유","author":{"@type":"Person","name":null},"datePublished":"2017-05-15T00:00:00+09:00","dateModified":"2017-05-15T00:00:00+09:00","description":"자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/master//2017-05-15/js1/"},"url":"http://localhost:4000/master//2017-05-15/js1/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -52,11 +52,11 @@ ga('send', 'pageview');
   <div class="content-container">
     <header>
   <div class="header-small">
-    <a href="http://localhost:4000">Front end engineering blog</a>
+    <a href="http://localhost:4000/master/">Jennybe / Front-end engineering</a>
   </div>
 </header>
 <div class="post">
-  <div class="post-title">변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</div>
+  <div class="post-title">Javascript | 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</div>
   <span class="post-date">
     <time>15 May 2017</time>
   </span>
@@ -64,28 +64,28 @@ ga('send', 'pageview');
     <ul>
       
       <li>
-        <a href="http://localhost:4000/tags#javascript">
+        <a href="http://localhost:4000/master//tags#javascript">
           <span>javascript</span>
         </a>
       </li>
       
       
       <li>
-        <a href="http://localhost:4000/tags#type coercion">
+        <a href="http://localhost:4000/master//tags#type coercion">
           <span>type coercion</span>
         </a>
       </li>
       
       
       <li>
-        <a href="http://localhost:4000/tags#weak typing">
+        <a href="http://localhost:4000/master//tags#weak typing">
           <span>weak typing</span>
         </a>
       </li>
       
       
       <li>
-        <a href="http://localhost:4000/tags#javascript operators">
+        <a href="http://localhost:4000/master//tags#javascript operators">
           <span>javascript operators</span>
         </a>
       </li>
@@ -94,7 +94,7 @@ ga('send', 'pageview');
     </ul>
   </div>
 
-  <h2 id="자바스크립트의-타입-강제와-약한-형식화-자바스크립트의-암묵적-강제-형변환-javascript-type-coercion-and-weak-typing">자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing</h2>
+  <h4 id="자바스크립트의-타입-강제와-약한-형식화-자바스크립트의-암묵적-강제-형변환-javascript-type-coercion-and-weak-typing">자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing</h4>
 
 <h3 id="1-자바스크립트-연산자의-종류-javascript-operators">1. 자바스크립트 연산자의 종류 Javascript Operators</h3>
 
@@ -164,7 +164,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
 */
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
-s.src = '//Jennybe0117/.disqus.com/embed.js';
+s.src = '//jennybe0117.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
@@ -188,8 +188,6 @@ s.setAttribute('data-timestamp', +new Date());
 	
 	
 	
-    <a href="https://www.youtube.com/channel/your-id"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-    
 
     
 
@@ -198,13 +196,9 @@ s.setAttribute('data-timestamp', +new Date());
     
 	
 	
-    <a href="http://stackoverflow.com/users/your-id"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
-    
 	
 	
 
-    
-    <a href="https://www.linkedin.com/in/your-id"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
     
 	
 	
@@ -215,8 +209,6 @@ s.setAttribute('data-timestamp', +new Date());
 	
 	
 
-    
-    <a href="https://medium.com/@your-id"><i class="fa fa-medium" aria-hidden="true"></i></a>
     
 
     
@@ -226,7 +218,7 @@ s.setAttribute('data-timestamp', +new Date());
     
 
   </div>
-  © 2017 Jennybe. All rights reserved.
+  © 2017 Jennybe Han. All rights reserved.
 </div>
 
   </div>

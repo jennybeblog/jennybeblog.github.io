@@ -18,7 +18,7 @@ body {
 
 .content-container {
     max-width: 48rem;
-    padding: 4rem 1rem;
+    padding: 5rem 1rem;
     margin-left: auto;
     margin-right: auto;
     @media (max-width: 48rem) {
@@ -34,15 +34,15 @@ body {
 .header {
     padding: 2%;
     margin-bottom: 1.5em;
-    text-align: center;
-    // position: fixed;
     &-title {
         margin: 0.3em 0;
+        text-align: center;
         font-size: 2.25em;
         line-height: 1.2em;
         font-weight: 600;
         a {
-            color: $oc-indigo-4;
+            color: $oc-indigo-6;
+            // text-shadow: $oc-indigo-6;
             &:hover,
             &:focus {
                 text-decoration: none;
@@ -54,8 +54,9 @@ body {
         }
     }
     &-nav {
+        text-align: center;
         a {
-            color: $oc-gray-7;
+            color: $oc-gray-4;
             text-transform: lowercase;
             -webkit-transition: all .2s ease;
             -moz-transition: all .2s ease;
@@ -63,7 +64,7 @@ body {
             margin-right: .3rem;
             &:hover,
             &:focus {
-                color: $oc-gray-3;
+                color: $oc-indigo-5;
                 text-decoration: none;
             }
         }
@@ -71,17 +72,19 @@ body {
 }
 
 .header-small {
-    text-align: left;
     margin-bottom: .75rem;
-    font-size: .9rem;
-    font-weight: 600;
-    // text-transform: uppercase;
+    font-size: .95rem;
+    font-weight: 400;
     a {
-        color: $oc-indigo-4;
+        text-shadow: -.2px -.2px 0 $oc-indigo-4, .2px -.2px 0 $oc-indigo-4, -.2px .2px 0 $oc-indigo-4, .2px .2px 0 $oc-indigo-4;
+        -webkit-transition: all .2s ease;
+        -moz-transition: all .2s ease;
+        transition: all .1s ease;
         &:hover,
         &:focus {
-            color: $oc-gray-3;
+            text-shadow: none;
             text-decoration: none;
+            color: $oc-indigo-2;
         }
     }
 }
@@ -113,10 +116,11 @@ body {
         font-size: 2.25em;
         line-height: 1.2em;
         font-weight: 500;
+        color: $base-color;
     }
     &-date {
-        margin-bottom: .6rem;
-        color: $oc-gray-5;
+        margin-bottom: .5rem;
+        color: $base-color;
         font-size: .75rem;
         text-transform: uppercase;
     }
@@ -128,8 +132,8 @@ body {
             }
             li {
                 margin: 0;
-                font-size: .8rem;
-                font-weight: 400;
+                font-size: .75rem;
+                font-weight: 500;
                 display: inline;
                 list-style-type: none;
                 text-transform: lowercase;
@@ -143,11 +147,11 @@ body {
                     border-radius: 3px;
                     span {
                         float: left;
-                        padding: .5px 4px 4px
+                        padding: .5px 5px 7px;
                     }
                 }
                 a:hover {
-                    background-color: $oc-indigo-7;
+                    background-color: $oc-indigo-5;
                 }
                 a:visited {
                     background-color: $oc-white;
@@ -167,7 +171,6 @@ body {
 
 .list {
     &-post {
-        padding-top: 10em;
         padding: 4% 2%;
         &:hover {
             background-color: $background-over-color;
@@ -175,7 +178,7 @@ body {
             border-radius: 10px;
         }
         a {
-            color: $base-color;
+            color: $oc-indigo-6;
             &:hover,
             &:focus {
                 text-decoration: none;
@@ -187,7 +190,7 @@ body {
             font-weight: 500;
         }
         &-date {
-            color: $oc-indigo-4;
+            color: $oc-indigo-3;
             font-size: .8rem;
             text-transform: uppercase;
         }
@@ -252,7 +255,7 @@ body {
                     color: $oc-white;
                     background-color: $oc-gray-6;
                     text-decoration: none;
-                    border-radius: 2px;
+                    border-radius: 3px;
                     span {
                         float: left;
                         padding: .5px 5px;
@@ -331,16 +334,18 @@ body {
 
 .footer {
     text-align: center;
-    font-size: .75rem;
+    font-size: .85rem;
     &-link {
         margin: .2rem;
         a {
             color: $base-color;
             margin: 4px;
+            -webkit-transition: all .2s ease;
+            -moz-transition: all .2s ease;
+            transition: all .2s ease;
             &:hover,
             &:focus {
                 color: $oc-indigo-4;
-                text-decoration: none;
             }
         }
     }

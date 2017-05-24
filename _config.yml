@@ -3,28 +3,28 @@
 # # # # # # # # # # # # #
 
 # Basic
-name:               "Front end engineering blog"
+name:               "Jennybe / Front-end engineering"
 
 author:
   facebook:         jennybe0117
-  #youtubeUser:      your-id
-  youtubeChannel:   your-id
-  #twitter:          your-id
+  # youtubeUser:      your-id
+  # youtubeChannel:   your-id
+  # twitter:          your-id
   github:           jennybehan
-  stackoverflow:    your-id
-  #quora:            your-id
-  linkedin:         your-id
-  #pinterest:        your-id
-  #googlePlus:       your-id
-  #instagram:        your-id
-  #reddit:           your-id
-  medium:           your-id
-  #tumblr:           your-id
+  # stackoverflow:    your-id
+  # quora:            your-id
+  # linkedin:         your-id
+  # pinterest:        your-id
+  # googlePlus:       your-id
+  # instagram:        your-id
+  # reddit:           your-id
+  # medium:           your-id
+  # tumblr:           your-id
   email:            jennybe0117@gmail.com
 
 copyright:
   year:             2017
-  name:             Jennybe
+  name:             Jennybe Han
 
 # Google-analytics
 google-analytics:
@@ -32,12 +32,12 @@ google-analytics:
 
 # Disqus
 disqus:
-  id:               "Jennybe0117/"
+  id:               "jennybe0117"
 
 # URL
-url:                "https://jennybeblog.github.io/" # the base hostname & protocol for your site
+url:                "https://jennybeblog.github.io" # the base hostname & protocol for your site
 # url:                "http://localhost:4000" # use this url when you develop
-baseurl:             # the subpath of your site, e.g. /blog
+baseurl:            "/master/" # the subpath of your site, e.g. /blog
 
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -45,7 +45,7 @@ timezone:           Asia/Seoul
 permalink:          /:year-:month-:day/:title/
 
 # Pagination
-paginate:           8
+paginate:           5
 paginate_path:      /page:num/
 
 # Markdown
@@ -62,7 +62,7 @@ nav:
   - name:           "Tags"
     url:            "/tags"
   - name:           "Github"
-    url:            "https://github.com/jennybehan/"
+    url:            "https://github.com/jennybehan"
 
 # Sass
 sass:
@@ -89,11 +89,5 @@ gems:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-admin
-      # hidden_links:
-      #   - posts
-      #   - pages
-      #   - staticfiles
-      #   - datafiles
-      #   - configuration
 
 exclude:            [vendor]
