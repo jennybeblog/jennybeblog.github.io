@@ -55,7 +55,7 @@ semantic element
 : form, table, img 등이 있으며 이들 태그는 content의 의미를 명확히 설명한다,
 
 
-* HTML5에서 추가된 시맨틱 태그
+### 참고 1: HTML5에서 추가된 시맨틱 태그
 
 | tag	| Description |
 |:-----:|:-----|
@@ -66,12 +66,12 @@ semantic element
 |article	|분문의 주내용이 들어가는 공간을 의미한다|
 |footer	|푸터를 의미한다|
 
-## 참고 1: 검색엔진최적화 기준?
+### 참고 2: 검색엔진최적화 기준?
 
 * [구글 검색엔진 최적화 가이드라인(Webmaster Guidelines)](https://support.google.com/webmasters/answer/35769?hl=en)
 * [네이버 검색엔진 최적화 가이드라인](http://webmastertool.naver.com/guide/basic_optimize.naver)
 
-## 참고한 자료들
+### 참고 자료
 
 * [1.1 HTML5 Syntax Web page의 내용과 구조를 담당하는 HyperText Markup Language](http://poiemaweb.com/html5-syntax)
 * [웹 문서를 만드는 언어, HTML과 CSS](http://www.beautifulcss.com/archives/791)
