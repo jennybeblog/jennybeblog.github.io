@@ -47,13 +47,13 @@ HTML 태그들은 '중첩'이라는 속성을 가진다. 즉 태그 안에 태�
 
 ## 3. 시멘틱 요소(semantic element)&비시멘틱 요소(non-semantic element)
 
-non-semantic 
-element
+non-semantic element
 : div, span 등이 있으며 이들 태그는 content에 대하여 어떤 설명도 하지 않는다.
 
 semantic element
 : form, table, img 등이 있으며 이들 태그는 content의 의미를 명확히 설명한다,
 
+---
 
 ### 참고 1: HTML5에서 추가된 시맨틱 태그
 
