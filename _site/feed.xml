@@ -47,61 +47,63 @@
 &lt;h2 id=&quot;3-시멘틱-요소semantic-element비시멘틱-요소non-semantic-element&quot;&gt;3. 시멘틱 요소(semantic element)&amp;amp;비시멘틱 요소(non-semantic element)&lt;/h2&gt;
 
 &lt;dl&gt;
-  &lt;dt&gt;non-semantic &lt;/dt&gt;
-  &lt;dt&gt;element&lt;/dt&gt;
+  &lt;dt&gt;non-semantic element&lt;/dt&gt;
   &lt;dd&gt;div, span 등이 있으며 이들 태그는 content에 대하여 어떤 설명도 하지 않는다.&lt;/dd&gt;
   &lt;dt&gt;semantic element&lt;/dt&gt;
   &lt;dd&gt;form, table, img 등이 있으며 이들 태그는 content의 의미를 명확히 설명한다,&lt;/dd&gt;
 &lt;/dl&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;HTML5에서 추가된 시맨틱 태그&lt;/li&gt;
-&lt;/ul&gt;
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;참고-1-html5에서-추가된-시맨틱-태그&quot;&gt;참고 1: HTML5에서 추가된 시맨틱 태그&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;tag&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;header&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;헤더를 의미한다&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;헤더를 의미한다&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;nav&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;네비게이션을 의미한다&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;네비게이션을 의미한다&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;aside&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;사이드에 위치하는 공간을 의미한다&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;사이드에 위치하는 공간을 의미한다&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;section&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;본문의 여러 내용(article)을 포함하는 공간을 의미한다&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;본문의 여러 내용(article)을 포함하는 공간을 의미한다&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;article&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;분문의 주내용이 들어가는 공간을 의미한다&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;분문의 주내용이 들어가는 공간을 의미한다&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;footer&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;푸터를 의미한다&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;푸터를 의미한다&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;참고&quot;&gt;참고&lt;/h2&gt;
+&lt;h3 id=&quot;참고-2-검색엔진최적화-기준&quot;&gt;참고 2: 검색엔진최적화 기준?&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://poiemaweb.com/html5-syntax&quot;&gt;1.1 HTML5 Syntax Web page의 내용과 구조를 담당하는 HyperText Markup Language&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.beautifulcss.com/archives/791&quot;&gt;웹 문서를 만드는 언어, HTML과 CSS&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://support.google.com/webmasters/answer/35769?hl=en&quot;&gt;구글 검색엔진 최적화 가이드라인(Webmaster Guidelines)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://webmastertool.naver.com/guide/basic_optimize.naver&quot;&gt;네이버 검색엔진 최적화 가이드라인&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://poiemaweb.com/html5-syntax&quot;&gt;1.1 HTML5 Syntax Web page의 내용과 구조를 담당하는 HyperText Markup Language&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.beautifulcss.com/archives/791&quot;&gt;웹 문서를 만드는 언어, HTML과 CSS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Wed, 24 May 2017 00:00:00 +0900</pubDate>
@@ -186,7 +188,7 @@
       </item>
     
       <item>
-        <title>알고리즘 문제풀이 3 - 조건문 만들기</title>
+        <title>알고리즘 문제풀이 4 - 정수 제곱근 판별하기</title>
         <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;a href=&quot;http://tryhelloworld.co.kr/challenge_codes/120&quot;&gt;문제&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;nextSqaure함수는 정수 n을 매개변수로 입력받습니다. n이 임의의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고, n이 임의의 정수 x의 제곱이 아니라면 ‘no’을 리턴하는 함수를 완성하세요. 예를들어 n이 121이라면 이는 정수 11의 제곱이므로 (11+1)의 제곱인 144를 리턴하고, 3이라면 ‘no’을 리턴하면 됩니다.&lt;/p&gt;
