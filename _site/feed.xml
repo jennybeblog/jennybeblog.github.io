@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Jennybe / Front-end engineering</title>
-    <link>http://localhost:4000/master/</link>
-    <atom:link href="http://localhost:4000/master//feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>jQuery 1</title>
@@ -77,8 +77,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 23 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2017-05-23/jq1/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2017-05-23/jq1/</guid>
+        <link>http://localhost:4000/2017-05-23/jq1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-05-23/jq1/</guid>
       </item>
     
       <item>
@@ -200,8 +200,8 @@
 &lt;hr /&gt;
 </description>
         <pubDate>Tue, 23 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2017-05-23/algorithm4/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2017-05-23/algorithm4/</guid>
+        <link>http://localhost:4000/2017-05-23/algorithm4/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-05-23/algorithm4/</guid>
       </item>
     
       <item>
@@ -209,8 +209,8 @@
         <description>&lt;p&gt;첫번째 블로그 포스트 테스트.&lt;/p&gt;
 </description>
         <pubDate>Mon, 22 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2017-05-22/blog-test/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2017-05-22/blog-test/</guid>
+        <link>http://localhost:4000/2017-05-22/blog-test/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-05-22/blog-test/</guid>
       </item>
     
       <item>
@@ -263,8 +263,8 @@
 &lt;hr /&gt;
 </description>
         <pubDate>Mon, 22 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2017-05-22/algorithm3/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2017-05-22/algorithm3/</guid>
+        <link>http://localhost:4000/2017-05-22/algorithm3/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-05-22/algorithm3/</guid>
       </item>
     
       <item>
@@ -328,8 +328,8 @@
 &lt;hr /&gt;
 </description>
         <pubDate>Fri, 19 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2017-05-19/algorithm2/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2017-05-19/algorithm2/</guid>
+        <link>http://localhost:4000/2017-05-19/algorithm2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-05-19/algorithm2/</guid>
       </item>
     
       <item>
@@ -455,8 +455,8 @@
 &lt;hr /&gt;
 </description>
         <pubDate>Thu, 18 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2017-05-18/algorithm1/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2017-05-18/algorithm1/</guid>
+        <link>http://localhost:4000/2017-05-18/algorithm1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-05-18/algorithm1/</guid>
       </item>
     
       <item>
@@ -514,8 +514,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 15 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2017-05-15/js1/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2017-05-15/js1/</guid>
+        <link>http://localhost:4000/2017-05-15/js1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-05-15/js1/</guid>
       </item>
     
       <item>
@@ -672,8 +672,8 @@
 &lt;p&gt;이 문서는 &lt;a href=&quot;http://guny.kr/stuff/klorem/&quot;&gt;한글 Lorem Ipsum&lt;/a&gt;으로 생성되었습니다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 19 Jan 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2017-01-19/style-test-ko/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2017-01-19/style-test-ko/</guid>
+        <link>http://localhost:4000/2017-01-19/style-test-ko/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-19/style-test-ko/</guid>
       </item>
     
       <item>
@@ -722,8 +722,8 @@
 &lt;p&gt;이 문서는 &lt;a href=&quot;http://guny.kr/stuff/klorem/&quot;&gt;한글 Lorem Ipsum&lt;/a&gt;으로 생성되었습니다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 19 Jan 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2017-01-19/readability-post-ko/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2017-01-19/readability-post-ko/</guid>
+        <link>http://localhost:4000/2017-01-19/readability-post-ko/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-19/readability-post-ko/</guid>
       </item>
     
       <item>
@@ -876,8 +876,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 15 Aug 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2016-08-15/style-test/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2016-08-15/style-test/</guid>
+        <link>http://localhost:4000/2016-08-15/style-test/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-08-15/style-test/</guid>
       </item>
     
       <item>
@@ -955,8 +955,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Fri, 16 Aug 2013 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2013-08-16/code-highlighting-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2013-08-16/code-highlighting-post/</guid>
+        <link>http://localhost:4000/2013-08-16/code-highlighting-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013-08-16/code-highlighting-post/</guid>
       </item>
     
       <item>
@@ -964,8 +964,8 @@
         <description>
 </description>
         <pubDate>Mon, 12 Aug 2013 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2013-08-12/sample-link-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2013-08-12/sample-link-post/</guid>
+        <link>http://localhost:4000/2013-08-12/sample-link-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013-08-12/sample-link-post/</guid>
       </item>
     
       <item>
@@ -1012,8 +1012,8 @@
 &lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 May 2012 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/master//2012-05-22/readability-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/master//2012-05-22/readability-post/</guid>
+        <link>http://localhost:4000/2012-05-22/readability-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/2012-05-22/readability-post/</guid>
       </item>
     
   </channel>
