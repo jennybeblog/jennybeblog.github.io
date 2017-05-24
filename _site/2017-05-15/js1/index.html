@@ -94,9 +94,9 @@ ga('send', 'pageview');
     </ul>
   </div>
 
-  <h4 id="자바스크립트의-타입-강제와-약한-형식화-자바스크립트의-암묵적-강제-형변환-javascript-type-coercion-and-weak-typing">자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing</h4>
+  <p><img src="../../assets/images/images.png" alt="image" /></p>
 
-<h3 id="1-자바스크립트-연산자의-종류-javascript-operators">1. 자바스크립트 연산자의 종류 Javascript Operators</h3>
+<h2 id="1-자바스크립트-연산자의-종류-javascript-operators">1. 자바스크립트 연산자의 종류 Javascript Operators</h2>
 
 <p>어떤 코드가 수행될 지 평가, 판단하기 위해서는 조건문(if, if-else, switch)과 루프문(for, while)을 사용한다. 이러한 구문들은 연산자를 사용해 연산대상(operands)을 비교하여 true/false 값, 즉 Boolean 형식의 데이터를 가져와 의사결정을 한다. 이때 사용하는 연산자 세 종류가 있다.</p>
 
@@ -121,23 +121,107 @@ ga('send', 'pageview');
 
 <p><code class="highlighter-rouge">'3' != 3</code> 의 경우, 결과는 false 다. 왜냐하면 자바스크립트는 타입 강제를 통해 <code class="highlighter-rouge">'3'</code> 을 숫자 <code class="highlighter-rouge">3</code> 으로 바꾸기 때문이다.</p>
 
-<hr />
+<h2 id="2-자바스크립트의-모든-값들은-truefalse-값으로-취급될-수-있다">2. 자바스크립트의 모든 값들은 true/false 값으로 취급될 수 있다?</h2>
+
+<ul>
+  <li>false로 취급될 수 있는 값들</li>
+</ul>
+
+<blockquote>
+  <p>false(boolean), 숫자 0, NaN(var score = 10/’num’;), 빈 값(var score = ‘’), 아직 값을 대입하지 않은 변수(var score;)</p>
+</blockquote>
+
+<p>이를 제외한 거의 모든 값들이 true로 취급 가능하다</p>
+
+<ul>
+  <li>true로 취급될 수 있는 값들</li>
+</ul>
+
+<blockquote>
+  <p>true(boolean), 0이 아닌 다른 숫자, 내용을 가진 문자열, 계산된 숫자(var score = 10/5), 문자열로 표현된 true(var score = ‘true’;), 문자열로 표현된 숫자 0(var score = ‘0’;) 문자열로 표현된 false(var score = ‘false’;)</p>
+</blockquote>
+
+<p>값이 설정되어 있는 변수, 같은 형끼리 연산한 0 이외의 숫자들은 모두 참이다. true로 취급될 수 있는 값들은 숫자 1로도 취급가능하다. 객체나 배열에 인스턴스가 존재한다면 이 역시 true다.</p>
+
+<h2 id="3--true값과-true로-취급할-수-있는-값은-서로-다르다">3.  true값과 true로 취급할 수 있는 값은 서로 다르다.</h2>
+
+<p>객체나 배열 인스턴스가 true로 취급될 수는 있지만, 이 값은 불리언 값의 true와는 <strong>다른</strong> 값이다.
+null과 undefined 값 역시 false로 취급할 수 있지만 실제로는 <code class="highlighter-rouge">그 어떤 값과도 동일하지 않는 고유한 값</code>이라고 봐야 한다. NaN은 자기 자신과도 동일하지 않다(NaN은 정의되지 않은 숫자이기 때문에 두 NaN은 서로 같지 않다.).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">표현식</th>
+      <th style="text-align: right">결과</th>
+      <th style="text-align: left">표현식</th>
+      <th style="text-align: right">결과</th>
+      <th style="text-align: left">표현식</th>
+      <th style="text-align: right">결과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">(false == 0)</td>
+      <td style="text-align: right">true</td>
+      <td style="text-align: left">(undefined == null)</td>
+      <td style="text-align: right">true</td>
+      <td style="text-align: left">(NaN == null)</td>
+      <td style="text-align: right">false</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">(false === 0)</td>
+      <td style="text-align: right">false</td>
+      <td style="text-align: left">(null == false)</td>
+      <td style="text-align: right">false</td>
+      <td style="text-align: left">(NaN == NaN)</td>
+      <td style="text-align: right">false</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">(false == ‘’)</td>
+      <td style="text-align: right">true</td>
+      <td style="text-align: left">(undefined == false)</td>
+      <td style="text-align: right">false</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">(false === ‘’)</td>
+      <td style="text-align: right">false</td>
+      <td style="text-align: left">(null == 0)</td>
+      <td style="text-align: right">false</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">(0 == ‘’)</td>
+      <td style="text-align: right">true</td>
+      <td style="text-align: left">(undefined == 0)</td>
+      <td style="text-align: right">false</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">(0 === ‘’)</td>
+      <td style="text-align: right">false</td>
+      <td style="text-align: left">(undefined === null)</td>
+      <td style="text-align: right">false</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="정리--변수-값-비교시-동등비교연산자-대신-일치비교연산자를-써야-하는-이유">정리 : 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</h2>
 
 <ol>
   <li>자바스크립트는 <strong>타입 강제</strong> 라는 속성을 가진다.</li>
   <li>
-    <p>타입강제는 데이터 타입을 변환해서라도 작업을 완료하려는 특성이다.</p>
+    <p>타입강제는 <code class="highlighter-rouge">데이터 타입을 변환해서라도 작업을 완료하려는 특성</code>이다.</p>
 
-    <p><code class="highlighter-rouge">ex) </code>‘1’ &gt; 0<code class="highlighter-rouge"> —&gt; 문자열 </code>‘1’<code class="highlighter-rouge"> 이 숫자 </code>1<code class="highlighter-rouge"> 로 변환되어 처리된다.</code></p>
+    <p>ex) <code class="highlighter-rouge">'1' &gt; 0</code> —&gt; 문자열 <code class="highlighter-rouge">'1'</code> 이 숫자 <code class="highlighter-rouge">1</code> 로 변환되어 처리된다.</p>
   </li>
-  <li>이렇게 타입강제로 인해 값의 데이터 타입이 바뀔 수 있으므로 자바스크립트는 <strong>약한 형식화</strong> 를 사용하며, 모든 자바스크립트의 값들은 <code class="highlighter-rouge">true/false</code> 의 불리언 값이 될 수 있다.</li>
+  <li>이렇게 <mark>타입강제로 인해 값의 데이터 타입이 바뀔 수 있으므로 자바스크립트는 약한 형식화를 사용</mark>하며, 모든 자바스크립트의 값들은 <code class="highlighter-rouge">true/false</code> 의 불리언 값이 될 수 있다.</li>
 </ol>
-
-<h2 id="추가--자바스크립트의-모든-값들은-truefalse-값으로-취급될-수-있다">추가 : 자바스크립트의 모든 값들은 true/false 값으로 취급될 수 있다.</h2>
-
-<p>// 이어서</p>
 
 <hr />
 
