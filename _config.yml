@@ -90,5 +90,6 @@ gems:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-admin
+  - jemoji
 
 exclude:            [vendor]

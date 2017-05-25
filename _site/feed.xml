@@ -117,7 +117,7 @@ for문의 실행 순서를 알았다면 위에서 4-&amp;gt;5, 7-&amp;gt;8로 �
       </item>
     
       <item>
-        <title>시멘틱 마크업(Semantic Markup)</title>
+        <title>HTML/CSS | 시멘틱 마크업(Semantic Markup)</title>
         <description>&lt;h2 id=&quot;0-시멘틱-마크업&quot;&gt;0. 시멘틱 마크업&lt;/h2&gt;
 
 &lt;p&gt;처음 프론트엔드 개발을 공부하면, HTML(Hypertext Markup Language)을 배운다. 웹페이지는 결국 일종의 문서(document)라는 점을 잘 기억하고, 이 문서의 내용과 구조가 HTML에 의해 결정된다는 것까지 떠올리면 HTML이 얼마나 중요한 지 알 수 있다.&lt;/p&gt;
@@ -220,82 +220,6 @@ for문의 실행 순서를 알았다면 위에서 4-&amp;gt;5, 7-&amp;gt;8로 �
         <pubDate>Wed, 24 May 2017 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/2017-05-24/Semantic-Markup/</link>
         <guid isPermaLink="true">http://localhost:4000/2017-05-24/Semantic-Markup/</guid>
-      </item>
-    
-      <item>
-        <title>jQuery 1</title>
-        <description>&lt;h1 id=&quot;jquery&quot;&gt;jQuery&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;정의&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;자바스크립트 파일의 일종&lt;/li&gt;
-  &lt;li&gt;CSS 셀렉터로 요소를 찾고, jQuery 내의 메서드로 작업을 수행함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;0-1. 요소의 선택&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;DOM 쿼리처럼 웹 문서의 요소를 선택하는 방법 중 하나.&lt;/li&gt;
-  &lt;li&gt;CSS 셀렉터를 이용해 보다 강력하고 유연하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;0-2. 작업&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;DOM 트리 수정을 위한 기능, 요소에 애니메이션 효과 적용, 여러 요소에 루프 수행 등&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이벤트 처리(구 버전 브라우저를 고려하지 않아도 된다는 장점)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;참고 : DOM과의 차이&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;크로스 브라우저 환경 지원&lt;/li&gt;
-  &lt;li&gt;요소 선택이 정확하고 쉽다.&lt;/li&gt;
-  &lt;li&gt;이벤트 처리가 모든 브라우저에서 동작하는 하나의 메서드로 이루어져 간편하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;작업 과정&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;1-1. CSS 스타일 셀렉터를 이용해 요소 찾기&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery()&lt;/code&gt;함수는 하나 이상의 요소를 찾는다.&lt;/li&gt;
-  &lt;li&gt;그 요소들에 대한 참조를 저장하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery 객체&lt;/code&gt;를 생성한다.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;$()&lt;/em&gt; : 단축이름&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// jQuery 객체를 생성하는 함수&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'li.hot'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;이때 CSS 스타일 셀렉터는 매개변수다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;1-2. jQuery 메서드를 이용해 요소 조작&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;위에서 설명한 것처럼 요소들에 대한 참조를 저장하는 jQuery 객체들을 &lt;code class=&quot;highlighter-rouge&quot;&gt;매치드 셋(matched Set)&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery 객체집합(selection)&lt;/code&gt;이라고 부름&lt;/li&gt;
-  &lt;li&gt;jQuery 객체가 제공하는 메서드를 이용해 저장된 요소들의 정보를 수정한다. (ex. class 속성 값 변경 등)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// addClass: 메서드&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 'complete': 매개변수&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'li.hot'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'complete'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Tue, 23 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-23/jq1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-23/jq1/</guid>
       </item>
     
       <item>

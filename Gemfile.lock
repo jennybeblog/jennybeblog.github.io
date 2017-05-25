@@ -217,6 +217,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  gemoji
   github-pages
   jekyll-admin
 

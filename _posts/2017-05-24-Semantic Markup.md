@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 시멘틱 마크업(Semantic Markup)
+title: HTML/CSS | 시멘틱 마크업(Semantic Markup)
 description: "'시멘틱 마크업'이 도대체 뭘까?"
 tags:
   - HTML5
