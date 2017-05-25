@@ -15,7 +15,7 @@ Javascript와 HTML5/CSS3를 중심으로 공부한 내용을 정리하고 공유
 
 #### Education
 
-학교에서 [문화인류학](http://anthro.yonsei.ac.kr/sub01/sub01_01.php)을 전공했고 학교 밖에서 [디자인 씽킹design thinking](http://designtoimprovelife.dk/education/) 방법론, [웹 프론트엔드 개발](http://school.fastcampus.co.kr/dev_fds/)을 배웠습니다.
+학교에서 [문화인류학](http://anthro.yonsei.ac.kr/sub01/sub01_01.php){:target="_blank"}을 전공했고 학교 밖에서 [디자인 씽킹design thinking](http://designtoimprovelife.dk/education/){:target="_blank"} 방법론, [웹 프론트엔드 개발](http://school.fastcampus.co.kr/dev_fds/){:target="_blank"}을 배웠습니다.
 
 > I majored in cultural anthropology at school, and learned design thinking methodology outside of the school.
 
@@ -25,7 +25,7 @@ Javascript와 HTML5/CSS3를 중심으로 공부한 내용을 정리하고 공유
 
 현재는 웹 프론트엔드 개발자가 되기 위해 공부하고 있습니다. 시각적 요소와 그것을 매개로 메시지를 전달하는 데에 관심이 있습니다. 넘치는 정보와 문제들을 이야기로 풀어 더 많은 사람들에게 공유하고 싶습니다.
 
-장기적인 목표는 [데이터 시각화](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%8B%9C%EA%B0%81%ED%99%94)를 할 수 있는 개발자/[정보디자이너](https://ko.wikipedia.org/wiki/%EC%A0%95%EB%B3%B4_%EB%94%94%EC%9E%90%EC%9D%B8)로 성장하는 것입니다. 웹의 시각적/동적 구현을 통해 좀 더 나은 정보의 큐레이션을 가능하게 함으로써 [디지털(기술) 리터러시](https://en.wikipedia.org/wiki/Digital_literacy)/정보 접근성 장벽을 동시에 낮추는 데에 기여하는 개발자가 되고 싶습니다.
+장기적인 목표는 [데이터 시각화](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%8B%9C%EA%B0%81%ED%99%94){:target="_blank"}를 할 수 있는 개발자/[정보디자이너](https://ko.wikipedia.org/wiki/%EC%A0%95%EB%B3%B4_%EB%94%94%EC%9E%90%EC%9D%B8){:target="_blank"}로 성장하는 것입니다. 웹의 시각적/동적 구현을 통해 좀 더 나은 정보의 큐레이션을 가능하게 함으로써 [디지털(기술) 리터러시](https://en.wikipedia.org/wiki/Digital_literacy){:target="_blank"}/정보 접근성 장벽을 동시에 낮추는 데에 기여하는 개발자가 되고 싶습니다.
 
 > I'm currently studying to become a web front-end developer. I am interested in visualizing messages. In other words, using visual element to convey messages through it. I want to share the information and problems that are overflowing nowadays with more people.
 
@@ -46,7 +46,7 @@ Javascript와 HTML5/CSS3를 중심으로 공부한 내용을 정리하고 공유
 
 ---
 
-#### [Other projects](http://cargocollective.com/jennybehan)
+#### [Other projects](http://cargocollective.com/jennybehan){:target="_blank"}
 
 ---
 
@@ -58,4 +58,4 @@ Javascript와 HTML5/CSS3를 중심으로 공부한 내용을 정리하고 공유
 
 #### Contacts
 
-* [jennybe0117@gmail.com](jennybe0117@gmail.com)
+* <jennybe0117@gmail.com>

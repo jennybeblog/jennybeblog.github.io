@@ -74,8 +74,9 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;즉, for문의 조건식의 구조 및 작동 순서를 알아야 한다. (&lt;strong&gt;증감식보다 참인 경우의 수행식이 먼저 작동한다.&lt;/strong&gt;)
-&lt;strong&gt;for문의 구조&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;즉, for문의 조건식의 구조 및 작동 순서를 알아야 한다. (&lt;strong&gt;증감식보다 참인 경우의 수행식이 먼저 작동한다.&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;for문의 구조&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;for(변수 선언/초기값 설정&lt;code class=&quot;highlighter-rouge&quot;&gt;(1. 초기화)&lt;/code&gt;; 조건식&lt;code class=&quot;highlighter-rouge&quot;&gt;(2. 조건실행)&lt;/code&gt;; 증감식&lt;code class=&quot;highlighter-rouge&quot;&gt;(4. 변수 증가)&lt;/code&gt;) {
   // 수행할 내용(&lt;code class=&quot;highlighter-rouge&quot;&gt;3. 조건이 참인 경우에 실행&lt;/code&gt;)
@@ -594,6 +595,22 @@ for문의 실행 순서를 알았다면 위에서 4-&amp;gt;5, 7-&amp;gt;8로 �
       <item>
         <title>Javascript | 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유</title>
         <description>&lt;p&gt;&lt;img src=&quot;../../assets/images/images.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;POINT&lt;/dt&gt;
+  &lt;dd&gt;
+    &lt;ol&gt;
+      &lt;li&gt;자바스크립트는 &lt;strong&gt;타입 강제&lt;/strong&gt; 라는 속성을 가진다.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;ol&gt;
+      &lt;li&gt;타입강제는 &lt;code class=&quot;highlighter-rouge&quot;&gt;데이터 타입을 변환해서라도 작업을 완료하려는 특성&lt;/code&gt;이다.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&quot;1-자바스크립트-연산자의-종류-javascript-operators&quot;&gt;1. 자바스크립트 연산자의 종류 Javascript Operators&lt;/h2&gt;
 
