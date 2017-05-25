@@ -52,7 +52,10 @@ Javascript와 HTML5/CSS3를 중심으로 공부한 내용을 정리하고 공유
 
 #### Interests
 
-데이터 시각화 data visualization , 디자인 사고법 design thinking, 웹 프론트엔드 개발 web front-end develop, 시빅 테크 civic-tech 
+* `데이터 시각화 data visualization`
+* `웹 프론트엔드 개발 web front-end develop`
+* `디자인 사고법 design thinking`
+* `시빅 테크 civic-tech`
 
 ---
 
