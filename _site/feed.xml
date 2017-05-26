@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Jennybe / Front-end engineering</title>
-    <link>http://localhost:4000</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://jennybeblog.github.io</link>
+    <atom:link href="https://jennybeblog.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>알고리즘 문제풀이 5 - 역삼각형 출력하기</title>
@@ -113,8 +113,8 @@ for문의 실행 순서를 알았다면 위에서 4-&amp;gt;5, 7-&amp;gt;8로 �
 &lt;/blockquote&gt;
 </description>
         <pubDate>Wed, 24 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-24/algorithm5/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-24/algorithm5/</guid>
+        <link>https://jennybeblog.github.io/2017-05-24/algorithm5/</link>
+        <guid isPermaLink="true">https://jennybeblog.github.io/2017-05-24/algorithm5/</guid>
       </item>
     
       <item>
@@ -219,8 +219,8 @@ for문의 실행 순서를 알았다면 위에서 4-&amp;gt;5, 7-&amp;gt;8로 �
 &lt;/ul&gt;
 </description>
         <pubDate>Wed, 24 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-24/Semantic-Markup/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-24/Semantic-Markup/</guid>
+        <link>https://jennybeblog.github.io/2017-05-24/Semantic-Markup/</link>
+        <guid isPermaLink="true">https://jennybeblog.github.io/2017-05-24/Semantic-Markup/</guid>
       </item>
     
       <item>
@@ -342,8 +342,8 @@ for문의 실행 순서를 알았다면 위에서 4-&amp;gt;5, 7-&amp;gt;8로 �
 &lt;hr /&gt;
 </description>
         <pubDate>Tue, 23 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-23/algorithm4/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-23/algorithm4/</guid>
+        <link>https://jennybeblog.github.io/2017-05-23/algorithm4/</link>
+        <guid isPermaLink="true">https://jennybeblog.github.io/2017-05-23/algorithm4/</guid>
       </item>
     
       <item>
@@ -396,8 +396,8 @@ for문의 실행 순서를 알았다면 위에서 4-&amp;gt;5, 7-&amp;gt;8로 �
 &lt;hr /&gt;
 </description>
         <pubDate>Mon, 22 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-22/algorithm3/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-22/algorithm3/</guid>
+        <link>https://jennybeblog.github.io/2017-05-22/algorithm3/</link>
+        <guid isPermaLink="true">https://jennybeblog.github.io/2017-05-22/algorithm3/</guid>
       </item>
     
       <item>
@@ -461,8 +461,8 @@ for문의 실행 순서를 알았다면 위에서 4-&amp;gt;5, 7-&amp;gt;8로 �
 &lt;hr /&gt;
 </description>
         <pubDate>Fri, 19 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-19/algorithm2/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-19/algorithm2/</guid>
+        <link>https://jennybeblog.github.io/2017-05-19/algorithm2/</link>
+        <guid isPermaLink="true">https://jennybeblog.github.io/2017-05-19/algorithm2/</guid>
       </item>
     
       <item>
@@ -588,8 +588,8 @@ for문의 실행 순서를 알았다면 위에서 4-&amp;gt;5, 7-&amp;gt;8로 �
 &lt;hr /&gt;
 </description>
         <pubDate>Thu, 18 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-18/algorithm1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-18/algorithm1/</guid>
+        <link>https://jennybeblog.github.io/2017-05-18/algorithm1/</link>
+        <guid isPermaLink="true">https://jennybeblog.github.io/2017-05-18/algorithm1/</guid>
       </item>
     
       <item>
@@ -747,8 +747,8 @@ null과 undefined 값 역시 false로 취급할 수 있지만 실제로는 &lt;c
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 15 May 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-05-15/js1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-05-15/js1/</guid>
+        <link>https://jennybeblog.github.io/2017-05-15/js1/</link>
+        <guid isPermaLink="true">https://jennybeblog.github.io/2017-05-15/js1/</guid>
       </item>
     
       <item>
@@ -905,8 +905,8 @@ null과 undefined 값 역시 false로 취급할 수 있지만 실제로는 &lt;c
 &lt;p&gt;이 문서는 &lt;a href=&quot;http://guny.kr/stuff/klorem/&quot;&gt;한글 Lorem Ipsum&lt;/a&gt;으로 생성되었습니다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 19 Jan 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-01-19/style-test-ko/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-19/style-test-ko/</guid>
+        <link>https://jennybeblog.github.io/2017-01-19/style-test-ko/</link>
+        <guid isPermaLink="true">https://jennybeblog.github.io/2017-01-19/style-test-ko/</guid>
       </item>
     
   </channel>
