@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>알고리즘 문제풀이 9 - 삼각형 출력하기</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Jennybe / Front-end engineering" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>알고리즘 문제풀이 9 - 삼각형 출력하기 | Jennybe / Front-end engineering</title>
+<meta property="og:title" content="알고리즘 문제풀이 9 - 삼각형 출력하기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="중첩된 for문의 조건식에서 부등호를 어디에 넣어야 할까?" />
+<meta property="og:description" content="중첩된 for문의 조건식에서 부등호를 어디에 넣어야 할까?" />
+<link rel="canonical" href="http://localhost:4000/2017-05-31/algorithm9/" />
+<meta property="og:url" content="http://localhost:4000/2017-05-31/algorithm9/" />
+<meta property="og:site_name" content="Jennybe / Front-end engineering" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-05-31T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"알고리즘 문제풀이 9 - 삼각형 출력하기","author":{"@type":"Person","name":null},"datePublished":"2017-05-31T00:00:00+09:00","dateModified":"2017-05-31T00:00:00+09:00","description":"중첩된 for문의 조건식에서 부등호를 어디에 넣어야 할까?","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-05-31/algorithm9/"},"url":"http://localhost:4000/2017-05-31/algorithm9/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Jennybe / Front-end engineering</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">알고리즘 문제풀이 9 - 삼각형 출력하기</div>
+  <span class="post-date">
+    <time>31 May 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#javascript">
+          <span>javascript</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#algorithm">
+          <span>algorithm</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#tryhelloworld">
+          <span>tryhelloworld</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#indexOf">
+          <span>indexOf</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#for loop">
+          <span>for loop</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#print stars">
+          <span>print stars</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Level 1">
+          <span>Level 1</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h2 id="문제"><a href="http://tryhelloworld.co.kr/challenge_codes/101">문제</a></h2>
+
+<p>findKim 함수(메소드)는 String형 배열 seoul을 매개변수로 받습니다.</p>
+
+<p>seoul의 element중 “Kim”의 위치 x를 찾아, “김서방은 x에 있다”는 String을 반환하세요.
+seoul에 “Kim”은 오직 한 번만 나타나며 잘못된 값이 입력되는 경우는 없습니다.</p>
+
+<h2 id="1-반복문-중복">1. 반복문 중복</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printTriangle</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="s1">''</span>
+  <span class="c1">// 함수를 완성하세요</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">j</span><span class="o">&lt;=</span><span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">result</span> <span class="o">+=</span> <span class="s1">'*'</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">result</span> <span class="o">+=</span> <span class="s1">'\n'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span>
+<span class="p">}</span>
+
+
+<span class="c1">// 아래는 테스트로 출력해 보기 위한 코드입니다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">printTriangle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>처음에는 등호를 첫번째 for문의 조건식에 넣었는데, 그렇게 하면 마지막 return이 한 번 더 돌아서 개행이 앞에 한 번 더 붙는다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>
+<span class="k">*</span>
+<span class="k">**</span>
+<span class="k">***</span>
+</code></pre>
+</div>
+<blockquote>
+  <p>첫번째 for문의 조건에 등호를 넣는 경우</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="k">*</span>
+<span class="k">**</span>
+<span class="k">***</span>
+</code></pre>
+</div>
+<blockquote>
+  <p>두번째 for문의 조건에 등호를 넣는 경우</p>
+</blockquote>
+
+<h2 id="2-다른-사람들의-풀이">2. 다른 사람들의 풀이</h2>
+
+<h3 id="문자열-에-repeat-메서드-사용하기">문자열 ‘*‘에 <code class="highlighter-rouge">repeat()</code> 메서드 사용하기</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printTriangle</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="s1">''</span>
+  <span class="c1">// 함수를 완성하세요</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">;)</span> <span class="p">{</span>
+    <span class="nx">result</span> <span class="o">+=</span> <span class="s1">'*'</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="nx">num</span><span class="o">-</span><span class="nx">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'\n'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span>
+</code></pre>
+</div>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jennybe0117.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jennybe0117"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/jennybehan"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:jennybe0117@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jennybe Han. All rights reserved.
+</div>
+
+    
+  </div>
+</body>
+</html>
