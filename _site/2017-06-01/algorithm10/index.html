@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>알고리즘 문제풀이 10 - 문자열 체크하기</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Jennybe / Front-end engineering" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>알고리즘 문제풀이 10 - 문자열 체크하기 | Jennybe / Front-end engineering</title>
+<meta property="og:title" content="알고리즘 문제풀이 10 - 문자열 체크하기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="문자열에 들어있는 각각의 문자를 어떻게 체크할까?" />
+<meta property="og:description" content="문자열에 들어있는 각각의 문자를 어떻게 체크할까?" />
+<link rel="canonical" href="http://localhost:4000/2017-06-01/algorithm10/" />
+<meta property="og:url" content="http://localhost:4000/2017-06-01/algorithm10/" />
+<meta property="og:site_name" content="Jennybe / Front-end engineering" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-01T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"알고리즘 문제풀이 10 - 문자열 체크하기","author":{"@type":"Person","name":null},"datePublished":"2017-06-01T00:00:00+09:00","dateModified":"2017-06-01T00:00:00+09:00","description":"문자열에 들어있는 각각의 문자를 어떻게 체크할까?","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-06-01/algorithm10/"},"url":"http://localhost:4000/2017-06-01/algorithm10/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Jennybe / Front-end engineering</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">알고리즘 문제풀이 10 - 문자열 체크하기</div>
+  <span class="post-date">
+    <time>01 Jun 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#javascript">
+          <span>javascript</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#algorithm">
+          <span>algorithm</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#tryhelloworld">
+          <span>tryhelloworld</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#String">
+          <span>String</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#String.length">
+          <span>String.length</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#split()">
+          <span>split()</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#includes()">
+          <span>includes()</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#indexOf()">
+          <span>indexOf()</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Level 1">
+          <span>Level 1</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h2 id="문제"><a href="http://tryhelloworld.co.kr/challenge_codes/99">문제</a></h2>
+
+<p>alpha_string46함수는 문자열 s를 매개변수로 입력받습니다.
+s의 길이가 4혹은 6이고, 숫자로만 구성되있는지 확인해주는 함수를 완성하세요.
+예를들어 s가 “a234”이면 False를 리턴하고 “1234”라면 True를 리턴하면 됩니다</p>
+
+<h2 id="1-문자열이-숫자로만-이루어졌는-지-확인하기">1. 문자열이 숫자로만 이루어졌는 지 확인하기</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">alpha_string46</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">4</span> <span class="o">||</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">[^</span><span class="sr">0-9</span><span class="se">]</span><span class="sr">/</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span> 
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// 아래는 테스트로 출력해 보기 위한 코드입니다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">alpha_string46</span><span class="p">(</span><span class="s2">"a234"</span><span class="p">)</span> <span class="p">);</span>
+</code></pre>
+</div>
+<ol>
+  <li>정규식 사용 : 정규식에서 <code class="highlighter-rouge">^</code>를 붙이면 시작점의 의미를 지닌다.</li>
+  <li>match() 메서드 : 정규식을 사용하여 일치하는 문자열을 검색하고 그 결과를 배열로 반환한다.</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"a1234"</span><span class="p">;</span>
+<span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/1/</span><span class="p">);</span>
+
+<span class="c1">// ["1", index: 1, input: "a1234"] -&gt; 길이가 1인 배열 ["1"] 반환</span>
+</code></pre>
+</div>
+
+<dl>
+  <dt>match()</dt>
+  <dd><code class="highlighter-rouge">stringObj.match(rgExp)</code></dd>
+  <dd>매개변수는 필수 요소다.</dd>
+</dl>
+
+<h4 id="시도-1-배열로-만들어서-for문을-돌려-하나씩-체크">시도 1. 배열로 만들어서 for문을 돌려 하나씩 체크?</h4>
+
+<p>-&gt; s.split()을 해도 각각의 문자를 반환하는 배열이 되지는 않음</p>
+
+<h4 id="시도-2-sincludes">시도 2. s.includes();</h4>
+
+<p>-&gt; 문자가 숫자를 제외한 모든 것이기 때문에 불가능</p>
+
+<h4 id="시도-3-숫자를-배열로-만들고-조건을-반대로-만들면">시도 3. 숫자를 배열로 만들고 조건을 반대로 만들면?</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">alpha_string46</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">4</span> <span class="o">||</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">,</span> <span class="s1">'5'</span><span class="p">,</span> <span class="s1">'6'</span><span class="p">,</span> <span class="s1">'7'</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">,</span> <span class="s1">'9'</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">nums</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  	<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>위의 방법은 제대로 동작하지 않는다.</p>
+
+<h2 id="2-다른-사람들의-풀이">2. 다른 사람들의 풀이</h2>
+
+<h3 id="논리연산자-사용하기">논리연산자 사용하기</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">alpha_string46</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">((</span><span class="nx">s</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">||</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="sr">/^</span><span class="se">[</span><span class="sr">0-9</span><span class="se">]</span><span class="sr">+$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">result</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="참고">참고</h2>
+
+<ul>
+  <li>
+    <p>split() - 문자열을 배열로 반환한다. ()안에 따옴표로 공백이나 기호를 넣으면 그것을 기준으로 배열 요소가 된다.</p>
+  </li>
+  <li>
+    <p><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/match">match()</a> - 정규식을 사용하여 일치하는 문자열을 검색하고 그 결과를 배열로 반환한다. <a href="https://msdn.microsoft.com/ko-kr/library/7df7sf4x(v=vs.94).aspx">추가 참고 링크</a></p>
+  </li>
+  <li>
+    <p>정규식에서 <code class="highlighter-rouge">$</code>는 입력값의 마지막을 뜻한다. <code class="highlighter-rouge">^</code>는 맨 처음을 뜻한다.
+-&gt; <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D">참고: MDN 정규식</a></p>
+  </li>
+</ul>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jennybe0117.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jennybe0117"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/jennybehan"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:jennybe0117@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jennybe Han. All rights reserved.
+</div>
+
+    
+  </div>
+</body>
+</html>

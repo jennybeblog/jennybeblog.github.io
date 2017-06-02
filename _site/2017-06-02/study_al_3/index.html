@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>알고리즘 스터디[3] - 하위 배열에서 최소값 찾기</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Jennybe / Front-end engineering" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>알고리즘 스터디[3] - 하위 배열에서 최소값 찾기 | Jennybe / Front-end engineering</title>
+<meta property="og:title" content="알고리즘 스터디[3] - 하위 배열에서 최소값 찾기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="배열의 최소값을 구하기 위한 조건문" />
+<meta property="og:description" content="배열의 최소값을 구하기 위한 조건문" />
+<link rel="canonical" href="http://localhost:4000/2017-06-02/study_al_3/" />
+<meta property="og:url" content="http://localhost:4000/2017-06-02/study_al_3/" />
+<meta property="og:site_name" content="Jennybe / Front-end engineering" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-02T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"알고리즘 스터디[3] - 하위 배열에서 최소값 찾기","author":{"@type":"Person","name":null},"datePublished":"2017-06-02T00:00:00+09:00","dateModified":"2017-06-02T00:00:00+09:00","description":"배열의 최소값을 구하기 위한 조건문","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-06-02/study_al_3/"},"url":"http://localhost:4000/2017-06-02/study_al_3/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Jennybe / Front-end engineering</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">알고리즘 스터디[3] - 하위 배열에서 최소값 찾기</div>
+  <span class="post-date">
+    <time>02 Jun 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#javascript">
+          <span>javascript</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#algorithm">
+          <span>algorithm</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#minimum value">
+          <span>minimum value</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#selection sort">
+          <span>selection sort</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h2 id="문제-하위-배열에서-최소값-찾기"><a href="https://ko.khanacademy.org/computing/computer-science/algorithms/sorting-algorithms/p/challenge-implement-swap">문제: 하위 배열에서 최소값 찾기</a></h2>
+
+<h3 id="1-1-하위배열에서-최솟값의-인덱스를-찾으세요">1-1. 하위배열에서 최솟값의 인덱스를 찾으세요.</h3>
+<p>배열과 숫자 startIndex를 가지고 startIndex에서 나오는 값 또는 그 이상 중에서 최솟값을 반환하는 indexOfMinimum을 작성하세요. 이 최솟값이 이 범위 내에서 한 번 이상 발생할 시에는 이 범위 내에서 가장 왼쪽에 있는 값의 인덱스를 반환하세요.</p>
+
+<p>구현한 후에는 하단의 Program.assertEqual()를 주석 해제하여 test assertion을 통과하는지 확인하세요.</p>
+
+<h2 id="1-문제-해결--값의-변화와-고정에-대해-이해하기">1. 문제 해결 : 값의 변화와 고정에 대해 이해하기</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">indexOfMinimum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">startIndex</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Set initial values for minValue and minIndex,</span>
+    <span class="c1">// based on the leftmost entry in the subarray:  </span>
+    <span class="kd">var</span> <span class="nx">minValue</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">startIndex</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">minIndex</span> <span class="o">=</span> <span class="nx">startIndex</span><span class="p">;</span>
+
+    <span class="c1">// Loop over items starting with startIndex, </span>
+    <span class="c1">// updating minValue and minIndex as needed:</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">minIndex</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="c1">// if(array[i] &lt; array[startIndex]) -&gt; 계속 똑같은 값하고 비교</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">minValue</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">minIndex</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+            <span class="nx">minValue</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">minIndex</span><span class="p">;</span>
+<span class="p">};</span> 
+
+<span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">14</span><span class="p">];</span>   
+<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">indexOfMinimum</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="c1">//  For the test array [18, 6, 66, 44, 9, 22, 14], </span>
+<span class="c1">//  the value 9 is the smallest of [..66, 44, 9, 22, 14]</span>
+<span class="c1">//  Since 9 is at index 4 in the original array, </span>
+<span class="c1">//  "index" has value 4</span>
+<span class="nx">println</span><span class="p">(</span><span class="s2">"The index of the minimum value of the subarray starting at index 2 is "</span> <span class="o">+</span> <span class="nx">index</span> <span class="o">+</span> <span class="s2">"."</span>  <span class="p">);</span>
+<span class="nx">Program</span><span class="p">.</span><span class="nx">assertEqual</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</code></pre>
+</div>
+<ul>
+  <li>처음에 for 문 내부에서 array[startIndex]를 넣어 계속 똑같은 값하고 비교했다.</li>
+</ul>
+
+<p>// 추가 설명</p>
+
+<h3 id="1-2-테스트-추가">1-2. 테스트 추가</h3>
+
+<p>Program.assertEqual()두 개를 추가해 함수가 지속적으로 정확한 답을 계산하는지 확인하세요.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">Program</span><span class="p">.</span><span class="nx">assertEqual</span><span class="p">(</span><span class="nx">indexOfMinimum</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">Program</span><span class="p">.</span><span class="nx">assertEqual</span><span class="p">(</span><span class="nx">indexOfMinimum</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">4</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>참고</li>
+</ul>
+
+<dl>
+  <dt>선택정렬 과정</dt>
+  <dd>
+    <ol>
+      <li>Find the smallest card. Swap it with the first card.</li>
+    </ol>
+  </dd>
+  <dd>
+    <ol>
+      <li>Find the second-smallest card. Swap it with the second card.</li>
+    </ol>
+  </dd>
+  <dd>
+    <ol>
+      <li>Find the third-smallest card. Swap it with the third card.</li>
+    </ol>
+  </dd>
+  <dd>
+    <ol>
+      <li>Repeat finding the next-smallest card, and swapping it into the correct position until the array is sorted.</li>
+    </ol>
+  </dd>
+</dl>
+
+<p>다음으로 작은 항목을 선택하고 이를 제자리로 바꾸는 과정을 반복하기 때문에 선택 정렬이라고 부른다. <a href="https://ko.khanacademy.org/computing/computer-science/algorithms/sorting-algorithms/a/selection-sort-pseudocode">출처 - khan academy</a></p>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jennybe0117.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jennybe0117"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/jennybehan"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:jennybe0117@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jennybe Han. All rights reserved.
+</div>
+
+    
+  </div>
+</body>
+</html>
