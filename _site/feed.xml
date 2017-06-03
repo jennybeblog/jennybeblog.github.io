@@ -7,7 +7,7 @@
     
       <item>
         <title>알고리즘 문제풀이 11 - 문자열 내 p와 y의 개수</title>
-        <description>&lt;p&gt;&lt;img src=&quot;../../assets/images/emojis/match.png/600x400&quot; alt=&quot;image&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;../../assets/images/emojis/match.png&quot; alt=&quot;slot machine&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 &lt;h2 id=&quot;문제&quot;&gt;&lt;a href=&quot;http://tryhelloworld.co.kr/challenge_codes/96&quot;&gt;문제&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;numPY함수는 대문자와 소문자가 섞여있는 문자열 s를 매개변수로 입력받습니다.
