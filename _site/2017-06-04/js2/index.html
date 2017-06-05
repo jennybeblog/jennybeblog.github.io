@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Javascript | AJAX란?</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Jennybe / Front-end engineering" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>Javascript AJAX란? | Jennybe / Front-end engineering</title>
+<meta property="og:title" content="Javascript AJAX란?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing" />
+<meta property="og:description" content="자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing" />
+<link rel="canonical" href="http://localhost:4000/2017-06-04/js2/" />
+<meta property="og:url" content="http://localhost:4000/2017-06-04/js2/" />
+<meta property="og:site_name" content="Jennybe / Front-end engineering" />
+<meta property="og:image" content="http://localhost:4000/assets/images/ajaxdiagram.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-04T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Javascript AJAX란?","author":{"@type":"Person","name":null},"image":"http://localhost:4000/assets/images/ajaxdiagram.png","datePublished":"2017-06-04T00:00:00+09:00","dateModified":"2017-06-04T00:00:00+09:00","description":"자바스크립트의 타입 강제와 약한 형식화, 자바스크립트의 암묵적 강제 형변환 Javascript type coercion and weak typing","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-06-04/js2/"},"url":"http://localhost:4000/2017-06-04/js2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Jennybe / Front-end engineering</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Javascript | AJAX란?</div>
+  <span class="post-date">
+    <time>04 Jun 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#javascript">
+          <span>javascript</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#type coercion">
+          <span>type coercion</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#weak typing">
+          <span>weak typing</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#javascript operators">
+          <span>javascript operators</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <p><img src="../../assets/images/ajaxdiagram.png" alt="image" /></p>
+
+<dl>
+  <dt>POINT</dt>
+  <dd>
+    <ol>
+      <li>자바스크립트는 <strong>타입 강제</strong> 라는 속성을 가진다.</li>
+    </ol>
+  </dd>
+  <dd>
+    <ol>
+      <li>타입강제는 <code class="highlighter-rouge">데이터 타입을 변환해서라도 작업을 완료하려는 특성</code>이다.</li>
+    </ol>
+  </dd>
+</dl>
+
+<hr />
+
+<h2 id="1-ajax란">1. Ajax란?</h2>
+
+<p>전체 페이지를 새로 고치지 않고 페이지 일부만 로드하는 기법이다. 이를 이해하기 위해서는 먼저 브라우저의 데이터 처리 모델 방식에 대해 이해해야 한다.</p>
+
+<h5 id="1-1-동기-처리-모델">1-1. 동기 처리 모델</h5>
+
+<ul>
+  <li>브라우저는 <script> 태그를 만났을 때 스크립트를 로드/처리 하고 다른 작업은 중단한다.</script></li>
+  <li>따라서 서버로부터 데이터를 수집하고 로드하고 처리해 페이지의 모든 부분이 로드될 때까지 대기한다.</li>
+</ul>
+
+<h5 id="1-2-비동기-처리-모델넌-블로킹-처리-모델">1-2. 비동기 처리 모델(넌 블로킹 처리 모델)</h5>
+
+<ul>
+  <li>Ajax를 이용해 브라우저가 서버에 데이터를 요청하고, 나머지 부분은 계속해서 로드해 사용자와 상호작용을 멈추지 않는 것이다.</li>
+  <li>페이지의 일부만 수정하고 싶을 때 특정 요소의 콘텐츠를 업데이트 한다.</li>
+  <li>
+    <p>이벤트를 가로채서 서버에 새로운 콘텐츠를 요청하는 방식이다.</p>
+  </li>
+  <li><strong>데이터가 로드되는 동안 사용자는 계속해서 페이지를 사용할 수 있다. 그러다가 서버가 데이터를 전달해주면 Ajax 이벤트가 발생해서 다른 스크립트가 서버로부터 전달된 새로운 데이터를 읽고 페이지의 일부를 수정한다.</strong></li>
+</ul>
+
+<h5 id="1-3-비동기-처리-모델의-장점--더욱-빠른-사용자-경험">1-3. 비동기 처리 모델의 장점 : 더욱 빠른 사용자 경험</h5>
+
+<p>전체 페이지를 새로 고칠 필요가 없기 때문에 데이터가 빠르게 로드된다. 사용자는 기다릴 필요 없이 계속 웹 페이지를 사용할 수 있다.</p>
+
+<h2 id="2-ajax-요청-및-응답-처리-과정">2. Ajax 요청 및 응답 처리 과정</h2>
+
+<p><code class="highlighter-rouge">XMLHttpRequest</code> 객체, <code class="highlighter-rouge">open()</code>메서드, <code class="highlighter-rouge">send()</code>메서드, <code class="highlighter-rouge">onload()</code>메서드</p>
+
+<p>1) XMLHttpRequest 객체</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>var xhr <span class="o">=</span> new XMLHttpRequest<span class="o">()</span>;
+</code></pre>
+</div>
+
+<blockquote>
+  <p>XMLHttpRequest 객체를 생성(객체 인스턴스)하고 변수에 저장한다.</p>
+</blockquote>
+
+<p>2) open() 메서드</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>xhr.open<span class="o">(</span><span class="s1">'GET'</span>, <span class="s1">'data/test.json'</span>, <span class="nb">true</span><span class="o">)</span>;
+</code></pre>
+</div>
+
+<blockquote>
+  <p>세 개의 매개변수<strong>(HTTP 메서드/요청 처리할 페이지의 URL/요청이 비동기로 처리될 것인지 지정하는 불리언 값)</strong>를 정의한다.</p>
+</blockquote>
+
+<p>3) send() 메서드</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>xhr.send<span class="o">(</span><span class="s1">'search=arduino'</span><span class="o">)</span>;
+</code></pre>
+</div>
+
+<blockquote>
+  <p>준비된 요청을 추가 정보와 함께 전달한다. 정보가 없으면 null 키워드를 사용할 수 있다.</p>
+</blockquote>
+
+<p>4) onload() 메서드 - 응답</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>xhr.onload <span class="o">=</span> <span class="k">function</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span><span class="o">(</span>xhr.status <span class="o">==</span> 200<span class="o">)</span> <span class="o">{</span>
+    // 서버 실행 결과 처리 내용
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>브라우저가 서버로부터 응답을 받을 때 발생하는 이벤트. 이벤트가 발생하면 함수가 호출된다.
+익명 함수는 xhr 객체의 status 속성 값을 검사해 서버의 응답이 정상인지 확인한다.</p>
+</blockquote>
+
+<p>5) 예시 코드</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// 1. XMLHttpRequest 객체 생성</span>
+<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="c1">// 2. 응답 로드</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 3. 서버 응답이 정상이면,</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 4. 코드 실행(내용 수정하는 코드)</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'content'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 5. 요청 준비 </span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'data/data.html'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="c1">// 6. 요청 전송</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>XML을 처리할 때는 요청 준비/전송 부분 코드가 달라진다.</p>
+  <ul>
+    <li>XML 데이터는 페이지에 보여지기 위해 HTML로 변환되어야 한다.</li>
+  </ul>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">responseXML</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">events</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'event'</span><span class="p">);</span>
+</code></pre>
+</div>
+<h2 id="3-ajax-요청-응답-방식">3. Ajax 요청 응답 방식</h2>
+
+<p>HTML, XML, JSON로 표현된 데이터가 브라우저로 전달된다.</p>
+
+<h5 id="3-1-json--자바스크립트-객체-표현식javascrpt-object-notation">3-1. JSON : 자바스크립트 객체 표현식(Javascrpt Object Notation)</h5>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Korea"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"seoul"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KO"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<blockquote>
+  <p>JSON 데이터 형식은 <code class="highlighter-rouge">키 : 값</code> 형태로 나타나며, 키는 반드시 큰 따옴표로 둘러싸야 한다.
+JS 객체 -&gt; JSON 객체 : JSON.stringfy() : 자바스크립트 객체를 JSON 형식의 문자열로 변환한다.
+JSON 객체 -&gt; JS 객체 : JSON.parse() : JSON 데이터를 가진 문자열을 처리한다.</p>
+</blockquote>
+
+<h2 id="4">4.</h2>
+
+<h2 id="정리-">정리 :</h2>
+
+<ol>
+  <li></li>
+</ol>
+
+<hr />
+
+<ul>
+  <li>참고 : &lt;자바스크립트 &amp; 제이쿼리&gt;, 존 두캣</li>
+  <li><a href="https://www.slideshare.net/senxation/ss-16791882">더 알아보기</a></li>
+</ul>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jennybe0117.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jennybe0117"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/jennybehan"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:jennybe0117@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jennybe Han. All rights reserved.
+</div>
+
+    
+  </div>
+</body>
+</html>
