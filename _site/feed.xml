@@ -6,6 +6,73 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>알고리즘 문제풀이 14 - 피보나치</title>
+        <description>&lt;!--![gcd](../../assets/images/emojis/gcd.png){: .center-image}--&gt;
+
+&lt;h2 id=&quot;문제&quot;&gt;&lt;a href=&quot;http://tryhelloworld.co.kr/challenge_codes/6&quot;&gt;문제&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;피보나치 수는 F(0) = 0, F(1) = 1일 때, 2 이상의 n에 대하여 F(n) = F(n-1) + F(n-2) 가 적용되는 점화식입니다. 2 이상의 n이 입력되었을 때, fibonacci 함수를 제작하여 n번째 피보나치 수를 반환해 주세요. 예를 들어 n = 3이라면 2를 반환해주면 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-나의-풀이&quot;&gt;1. 나의 풀이&lt;/h2&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fibonacci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;1-1-stack에-메모리가-누적되는-방식의-코드&quot;&gt;1-1. stack에 메모리가 누적되는 방식의 코드&lt;/h3&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fibonacci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fibonacci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fibonacci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;이런 식으로 짤 경우 앞에서 구한 값을 사용하지 못하고, 계속 다시 계산해서 넣을 값을 만들어야 하므로 스택이 끊임없이 쌓여 비효율적인 함수가 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;따라서 재귀함수 부분을 분리하거나(추가 필요), 위의 함수처럼 값을 나누어 연산한다.(?)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-다른-사람들의-풀이&quot;&gt;2. 다른 사람들의 풀이&lt;/h2&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fibonacci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;array를 사용해 리턴값의 형식을 맞추어준다.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 10 Jun 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2017-06-10/algorithm14/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-06-10/algorithm14/</guid>
+      </item>
+    
+      <item>
         <title>알고리즘 문제풀이 13 - 행렬의 덧셈</title>
         <description>&lt;!--![gcd](../../assets/images/emojis/gcd.png){: .center-image}--&gt;
 
@@ -52,10 +119,10 @@
 &lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;결과 출력&lt;/li&gt;
+  &lt;li&gt;과정 결과 찍어보기&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;../../assets/images/study/matrix.png&quot; alt=&quot;gcd&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/images/study/matrix.png&quot; alt=&quot;matrix&quot; /&gt;
 &lt;a href=&quot;https://wayhome25.github.io/algorithm/2017/02/26/SumMatrix/&quot;&gt;참고&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;2-다른-사람들의-풀이&quot;&gt;2. 다른 사람들의 풀이&lt;/h2&gt;
@@ -91,157 +158,60 @@
     
       <item>
         <title>React | Boiler plate</title>
-        <description>&lt;p&gt;&lt;img src=&quot;../../assets/images/images.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+        <description>&lt;!--![image](../../assets/images/images.png)--&gt;
 
 &lt;dl&gt;
   &lt;dt&gt;POINT&lt;/dt&gt;
-  &lt;dd&gt;
-    &lt;ol&gt;
-      &lt;li&gt;자바스크립트는 &lt;strong&gt;타입 강제&lt;/strong&gt; 라는 속성을 가진다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/dd&gt;
-  &lt;dd&gt;
-    &lt;ol&gt;
-      &lt;li&gt;타입강제는 &lt;code class=&quot;highlighter-rouge&quot;&gt;데이터 타입을 변환해서라도 작업을 완료하려는 특성&lt;/code&gt;이다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/dd&gt;
+  &lt;dd&gt;boiler plate는 HTML5를 보다 편안하고 효율적으로 쓸 수 있도록 도와주는 일종의 기본 설정이다.&lt;/dd&gt;
 &lt;/dl&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;1-자바스크립트-연산자의-종류-javascript-operators&quot;&gt;1. 자바스크립트 연산자의 종류 Javascript Operators&lt;/h2&gt;
-
-&lt;p&gt;어떤 코드가 수행될 지 평가, 판단하기 위해서는 조건문(if, if-else, switch)과 루프문(for, while)을 사용한다. 이러한 구문들은 연산자를 사용해 연산대상(operands)을 비교하여 true/false 값, 즉 Boolean 형식의 데이터를 가져와 의사결정을 한다. 이때 사용하는 연산자 세 종류가 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;동등비교연산자 &lt;code class=&quot;highlighter-rouge&quot;&gt;==, !=&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;일치비교연산자 &lt;code class=&quot;highlighter-rouge&quot;&gt;===, !==&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;관계비교연산자 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;, =&amp;lt;, &amp;gt;, =&amp;gt;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;논리연산자 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;, ||, !&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이 중 동등비교연산자와 일치비교연산자 간의 차이를 살펴보자.&lt;/p&gt;
+&lt;h2 id=&quot;1-목적--형태-자동화--재사용&quot;&gt;1. 목적 : (형태) 자동화 / 재사용&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt; , &lt;code class=&quot;highlighter-rouge&quot;&gt;!=&lt;/code&gt; : 값이 동일한지 다른 지 여부를 비교&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt; , &lt;code class=&quot;highlighter-rouge&quot;&gt;!==&lt;/code&gt; : 같은 데이터타입인지 다른 데이터타입인지 비교&lt;/li&gt;
+  &lt;li&gt;최소한의 변경으로 재사용할 수 있는 것&lt;/li&gt;
+  &lt;li&gt;적은 수정만으로 여러 곳에 활용 가능한 코드, 문구&lt;/li&gt;
+  &lt;li&gt;각종 문서에서 반복적으로 인용되는 문서의 한 부분&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;즉, 일치비교연산자는 연산대상 간의 타입까지 비교한다.
-예를 들어,&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://web-front-end.tistory.com/27&quot;&gt;[출처]&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;'3' !== 3&lt;/code&gt; 의 경우, ‘3’은 문자열이고 3은 숫자이므로 결과는 true다.&lt;/p&gt;
+&lt;h2 id=&quot;2-특징&quot;&gt;2. 특징&lt;/h2&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;'3' != 3&lt;/code&gt; 의 경우, 결과는 false 다. 왜냐하면 자바스크립트는 타입 강제를 통해 &lt;code class=&quot;highlighter-rouge&quot;&gt;'3'&lt;/code&gt; 을 숫자 &lt;code class=&quot;highlighter-rouge&quot;&gt;3&lt;/code&gt; 으로 바꾸기 때문이다.&lt;/p&gt;
+&lt;p&gt;HTML5를 사용하는데 확신을 가지고 새로운 요소를 사용하도록 도와준다. 점진적 기능 향상을 염두에 두고 설계되었다.&lt;/p&gt;
 
-&lt;h2 id=&quot;2-자바스크립트의-모든-값들은-truefalse-값으로-취급될-수-있다&quot;&gt;2. 자바스크립트의 모든 값들은 true/false 값으로 취급될 수 있다?&lt;/h2&gt;
+&lt;h2 id=&quot;3-구성&quot;&gt;3. 구성&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;false로 취급될 수 있는 값들&lt;/li&gt;
+  &lt;li&gt;CSS 정상화 - Normalize.css 사용&lt;/li&gt;
+  &lt;li&gt;jQuery CDN 사용&lt;/li&gt;
+  &lt;li&gt;기능 검사를 - Modernizr의 커스텀 빌드 이용&lt;/li&gt;
+  &lt;li&gt;웹 사이트의 성능 및 보안 향상 - 아파치 서버 설정 이용&lt;/li&gt;
+  &lt;li&gt;Placeholder CSS Media Queries&lt;/li&gt;
+  &lt;li&gt;유용한 CSS 헬퍼 클래스 사용&lt;/li&gt;
+  &lt;li&gt;성능이 최적화된 기본 인쇄 스타일 제공&lt;/li&gt;
+  &lt;li&gt;구글 유니버셜 애널리틱스 코드의 최적화된 버전 제공&lt;/li&gt;
+  &lt;li&gt;구형 브라우저에서 자바스크립트 오류의 원인되는 console 문에 대한 보호장치 제공&lt;/li&gt;
+  &lt;li&gt;필요없는 부분을 쉽게 삭제할 수 있도록 구성&lt;/li&gt;
+  &lt;li&gt;광범위한 인라인 및 첨부 문서 제공&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;false(boolean), 숫자 0, NaN(var score = 10/’num’;), 빈 값(var score = ‘’), 아직 값을 대입하지 않은 변수(var score;)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;이를 제외한 거의 모든 값들이 true로 취급 가능하다&lt;/p&gt;
+&lt;h2 id=&quot;4-브라우저-지원&quot;&gt;4. 브라우저 지원&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;true로 취급될 수 있는 값들&lt;/li&gt;
+  &lt;li&gt;Chrome (latest 2)&lt;/li&gt;
+  &lt;li&gt;Firefox (latest 2)&lt;/li&gt;
+  &lt;li&gt;Internet Explorer 8+&lt;/li&gt;
+  &lt;li&gt;Opera (latest 2)&lt;/li&gt;
+  &lt;li&gt;Safari (latest 2)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;true(boolean), 0이 아닌 다른 숫자, 내용을 가진 문자열, 계산된 숫자(var score = 10/5), 문자열로 표현된 true(var score = ‘true’;), 문자열로 표현된 숫자 0(var score = ‘0’;) 문자열로 표현된 false(var score = ‘false’;)&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://webdir.tistory.com/449&quot;&gt;출처&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;값이 설정되어 있는 변수, 같은 형끼리 연산한 0 이외의 숫자들은 모두 참이다. true로 취급될 수 있는 값들은 숫자 1로도 취급가능하다. 객체나 배열에 인스턴스가 존재한다면 이 역시 true다.&lt;/p&gt;
+&lt;h2 id=&quot;5-기타&quot;&gt;5. 기타&lt;/h2&gt;
 
-&lt;h2 id=&quot;3--true값과-true로-취급할-수-있는-값은-서로-다르다&quot;&gt;3.  true값과 true로 취급할 수 있는 값은 서로 다르다.&lt;/h2&gt;
-
-&lt;p&gt;객체나 배열 인스턴스가 true로 취급될 수는 있지만, 이 값은 불리언 값의 true와는 &lt;strong&gt;다른&lt;/strong&gt; 값이다.
-null과 undefined 값 역시 false로 취급할 수 있지만 실제로는 &lt;code class=&quot;highlighter-rouge&quot;&gt;그 어떤 값과도 동일하지 않는 고유한 값&lt;/code&gt;이라고 봐야 한다. NaN은 자기 자신과도 동일하지 않다(NaN은 정의되지 않은 숫자이기 때문에 두 NaN은 서로 같지 않다.).&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;표현식&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;결과&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;표현식&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;결과&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;표현식&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;결과&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(false == 0)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;true&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(undefined == null)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;true&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(NaN == null)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;false&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(false === 0)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;false&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(null == false)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;false&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(NaN == NaN)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;false&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(false == ‘’)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;true&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(undefined == false)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;false&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(false === ‘’)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;false&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(null == 0)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;false&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(0 == ‘’)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;true&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(undefined == 0)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;false&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(0 === ‘’)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;false&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;(undefined === null)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;false&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;정리--변수-값-비교시-동등비교연산자-대신-일치비교연산자를-써야-하는-이유&quot;&gt;정리 : 변수 값 비교시 동등비교연산자 대신 일치비교연산자를 써야 하는 이유&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;자바스크립트는 &lt;strong&gt;타입 강제&lt;/strong&gt; 라는 속성을 가진다.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;타입강제는 &lt;code class=&quot;highlighter-rouge&quot;&gt;데이터 타입을 변환해서라도 작업을 완료하려는 특성&lt;/code&gt;이다.&lt;/p&gt;
-
-    &lt;p&gt;ex) &lt;code class=&quot;highlighter-rouge&quot;&gt;'1' &amp;gt; 0&lt;/code&gt; —&amp;gt; 문자열 &lt;code class=&quot;highlighter-rouge&quot;&gt;'1'&lt;/code&gt; 이 숫자 &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; 로 변환되어 처리된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이렇게 &lt;mark&gt;타입강제로 인해 값의 데이터 타입이 바뀔 수 있으므로 자바스크립트는 약한 형식화를 사용&lt;/mark&gt;하며, 모든 자바스크립트의 값들은 &lt;code class=&quot;highlighter-rouge&quot;&gt;true/false&lt;/code&gt; 의 불리언 값이 될 수 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;참고 : &amp;lt;자바스크립트 &amp;amp; 제이쿼리&amp;gt;, 존 두캣&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.slideshare.net/senxation/ss-16791882&quot;&gt;더 알아보기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://html5boilerplate.com/&quot;&gt;boiler plate&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 08 Jun 2017 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/2017-06-08/react1/</link>
