@@ -7,7 +7,7 @@
     
       <item>
         <title>Web | 01. 웹이란 무엇인가?</title>
-        <description>&lt;h1 id=&quot;웹-개발자를-위한-웹을-지탱하는-기술-내용-정리&quot;&gt;[웹 개발자를 위한 웹을 지탱하는 기술] 내용 정리&lt;/h1&gt;
+        <description>&lt;h1 id=&quot;웹-개발자를-위한-웹을-지탱하는-기술-내용-정리&quot;&gt;‘웹 개발자를 위한 웹을 지탱하는 기술’ 내용 정리&lt;/h1&gt;
 
 &lt;p&gt;Web에 대한 기본 지식을 쌓기 위해 읽기 시작했습니다.&lt;/p&gt;
 
@@ -15,8 +15,15 @@
 
 &lt;p&gt;매번 시간에 쫓겨 제대로 짚고 넘어가지 못했지만 좋은 책을 통해 중요하다고 생각한 부분, 약간 헷갈리거나 생소한 내용들을 블로그에 정리하려고 합니다. 본문 내용을 발췌하는 것을 기본으로, 중요한 내용이나 질문, 정리할 것들을 추가합니다.&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;../../assets/images/study/webbook.jpg&quot; alt=&quot;bookimage&quot; /&gt;&lt;/p&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;절판된 책을 유진님께서 보내주셔서 잘 읽어볼 수 있게 되었습니다. 정말 감사드려요. :)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;절판된 책을 유진님께서 보내주셔서 잘 읽어볼 수 있게 되었습니다. 감사드려요. :)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.cdjapan.co.jp/product/NEOBK-744913&quot;&gt;원서&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;서문&quot;&gt;서문&lt;/h2&gt;
