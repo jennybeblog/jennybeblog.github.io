@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web | 01. 웹이란 무엇인가?</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Jennybe / Front-end engineering" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>Web 01. 웹이란 무엇인가? | Jennybe / Front-end engineering</title>
+<meta property="og:title" content="Web 01. 웹이란 무엇인가?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="&lt;웹 개발자를 위한 웹을 지탱하는 기술(야마모토 요헤이)&gt; 서문 및 1장" />
+<meta property="og:description" content="&lt;웹 개발자를 위한 웹을 지탱하는 기술(야마모토 요헤이)&gt; 서문 및 1장" />
+<link rel="canonical" href="http://localhost:4000/2017-06-13/web1/" />
+<meta property="og:url" content="http://localhost:4000/2017-06-13/web1/" />
+<meta property="og:site_name" content="Jennybe / Front-end engineering" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-13T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Web 01. 웹이란 무엇인가?","author":{"@type":"Person","name":null},"datePublished":"2017-06-13T00:00:00+09:00","dateModified":"2017-06-13T00:00:00+09:00","description":"&lt;웹 개발자를 위한 웹을 지탱하는 기술(야마모토 요헤이)&gt; 서문 및 1장","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-06-13/web1/"},"url":"http://localhost:4000/2017-06-13/web1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Jennybe / Front-end engineering</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Web | 01. 웹이란 무엇인가?</div>
+  <span class="post-date">
+    <time>13 Jun 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#웹을 지탱하는 기술">
+          <span>웹을 지탱하는 기술</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#web">
+          <span>web</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h1 id="웹-개발자를-위한-웹을-지탱하는-기술-내용-정리">[웹 개발자를 위한 웹을 지탱하는 기술] 내용 정리</h1>
+
+<p>Web에 대한 기본 지식을 쌓기 위해 읽기 시작했습니다.</p>
+
+<p>아주 간단하게는 웹과 인터넷의 관계부터, 통신을 위한 HTTP protocol, RESTful API, 또 API는 이때 무엇을 가리키는지, Ajax의 동작, 웹의 전체적인 구조 등 많은 부분들을 충분히 숙지하지 못했다고 느낍니다. 하지만 이는 웹 엔지니어로서 알아야 할 중요한 지식들입니다.</p>
+
+<p>매번 시간에 쫓겨 제대로 짚고 넘어가지 못했지만 좋은 책을 통해 중요하다고 생각한 부분, 약간 헷갈리거나 생소한 내용들을 블로그에 정리하려고 합니다. 본문 내용을 발췌하는 것을 기본으로, 중요한 내용이나 질문, 정리할 것들을 추가합니다.</p>
+
+<ul>
+  <li>절판된 책을 유진님께서 보내주셔서 잘 읽어볼 수 있게 되었습니다. 정말 감사드려요. :)</li>
+</ul>
+
+<h2 id="서문">서문</h2>
+
+<h4 id="웹의-아키텍처">웹의 아키텍처</h4>
+
+<blockquote>
+  <p>시스템으로서의 웹의 구조와 설계사상, 이른바 아키텍처는 초창기부터 지금까지 거의 바뀌지 않고 있습니다. 최초의 웹브라우저와 현재의 웹브라우저가 구현하는 기능에는 천양지차가 있지만, 사용하는 <strong>프로토콜</strong>은 의연하게 <strong>HTTP</strong>이고, <strong>표시</strong>하고 있는 것은 예나 지금이나 <strong>HTML</strong>입니다.</p>
+</blockquote>
+
+<blockquote>
+  <p>웹이 탄생하고 20년, 항상 새로운 기술들이 탄생해 왔지만, 그 기초가 되는 아키텍처는 여전합니다. 이 사실은 <strong>아키텍처의 완성도</strong>가 아주 높다는 것을 보여줍니다.</p>
+</blockquote>
+
+<p>웹 아키텍처의 완성도가 높음은 다양한 종류의 웹 서비스 <strong>데이터</strong>를 자유롭고 간단하게 다룰 수 있다는 점에서도 알 수 있다.</p>
+
+<h4 id="웹다운-설계란">‘웹다운 설계’란</h4>
+
+<blockquote>
+  <p>서비스를 웹답게 만들면 다른 시스템과 간단히 연계할 수 있고, 장래에 확장하기도 쉬워집니다.</p>
+</blockquote>
+
+<ul>
+  <li>클라이언트와 서버 간 역할 분담을 어떻게 할 것인가</li>
+  <li>바람직한 URI는 무엇인가</li>
+  <li>HTTP 메서드는 어떻게 구분해 써야 하는가</li>
+</ul>
+
+<h2 id="1-웹이란-무엇인가">1. 웹이란 무엇인가?</h2>
+
+<h4 id="웹의-용도-3가지">웹의 용도 3가지</h4>
+
+<ul>
+  <li>웹 사이트
+    <blockquote>
+      <p>웹사이트 내부가 어떤 구성을 하고 있는지 클라이언트가 의식하지 않아도 되는 점은 웹의 공통적인 특징. 웹은 다양한 종류의 PC용 브라우저 외에 휴대전화, 게임기, 텔레비전, 그 밖의 디바이스 등 많은 소프트웨어와 하드웨어에서 이용됨.</p>
+    </blockquote>
+  </li>
+  <li>유저 인터페이스로서의 웹
+    <blockquote>
+      <p>웹 기술은 유저 인터페이스<sup>UI</sup> 분야, 즉 각종 디바이스의 설정화면에서도 사용된다. … 리모컨과 하드웨의 한정된 버튼으로 설정하기보다는 PC의 키보드로 조작하는 편이 효율적이기 때문.
+HTML<sup>Hypertext Markup Language</sup> 도움말이나 HTML 링크를 활용하는 소프트웨어 서비스들이 존재한다. 이는 HTML이 작성하기 편하다는 점, <strong>다양한 환경에서 브라우저를 이용할 수 있다는 점</strong> 때문이다.</p>
+    </blockquote>
+  </li>
+  <li>프로그램을 위한 API로서의 웹
+    <blockquote>
+      <p>유저 인터페이스로서의 웹이 인간 중심의 인터페이스였던 반면, API로서의 웹은 프로그램 중심의 인터페이스다.
+API는 프로그램을 위한 인터페이스이므로 데이터 포멧으로 XML<sup>Extensible Markup Language</sup>이나 JSON<sup>JavaScript Object Notation</sup>과 같이 프로그램에서 해석/처리하기 쉬운 것을 이용한다.
+API로서의 웹은 ‘웹 서비스’라고도 불린다.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h4 id="웹을-지탱하는-기술">웹을 지탱하는 기술</h4>
+
+<ul>
+  <li>HTTP<sup>Hypertext Transfer Protocol</sup></li>
+  <li>URI<sup>Uniform Resource Identifier</sup></li>
+  <li>HTML</li>
+</ul>
+
+<blockquote>
+  <p>짧은 문자열로 구성된 URI를 사용해 다양한 형태의 정보를 가리키고(참조하고), 범용 문서포맷인 HTML이라는 문서형식을 통해 그 정보를 표현하고, 메서드가 8개 뿐인 간단한 프로토콜 HTTP를 사용해 그 정보들을 가져오거나 내보낸다.</p>
+</blockquote>
+
+<blockquote>
+  <p>이런 <strong>심플함</strong>에 의해 웹은 여러 응용이 가능해진다.</p>
+</blockquote>
+
+<blockquote>
+  <p>HTTP, URI, HTML이 지탱하고 있는 웹을 정보 시스템으로 본다면 하이퍼미디어 시스템<sup>Hypermedia System</sup>과 분산 시스템<sup>Distributed System</sup>이라는 2가지 측면으로 볼 수 있다.</p>
+</blockquote>
+
+<h3 id="하이퍼미디어">하이퍼미디어</h3>
+
+<p>텍스트, 이미지, 음성, 영상 등 다양한 미디어를 하이퍼링크<sup>HyperLink</sup>로 연결해 구성한 시스템.</p>
+
+<blockquote>
+  <p>하이퍼미디어 이전의 미디어(책이나 영화 등)들은 선형적으로 보는 반면 하이퍼미디어는 비선형적이다. 사용자 스스로 링크를 선택해 정보를 얻는다.</p>
+</blockquote>
+
+<p>하이퍼링크(혹은 링크)란 하이퍼미디어 정보들끼리 연결하는 구조를 가리킴. 링크에 의해 사용자는 어떤 정보에서 다른 정보로 자유롭게 참조할 수 있다. <strong>웹은 하이퍼미디어의 한 예</strong>다.</p>
+
+<h3 id="분산-시스템">분산 시스템</h3>
+
+<blockquote>
+  <p>한 대의 중앙 컴퓨터가 모든 것을 처리하는 형식을 ‘중앙 집중형 시스템’이라고 부른다. 반대로, 복수의 컴퓨터를 조합해 처리를 분산시키는 형식을 ‘분산 시스템’이라고 한다. 분산 시스템은 복수의 컴퓨터와 프로그램을 네트워크상에 분산시켜 배치함으로써, 한 대의 컴퓨터로 실행하는 것보다 효율적으로 작업을 처리할 수 있게 한 시스템이다.</p>
+</blockquote>
+
+<blockquote>
+  <p>분산 시스템에서는 복수의 컴퓨터 상에 존재하는 데이터를 일원적으로 다루거나, 한 대의 컴퓨터로는 다루기 힘든 방대한 정보를 조작할 수 있다.</p>
+</blockquote>
+
+<blockquote>
+  <p>웹은 전 세계에 배치된 서버에 전 세계의 브라우저가 엑세스하는 분산 시스템이다. 웹 전체에 존재하는 정보는 당연히 하나의 컴퓨터에 다 들어갈 수 없다. … 분산 시스템으로서의 웹의 특징은 <strong>프로토콜이 심플하다</strong>는 점이다. 그렇기 때문이 방대한 시스템을 실현할 수 있게 된 것이다.</p>
+</blockquote>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jennybe0117.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jennybe0117"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/jennybehan"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:jennybe0117@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jennybe Han. All rights reserved.
+</div>
+
+    
+  </div>
+</body>
+</html>
