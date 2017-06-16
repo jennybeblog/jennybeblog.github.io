@@ -21,7 +21,7 @@ Javascript와 HTML5/CSS3를 중심으로 공부한 내용을 정리하고 공유
 
 > In 2012, completed International(Global) Studies at Krogerup Højskole, a Danish citizen school, and completed photography and critical cultural jamming course as well.
 
-![image](../../assets/images/yidss.jpg/400x200/)
+![image](../../assets/images/yidss.jpg)
 
 ---
 
