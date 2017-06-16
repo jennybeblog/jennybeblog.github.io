@@ -55,7 +55,6 @@ Javascript와 HTML5/CSS3를 중심으로 공부한 내용을 정리하고 공유
 스타트업에서 기술을 사용한 시민 참여, 시빅 테크니션(civic technician), 시의성이 높은 국내외 사회/정치 뉴스와 자료들을 발행하는 업무를 맡아 했습니다(2016).
 
 ![index](../../assets/images/index.jpg)
-![index1](../../assets/images/index1.jpg)
 
 ##### 프론트엔드 프로젝트(2017.4)
 
