@@ -13,14 +13,14 @@
 
 &lt;h1&gt;#&lt;/h1&gt;
 </description>
-        <pubDate>Sat, 24 Jun 2017 00:27:05 +0900</pubDate>
+        <pubDate>Sat, 24 Jun 2017 00:33:37 +0900</pubDate>
         <link>http://localhost:4000/2017-06-24/2017-06-23-spa_style_01/</link>
         <guid isPermaLink="true">http://localhost:4000/2017-06-24/2017-06-23-spa_style_01/</guid>
       </item>
     
       <item>
         <title>ReactDoc | Reading React documentation Quick Start - 1. React / JSX / Elements</title>
-        <description>&lt;!--![image](../../assets/images/images.png)--&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;../../assets/images/react_love.png&quot; alt=&quot;image&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;summary&quot;&gt;Summary&lt;/h4&gt;
 
