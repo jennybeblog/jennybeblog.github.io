@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReactDoc | Reading React documentation Quick Start - 1. React / JSX / Elements</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Jennybe / Front-end engineering" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>ReactDoc Reading React documentation Quick Start - 1. React / JSX / Elements | Jennybe / Front-end engineering</title>
+<meta property="og:title" content="ReactDoc Reading React documentation Quick Start - 1. React / JSX / Elements" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="React 공식 문서 읽기 01." />
+<meta property="og:description" content="React 공식 문서 읽기 01." />
+<link rel="canonical" href="http://localhost:4000/2017-06-23/react_doc_01/" />
+<meta property="og:url" content="http://localhost:4000/2017-06-23/react_doc_01/" />
+<meta property="og:site_name" content="Jennybe / Front-end engineering" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-23T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"ReactDoc Reading React documentation Quick Start - 1. React / JSX / Elements","author":{"@type":"Person","name":null},"datePublished":"2017-06-23T00:00:00+09:00","dateModified":"2017-06-23T00:00:00+09:00","description":"React 공식 문서 읽기 01.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-06-23/react_doc_01/"},"url":"http://localhost:4000/2017-06-23/react_doc_01/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Jennybe / Front-end engineering</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">ReactDoc | Reading React documentation Quick Start - 1. React / JSX / Elements</div>
+  <span class="post-date">
+    <time>23 Jun 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#react">
+          <span>react</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#react documentation">
+          <span>react documentation</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <!--![image](../../assets/images/images.png)-->
+
+<h4 id="summary">Summary</h4>
+
+<p><a href="https://facebook.github.io/react/docs/hello-world.html">01. Hello World</a></p>
+
+<dl>
+  <dt>POINT</dt>
+  <dd>JavaScript 기반, ES6 문법 사용, Babel을 이용해 ES6를 컴파일!</dd>
+</dl>
+
+<p><a href="https://facebook.github.io/react/docs/introducing-jsx.html">02. Introducing JSX</a></p>
+
+<dl>
+  <dt>POINT</dt>
+  <dd>JSX는 오브젝트를 만들어 DOM을 구성하는 데 필요한 정보를 만든다. 화면에 나타날 UI를 표현하기 위한 정보를 가지고 있다. 중괄호와 따옴표, React.createElement()를 기억!</dd>
+</dl>
+
+<p><a href="https://facebook.github.io/react/docs/rendering-elements.html">03. Rendering Elements</a></p>
+
+<dl>
+  <dt>POINT</dt>
+  <dd>요소란 무엇인가? - React 요소들은 root DOM 노드로 렌더링 된다. 이때 <code class="highlighter-rouge">ReactDOM.render()</code>를 사용(저기에 전달)한다.</dd>
+  <dd>요소의 특징들 - 변경 불가능, 한 시점의 UI를 표현,</dd>
+</dl>
+
+<hr />
+
+<h2 id="1-hello-world">1. Hello World</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="sr">/h1&gt;</span><span class="err">,
+</span>  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">ReactDOM</code> : React는 ReactDOM이라는 가상 DOM을 가지고 있다.
+<code class="highlighter-rouge">render()</code> : 여기에 HTML 코드들을 렌더 할 수 있다.</p>
+</blockquote>
+
+<h2 id="2-introducing-jsx">2. Introducing JSX</h2>
+
+<h4 id="1-jsx는-javsscript-구문의-확장-버전이라고-이해할-수-있다-화면에-ui가-어떻게-보여야-하는-지를-표현할-때-쓴다">1. JSX는 JavsScript 구문의 확장 버전이라고 이해할 수 있다. 화면에 UI가 어떻게 보여야 하는 지를 표현할 때 쓴다.</h4>
+<ul>
+  <li>React는 JavaScript 기반의 UI 라이브러리</li>
+</ul>
+
+<h4 id="2-jsx는-react-요소elements를-생성한다">2. JSX는 React ‘요소(elements)’를 생성한다.</h4>
+
+<h4 id="3-curly-braces--javascript-표현을-중괄호로-둘러싸는-방식을-통해-jsx를-사용한다">3. <code class="highlighter-rouge"><span class="p">{}</span></code>(curly braces) : JavaScript 표현을 중괄호로 둘러싸는 방식을 통해 JSX를 사용한다.</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">formatName</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">user</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">user</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">firstName</span><span class="p">:</span> <span class="s1">'Harper'</span><span class="p">,</span>
+  <span class="na">lastName</span><span class="p">:</span> <span class="s1">'Perez'</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span>
+    <span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="nx">formatName</span><span class="p">(</span><span class="nx">user</span><span class="p">)}</span><span class="o">!</span>
+  <span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span><span class="p">);</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="nx">element</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">Hello, Harper Perez!</code>가 출력된다.</p>
+</blockquote>
+
+<h4 id="4-jsx는-표현식이다">4. <strong>JSX는 표현식이다.</strong></h4>
+
+<p>컴파일이 끝나면 JSX 표현식은 일반 JavaScript <strong>객체</strong>가 된다. 즉, if문이나 for문 등을 사용할 수 있으며, 그 값들을 변수에 할당하고, 아규먼트로 그 값들을 받고, 함수에서 리턴할 수도 있다는 뜻이다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getGreeting</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="nx">formatName</span><span class="p">(</span><span class="nx">user</span><span class="p">)}</span><span class="o">!&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span>  <span class="p">}</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">Stranger</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="5-jsx로-속성지정하기--따옴표를-이용해-문자열-리터럴을-속성으로-지정할-수-있다-혹은-중괄호를-이용해-javascript-표현식을-속성에-포함시킬-수도-있다">5. JSX로 속성지정하기 : 따옴표를 이용해 문자열 리터럴을 속성으로 지정할 수 있다. 혹은 중괄호를 이용해 JavaScript 표현식을 속성에 포함시킬 수도 있다.</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">element_quotes</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">tabIndex</span><span class="o">=</span><span class="s2">"0"</span><span class="o">&gt;&lt;</span><span class="sr">/div&gt;</span><span class="err">;
+</span>
+<span class="kr">const</span> <span class="nx">element_curly</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">avatarUrl</span><span class="p">}</span><span class="o">&gt;&lt;</span><span class="sr">/img&gt;</span><span class="err">;
+</span></code></pre>
+</div>
+<blockquote>
+  <p>다만 JavaScript 표현식을 속성에 포함시킬 경우에는 중괄호에 따옴표를 사용해선 안된다. JSX가 속성을 표현식이 아닌 문자열 리터럴로 간주하게 되기 때문이다.
+문자열 값에는 따옴표를, 표현식에는 중괄호를 쓰는 게 좋다. 다만 같은 속성에 두가지를 동시에 쓰지만 않으면 된다.</p>
+</blockquote>
+
+<h4 id="6-jsx로-자식지정하기--만약-태그의-내용이-비어있다면-xml처럼-만-써서-마무리-해도-된다">6. JSX로 자식지정하기 : 만약 태그의 내용이 비어있다면, <strong>XML</strong>처럼 <code class="highlighter-rouge">/&gt;</code>만 써서 마무리 해도 된다.</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">avatarUrl</span><span class="p">}</span> <span class="sr">/&gt;</span><span class="err">;
+</span></code></pre>
+</div>
+
+<p>JSX 태그는 다음과 같이 자손을 지정할 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">Good</span> <span class="nx">to</span> <span class="nx">see</span> <span class="nx">you</span> <span class="nx">here</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>경고 : JSX가 HTML보다 JavaScript와 가깝기 때문에, React DOM은 HTML 속성 이름 대신 camelCase 방식의 속성표기법을 사용합니다.
+ex) <code class="highlighter-rouge">class</code> -&gt; <code class="highlighter-rouge">className</code>, <code class="highlighter-rouge">tabindex</code> -&gt; <code class="highlighter-rouge">tabIndex</code></li>
+</ul>
+
+<h4 id="7-jsx는-injection-attacks를-막는다">7. JSX는 injection attacks를 막는다.(?)</h4>
+
+<p>JSX에서는 user input을 집어넣어도 안전하다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">potentiallyMaliciousInput</span><span class="p">;</span>
+<span class="c1">// This is safe:</span>
+<span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span></code></pre>
+</div>
+
+<p>기본적으로, React DOM은 렌더링하기 전에 JSX에 임베드된 모든 값을 이스케이프 처리한다. 따라서 어플리케이션에 명시적으로 작성되지 않은 내용은 이후에 절대 삽입할 수 없다.
+모든 것은 렌더링되기 전에 문자열로 변환된다. <strong>덕분에 XSS 공격을 방지할 수 있다.</strong></p>
+
+<h4 id="8-jsx는-객체를-나타낸다">8. <strong>JSX는 객체를 나타낸다.</strong></h4>
+
+<p>Babel은 JSX를 <code class="highlighter-rouge">React.createElement()</code>로 호출함으로써 컴파일한다.</p>
+
+<p>다음 두 예제는 동일하다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="o">&lt;</span><span class="nx">h1</span> <span class="nx">className</span> <span class="o">=</span> <span class="s2">"greeting"</span><span class="o">&gt;</span>
+    <span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!</span>
+  <span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+  <span class="s1">'h1'</span><span class="p">,</span>
+  <span class="p">{</span><span class="na">className</span><span class="p">:</span> <span class="s1">'greeting'</span><span class="p">},</span>
+  <span class="s1">'Hello, world!'</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">React.createElement()</code>는 버그 없는 코드를 작성하는데 도움을 주는 몇가지 검사들을 수행한다. 하지만 기본적으로 다음과 같은 오브젝트를 만들어낸다.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">type</span><span class="p">:</span> <span class="s1">'h1'</span><span class="p">,</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">className</span><span class="p">:</span> <span class="s1">'greeting'</span><span class="p">,</span>
+    <span class="na">children</span><span class="p">:</span> <span class="s1">'Hello, world'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+<blockquote>
+  <p>이러한 오브젝트들을 가리켜 “React 요소elements”라고 부른다. <strong>이 React 요소들이 스크린에서 구현하고자 하는 것을 설명한다</strong>고 생각하면 된다. React는 이러한 오브젝트들을 읽어들여 DOM을 구성하는 데 사용하며 최신 상태로 유지한다.</p>
+</blockquote>
+
+<h2 id="3-rendering-elements">3. Rendering Elements</h2>
+
+<p><code class="highlighter-rouge">Elements</code>들은 React app을 구성하는 가장 작은 단위의 구성요소다. 하나의 element는 스크린에 표현하고자 하는 것을 표현한다.</p>
+
+<p>브라우저의 DOM 요소와 달리, React 요소들은 일반 객체라 손쉽게 만들 수 있다. React DOM은 React 요소들과 일치하도록 DOM을 업데이트 한다. –&gt; (?)</p>
+
+<ul>
+  <li>요소Element vs 컴포넌트Component
+요소들은 컴포넌트들을 구성하는 더 작은 단위의 요소다. (?)</li>
+</ul>
+
+<h4 id="1-rendering-an-element-into-the-dom">1. Rendering an Element into the DOM</h4>
+
+<p><code class="highlighter-rouge">&lt;div&gt;</code> 요소가 HTML 파일 어딘가에 있다고 해보자.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"root"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span></code></pre>
+</div>
+
+<p>이를 “root” DOM 노드라고 부른다. 이 내부의 모든 것들이 React DOM에 의해 관리되기 때문이다.</p>
+
+<p>React로 만들어진 어플리케이션들은 보통 단일 root DOM 노드를 가진다. 만약 React를 기존의 app과 통합하려고 한다면, 원하는 만큼 많은 root DOM 노드들을 독립적으로 생성할 수 있다.</p>
+
+<p>React 요소를 root DOM 노드로 렌더링 하려면, <code class="highlighter-rouge">ReactDOM.render()</code>에 모두 전달해야 한다.</p>
+
+<p>다음 코드는 페이지에 “Hello, world!를 보여준다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="nx">element</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"root"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- 이 요소의 내용은 컴포넌트로 대체된다. --&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<h4 id="2-updating-the-rendered-element">2. Updating the Rendered Element</h4>
+
+<p>React 요소들은 변경이 불가능(immutable)하다.
+요소를 하나 만들고 난 뒤에는 그 요소의 자식이나 속성을 변경할 수 없다. 하나의 요소는 영화의 프레임 하나와 같다고 할 수 있다.: 하나의 요소는 <strong>어떤 시점의 UI</strong>를 표현하는 것이다.</p>
+
+<p>즉, UI를 업데이트 할 수 있는 단 하나의 방법은 새로운 요소를 만들고 그것을 <code class="highlighter-rouge">ReactDOM.render()</code>로 전달하는 것 뿐이다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">tick</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">It</span> <span class="nx">is</span> <span class="p">{</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toLocaleTimeString</span><span class="p">()</span> <span class="p">}.</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+    <span class="nx">element</span><span class="p">,</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">);</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">setInterval</span><span class="p">(</span><span class="nx">tick</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</code></pre>
+</div>
+<ul>
+  <li>
+    <p><a href="https://codepen.io/gaearon/pen/gwoJZk?editors=0010">코드펜으로 확인하기</a></p>
+  </li>
+  <li>
+    <p>Note</p>
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>대부분의 React app들은 <span class="sb">`</span>ReactDOM.render<span class="o">()</span><span class="sb">`</span>를 한 번만 요청한다. 이런 코드들이 stateful<span class="o">(</span>상태 저장<span class="o">)</span>한 컴포넌트들로 어떻게 캡슐화 되는 지 다음 섹션에 소개된다.
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<h4 id="3-react-only-updates-whats-necessary">3. React Only Updates What’s Necessary</h4>
+
+<p>React DOM은 요소의 그것의 하위 요소들을 이전 요소와 비교하고, 원하는 상태로 만드는 데 필요한 DOM 업데이트만 적용한다.</p>
+
+<p>모든 UI 트리를 매초가 바뀔 때마다 새로 만들 수도 있지만, React DOM에 의해 변경되는 내용의 텍스트 노드만 업데이트 된다.</p>
+
+<p>즉, React DOM의 업데이트란 시간이 지남에 따라 UI를 변경하는 방식이 아닌, 주어진 순간을 UI가 어떻게 보는 지로 생각하는 게 유용하다.</p>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jennybe0117.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jennybe0117"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/jennybehan"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:jennybe0117@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jennybe Han. All rights reserved.
+</div>
+
+    
+  </div>
+</body>
+</html>
