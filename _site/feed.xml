@@ -6,19 +6,6 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title></title>
-        <description>&lt;h1 id=&quot;spa-페이지-만들기--css-sass-복습하기&quot;&gt;SPA 페이지 만들기 + CSS, SASS 복습하기&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;biyn.kr&quot;&gt;BIYN(기본소득청’소’년네트워크)&lt;/a&gt;의 소개페이지를 SPA로 만들면서 그동안 복습하지 못했던 CSS, SASS 및 페이지 만들기를 연습하고 정리하려고 합니다.&lt;/p&gt;
-
-&lt;h1&gt;#&lt;/h1&gt;
-</description>
-        <pubDate>Sat, 24 Jun 2017 00:33:37 +0900</pubDate>
-        <link>http://localhost:4000/2017-06-24/2017-06-23-spa_style_01/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-06-24/2017-06-23-spa_style_01/</guid>
-      </item>
-    
-      <item>
         <title>ReactDoc | Reading React documentation Quick Start - 1. React / JSX / Elements</title>
         <description>&lt;p&gt;&lt;img src=&quot;../../assets/images/react_love.png&quot; alt=&quot;image&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
@@ -35,7 +22,7 @@
 
 &lt;dl&gt;
   &lt;dt&gt;POINT&lt;/dt&gt;
-  &lt;dd&gt;JSX는 오브젝트를 만들어 DOM을 구성하는 데 필요한 정보를 만든다. 화면에 나타날 UI를 표현하기 위한 정보를 가지고 있다. 중괄호와 따옴표, React.createElement()를 기억!&lt;/dd&gt;
+  &lt;dd&gt;JSX는 오브젝트를 만들어 DOM을 구성하는 데 필요한 정보를 만든다. 화면에 나타날 UI를 표현하기 위한 정보를 가지고 있다. 중괄호와 따옴표, &lt;code class=&quot;highlighter-rouge&quot;&gt;React.createElement()&lt;/code&gt;를 기억!&lt;/dd&gt;
 &lt;/dl&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://facebook.github.io/react/docs/rendering-elements.html&quot;&gt;03. Rendering Elements&lt;/a&gt;&lt;/p&gt;
@@ -281,6 +268,163 @@ ex) &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt; -&amp;gt;
 &lt;p&gt;모든 UI 트리를 매초가 바뀔 때마다 새로 만들 수도 있지만, React DOM에 의해 변경되는 내용의 텍스트 노드만 업데이트 된다.&lt;/p&gt;
 
 &lt;p&gt;즉, React DOM의 업데이트란 시간이 지남에 따라 UI를 변경하는 방식이 아닌, 주어진 순간을 UI가 어떻게 보는 지로 생각하는 게 유용하다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;co-study-day-1062417-points&quot;&gt;Co-Study Day-1(06/24/17) points&lt;/h1&gt;
+
+&lt;p&gt;React study w/ &lt;a href=&quot;https://github.com/rohjs&quot;&gt;@jsroh&lt;/a&gt; every Saturday Morning.&lt;/p&gt;
+
+&lt;h2 id=&quot;summary-1&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;JSX -&amp;gt; React.createEelment() 함수를 실행(call)시키는 역할. 즉, React Elements를 생성하는 역할을 한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;React Elements -&amp;gt; JS Object -&amp;gt; methods 없이 data만 가지고 있음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;React virtual DOM -&amp;gt; React element로 DOM tree를 조합만 할 뿐 실제 DOM element가 아님.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;React Component -&amp;gt; Component got props for input, and returns elements which has that props as output. 즉, element에 능력을 부여해주는 역할!?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Component backing instance -&amp;gt; 위의 과정을 통해 만들어진 실제 HTML DOM&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;elements와-components&quot;&gt;Elements와 Components&lt;/h2&gt;
+
+&lt;h3 id=&quot;elements&quot;&gt;Elements&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Simply put, a React element describes what you want to see on the screen. Not so simply put, a React element is an &lt;strong&gt;object representation of a DOM node&lt;/strong&gt;. Notice I used the word &lt;strong&gt;describe&lt;/strong&gt;. It’s important to note that &lt;strong&gt;a React element isn’t actually the thing you’ll see on your screen&lt;/strong&gt;, instead, it’s just &lt;strong&gt;an object representation&lt;/strong&gt; of it.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;즉, &lt;code class=&quot;highlighter-rouge&quot;&gt;Element&lt;/code&gt;란 화면에 나타나는 UI 자체를 뜻하는 게 아니라 그 UI를 ‘describe’하는 DOM 노드 객체 표현(식).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이렇게 쓰는 이유는 먼저 JavaScript 객체가 가볍기 때문이고, 두번째는 React가 객체를 해석할 수 있기 때문이다. &lt;strong&gt;이전의 오브젝트가 표현하려고 했던 바와 무엇이 달라졌는지 해석한 다음, 그 변화가 실제로 일어났을 때만 DOM을 업데이트&lt;/strong&gt; 하는 것이다. 이는 성능 면에서 유용하다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“React is able to analyze the object, &lt;strong&gt;diff it with the previous object representation to see what changed, and then update the actual DOM only where those changes occurred.&lt;/strong&gt;”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;DOM node = React Element ?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;React.createElement()&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DOM node의 객체 표현을 생성하기 위한 메서드&lt;/li&gt;
+  &lt;li&gt;세 개의 아규먼트를 가진다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;즉, React Element는 메서드가 없는 기본적인 JavaScript 객체로(instance X), 네 개의 기본적인 속성을 가진다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;type: a String representing an HTML tag or a reference referring to a React Component&lt;/li&gt;
+  &lt;li&gt;key: a String to uniquely identify an React Element&lt;/li&gt;
+  &lt;li&gt;ref: a reference to access either the underlying DOM node or React Component Instance)&lt;/li&gt;
+  &lt;li&gt;props (properties Object)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;*&lt;a href=&quot;https://stackoverflow.com/questions/30971395/difference-between-react-component-and-react-element&quot;&gt;참고&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;'div'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;// 1. tag name string&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'login-btn'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 2. attributes&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;'Login'&lt;/span&gt;               &lt;span class=&quot;c1&quot;&gt;// 3. contents, children&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위의 객체 표현식은 다음과 같은 오브젝트가 된다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'div'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Login'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'login-btn'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;렌더링 결과는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'login-btn'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Login&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;components&quot;&gt;Components&lt;/h3&gt;
+
+&lt;p&gt;정확하게는 React component instance
+React Component Class(new / 생성자 함수인데 불편하니까 Class로 만든 것)가 React component(instance)를 생성한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“A component is a function or a Class which optionally accepts input and &lt;strong&gt;returns a React element&lt;/strong&gt;.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;선택적으로 입력을 받아들이고 React 요소를 &lt;strong&gt;반환&lt;/strong&gt;하는 함수 또는 클래스?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Button&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onLogin&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'div'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'login-btn'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onLogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'Login'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“To pass that along to our object representation of the DOM, we pass it along as the second argument to createElement, just as we did our id attribute.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DOM의 객체 표현에 따라 컴포넌트를 넘겨주려면 createElement의 두번째 아규먼트로 던져줘야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“… you can also pass in other React components to the first argument of createElement.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;createElement의 첫번째 아규먼트로 HTML 요소명 뿐 아니라 React components를 던져줄 수도 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Jennybe'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“if React sees a class or a function as the first argument, it will then check to see what element it renders, given the corresponding props.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;만약 React가 이렇게 첫번째 아규먼트로 class나 function을 넘겨주는 걸 발견하면, 곧 어떤 element가 이들로부터 렌더링 되는지 체크해서 그에 상응하는 props를 던져준다. 그리고 이러한 작업을 첫번째 아규먼트에 class나 function이 오지 않을 때까지 반복한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tylermcginnis.com/react-elements-vs-react-components/&quot;&gt;참고자료 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@fay_jai/react-elements-vs-react-components-vs-component-backing-instances-14d42729f62&quot;&gt;참고자료 2&lt;/a&gt;
+(추후 내용 추가)&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Fri, 23 Jun 2017 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/2017-06-23/react_doc_01/</link>

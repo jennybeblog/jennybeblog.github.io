@@ -23,11 +23,11 @@
 <link rel="canonical" href="http://localhost:4000/2017-06-23/react_doc_01/" />
 <meta property="og:url" content="http://localhost:4000/2017-06-23/react_doc_01/" />
 <meta property="og:site_name" content="Jennybe / Front-end engineering" />
-<meta property="og:image" content="http://localhost:4000/assets/images/react_love.svg" />
+<meta property="og:image" content="http://localhost:4000/assets/images/react_love.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-06-23T00:00:00+09:00" />
 <script type="application/ld+json">
-{"@context":"http://schema.org","@type":"BlogPosting","headline":"ReactDoc Reading React documentation Quick Start - 1. React / JSX / Elements","author":{"@type":"Person","name":null},"image":"http://localhost:4000/assets/images/react_love.svg","datePublished":"2017-06-23T00:00:00+09:00","dateModified":"2017-06-23T00:00:00+09:00","description":"React 공식 문서 읽기 01.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-06-23/react_doc_01/"},"url":"http://localhost:4000/2017-06-23/react_doc_01/"}</script>
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"ReactDoc Reading React documentation Quick Start - 1. React / JSX / Elements","author":{"@type":"Person","name":null},"image":"http://localhost:4000/assets/images/react_love.png","datePublished":"2017-06-23T00:00:00+09:00","dateModified":"2017-06-23T00:00:00+09:00","description":"React 공식 문서 읽기 01.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-06-23/react_doc_01/"},"url":"http://localhost:4000/2017-06-23/react_doc_01/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -102,7 +102,7 @@
 
 <dl>
   <dt>POINT</dt>
-  <dd>JSX는 오브젝트를 만들어 DOM을 구성하는 데 필요한 정보를 만든다. 화면에 나타날 UI를 표현하기 위한 정보를 가지고 있다. 중괄호와 따옴표, React.createElement()를 기억!</dd>
+  <dd>JSX는 오브젝트를 만들어 DOM을 구성하는 데 필요한 정보를 만든다. 화면에 나타날 UI를 표현하기 위한 정보를 가지고 있다. 중괄호와 따옴표, <code class="highlighter-rouge">React.createElement()</code>를 기억!</dd>
 </dl>
 
 <p><a href="https://facebook.github.io/react/docs/rendering-elements.html">03. Rendering Elements</a></p>
@@ -348,6 +348,163 @@ ex) <code class="highlighter-rouge">class</code> -&gt; <code class="highlighter-
 <p>모든 UI 트리를 매초가 바뀔 때마다 새로 만들 수도 있지만, React DOM에 의해 변경되는 내용의 텍스트 노드만 업데이트 된다.</p>
 
 <p>즉, React DOM의 업데이트란 시간이 지남에 따라 UI를 변경하는 방식이 아닌, 주어진 순간을 UI가 어떻게 보는 지로 생각하는 게 유용하다.</p>
+
+<hr />
+
+<h1 id="co-study-day-1062417-points">Co-Study Day-1(06/24/17) points</h1>
+
+<p>React study w/ <a href="https://github.com/rohjs">@jsroh</a> every Saturday Morning.</p>
+
+<h2 id="summary-1">Summary</h2>
+
+<ol>
+  <li>
+    <p>JSX -&gt; React.createEelment() 함수를 실행(call)시키는 역할. 즉, React Elements를 생성하는 역할을 한다.</p>
+  </li>
+  <li>
+    <p>React Elements -&gt; JS Object -&gt; methods 없이 data만 가지고 있음</p>
+  </li>
+  <li>
+    <p>React virtual DOM -&gt; React element로 DOM tree를 조합만 할 뿐 실제 DOM element가 아님.</p>
+  </li>
+  <li>
+    <p>React Component -&gt; Component got props for input, and returns elements which has that props as output. 즉, element에 능력을 부여해주는 역할!?</p>
+  </li>
+  <li>
+    <p>Component backing instance -&gt; 위의 과정을 통해 만들어진 실제 HTML DOM</p>
+  </li>
+</ol>
+
+<h2 id="elements와-components">Elements와 Components</h2>
+
+<h3 id="elements">Elements</h3>
+
+<blockquote>
+  <p>“Simply put, a React element describes what you want to see on the screen. Not so simply put, a React element is an <strong>object representation of a DOM node</strong>. Notice I used the word <strong>describe</strong>. It’s important to note that <strong>a React element isn’t actually the thing you’ll see on your screen</strong>, instead, it’s just <strong>an object representation</strong> of it.”</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>즉, <code class="highlighter-rouge">Element</code>란 화면에 나타나는 UI 자체를 뜻하는 게 아니라 그 UI를 ‘describe’하는 DOM 노드 객체 표현(식).</p>
+  </li>
+  <li>
+    <p>이렇게 쓰는 이유는 먼저 JavaScript 객체가 가볍기 때문이고, 두번째는 React가 객체를 해석할 수 있기 때문이다. <strong>이전의 오브젝트가 표현하려고 했던 바와 무엇이 달라졌는지 해석한 다음, 그 변화가 실제로 일어났을 때만 DOM을 업데이트</strong> 하는 것이다. 이는 성능 면에서 유용하다.</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>“React is able to analyze the object, <strong>diff it with the previous object representation to see what changed, and then update the actual DOM only where those changes occurred.</strong>”</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>DOM node = React Element ?</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">React.createElement()</code></p>
+  </li>
+  <li>DOM node의 객체 표현을 생성하기 위한 메서드</li>
+  <li>세 개의 아규먼트를 가진다.</li>
+</ul>
+
+<p>즉, React Element는 메서드가 없는 기본적인 JavaScript 객체로(instance X), 네 개의 기본적인 속성을 가진다.</p>
+
+<ul>
+  <li>type: a String representing an HTML tag or a reference referring to a React Component</li>
+  <li>key: a String to uniquely identify an React Element</li>
+  <li>ref: a reference to access either the underlying DOM node or React Component Instance)</li>
+  <li>props (properties Object)</li>
+</ul>
+
+<p>*<a href="https://stackoverflow.com/questions/30971395/difference-between-react-component-and-react-element">참고</a></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+  <span class="s1">'div'</span><span class="p">,</span>                <span class="c1">// 1. tag name string</span>
+  <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="s1">'login-btn'</span> <span class="p">},</span>  <span class="c1">// 2. attributes</span>
+  <span class="s1">'Login'</span>               <span class="c1">// 3. contents, children</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+
+<p>위의 객체 표현식은 다음과 같은 오브젝트가 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">type</span><span class="p">:</span> <span class="s1">'div'</span><span class="p">,</span>
+  <span class="nx">props</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nl">children</span><span class="p">:</span> <span class="s1">'Login'</span><span class="p">,</span>
+    <span class="nx">id</span><span class="err">:</span> <span class="s1">'login-btn'</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>렌더링 결과는 다음과 같다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'login-btn'</span><span class="o">&gt;</span><span class="nx">Login</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span></code></pre>
+</div>
+
+<hr />
+
+<h3 id="components">Components</h3>
+
+<p>정확하게는 React component instance
+React Component Class(new / 생성자 함수인데 불편하니까 Class로 만든 것)가 React component(instance)를 생성한다.</p>
+
+<blockquote>
+  <p>“A component is a function or a Class which optionally accepts input and <strong>returns a React element</strong>.”</p>
+</blockquote>
+
+<ul>
+  <li>선택적으로 입력을 받아들이고 React 요소를 <strong>반환</strong>하는 함수 또는 클래스?</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Button</span> <span class="p">({</span> <span class="nx">onLogin</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+    <span class="s1">'div'</span><span class="p">,</span>
+    <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="s1">'login-btn'</span><span class="p">,</span> <span class="na">onClick</span><span class="p">:</span> <span class="nx">onLogin</span><span class="p">},</span>
+    <span class="s1">'Login'</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>“To pass that along to our object representation of the DOM, we pass it along as the second argument to createElement, just as we did our id attribute.”</p>
+</blockquote>
+
+<ul>
+  <li>DOM의 객체 표현에 따라 컴포넌트를 넘겨주려면 createElement의 두번째 아규먼트로 던져줘야 한다.</li>
+</ul>
+
+<blockquote>
+  <p>“… you can also pass in other React components to the first argument of createElement.”</p>
+</blockquote>
+
+<ul>
+  <li>createElement의 첫번째 아규먼트로 HTML 요소명 뿐 아니라 React components를 던져줄 수도 있다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+  <span class="nx">User</span><span class="p">,</span>
+  <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="s1">'Jennybe'</span><span class="p">},</span>
+  <span class="kc">null</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>“if React sees a class or a function as the first argument, it will then check to see what element it renders, given the corresponding props.”</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>만약 React가 이렇게 첫번째 아규먼트로 class나 function을 넘겨주는 걸 발견하면, 곧 어떤 element가 이들로부터 렌더링 되는지 체크해서 그에 상응하는 props를 던져준다. 그리고 이러한 작업을 첫번째 아규먼트에 class나 function이 오지 않을 때까지 반복한다.</p>
+  </li>
+  <li><a href="https://tylermcginnis.com/react-elements-vs-react-components/">참고자료 1</a></li>
+  <li><a href="https://medium.com/@fay_jai/react-elements-vs-react-components-vs-component-backing-instances-14d42729f62">참고자료 2</a>
+(추후 내용 추가)</li>
+</ul>
 
 
   <!-- Disqus -->
