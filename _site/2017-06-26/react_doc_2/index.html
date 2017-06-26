@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReactDoc | Reading React documentation Quick Start - 2. Components, Props, LifeCycle(1/2)</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Jennybe / Front-end engineering" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>ReactDoc Reading React documentation Quick Start - 2. Components, Props, LifeCycle(1/2) | Jennybe / Front-end engineering</title>
+<meta property="og:title" content="ReactDoc Reading React documentation Quick Start - 2. Components, Props, LifeCycle(1/2)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="React 공식 문서 읽기 02." />
+<meta property="og:description" content="React 공식 문서 읽기 02." />
+<link rel="canonical" href="http://localhost:4000/2017-06-26/react_doc_2/" />
+<meta property="og:url" content="http://localhost:4000/2017-06-26/react_doc_2/" />
+<meta property="og:site_name" content="Jennybe / Front-end engineering" />
+<meta property="og:image" content="http://localhost:4000/assets/images/react_love.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-26T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"ReactDoc Reading React documentation Quick Start - 2. Components, Props, LifeCycle(1/2)","author":{"@type":"Person","name":null},"image":"http://localhost:4000/assets/images/react_love.png","datePublished":"2017-06-26T00:00:00+09:00","dateModified":"2017-06-26T00:00:00+09:00","description":"React 공식 문서 읽기 02.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-06-26/react_doc_2/"},"url":"http://localhost:4000/2017-06-26/react_doc_2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Jennybe / Front-end engineering</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">ReactDoc | Reading React documentation Quick Start - 2. Components, Props, LifeCycle(1/2)</div>
+  <span class="post-date">
+    <time>26 Jun 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#react">
+          <span>react</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#react documentation">
+          <span>react documentation</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#JSX">
+          <span>JSX</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#elements">
+          <span>elements</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#ReactDOM">
+          <span>ReactDOM</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <p><img src="../../assets/images/react_love.png" alt="image" class="center-image" /></p>
+
+<h4 id="summary">Summary</h4>
+
+<p><a href="https://facebook.github.io/react/docs/components-and-props.html">04. Components and Props</a></p>
+
+<dl>
+  <dt>POINT</dt>
+  <dd>사용자 정의 태그를 이용해 component를 만들 수 있으며 여러 번 재사용 할 수 있지만 언제나 하나의 root element를 반환한다. 계속 쪼개는 연습을 해야 한다. Props는 읽기 전용이다.</dd>
+</dl>
+
+<p><a href="https://facebook.github.io/react/docs/state-and-lifecycle.html">05. State and Lifecycle</a></p>
+
+<dl>
+  <dt>POINT</dt>
+  <dd>state를 사용하기 위해서는 component를 class로 만들어야 한다.</dd>
+</dl>
+
+<hr />
+
+<h2 id="4-components-and-props">4. Components and Props</h2>
+
+<p>Component들을 사용하면 UI를 <strong>독립적이고 재사용 가능</strong>한 부분으로 나눌 수 있으며, 각 부분을 개별적으로 생각할 수 있다.</p>
+
+<p>Component들은 JavaScript의 함수와 비슷한 개념이다. “props”라 불리는 임의의 인풋을 받아, 화면에 어떤 모습으로 나타냐야 하는 지를 표현하는 React elemenet를 리턴한다.</p>
+
+<h4 id="1-functional-and-class-components">1. Functional and Class Components</h4>
+
+<p>Component를 정의하는 가장 쉬운 방법은 JavaScript의 함수를 쓰는 것이다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Welcome</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span> <span class="nx">props</span><span class="p">.</span><span class="nx">name</span> <span class="p">}</span><span class="o">!&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>위의 함수는 하나의 객체 아규먼트 데이터 props를 받아 React element를 리턴하므로 유효한 React component다.
+이러한 컴포넌트들을 “functional”하다. 말그대로 JavaScript 함수와 동일하기 때문이다.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">class</span> <span class="nx">Welcome</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span> <span class="p">}.</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>ES6의 클래스를 사용할 수도 있다.</p>
+</blockquote>
+
+<p>클래스들은 추가적인 특징을 가지지만, React의 관점에서 위의 두 컴포넌트들은 일단 동일하다.</p>
+
+<h4 id="2-rendering-a-component">2. Rendering a Component</h4>
+
+<p>React element들은 DOM tag를 나타낼 뿐 아니라 사용자 정의(user-defined) component들도 표현할 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">Welcome</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Sara"</span> <span class="o">/&gt;</span><span class="p">;</span>
+</code></pre>
+</div>
+<blockquote>
+  <p>React가 위와 같은 사용자 정의 요소를 표현하는 element를 발견하면, 이 컴포넌트에 JSX 속성을 하나의 객체로 전달한다. 이 객체를 <code class="highlighter-rouge">props</code>라고 부른다.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Welcome</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span> <span class="nx">props</span><span class="p">.</span><span class="nx">name</span> <span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span><span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">Welcome</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Sara"</span> <span class="o">/&gt;</span><span class="p">;</span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="nx">element</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">&lt;Welcome name = "Sara" /&gt;</code>라는 element와 함께 <code class="highlighter-rouge">ReactDOM.render()</code>를 호출한다.
+React는 <code class="highlighter-rouge"><span class="p">{</span><span class="err">name:</span><span class="w"> </span><span class="err">'Sara'</span><span class="p">}</span></code>를 인자(props)로 <code class="highlighter-rouge">Welcome</code> component를 호출한다.
+<code class="highlighter-rouge">Welcome</code> component가 <code class="highlighter-rouge">&lt;h1&gt;Hello, Sara&lt;/h1&gt;</code>라는 element를 결과값으로 리턴한다.</p>
+</blockquote>
+
+<ul>
+  <li>Note: component 이름은 대문자로 시작한다. 예를 들어, &lt;div /&gt;는 DOM 태그를 의미하지만 <Welcome></Welcome>은 component를 의미하며 범위 내에 <code class="highlighter-rouge">Welcome</code>이 있어야 한다.</li>
+</ul>
+
+<h4 id="3-composing-components">3. Composing Components</h4>
+
+<p>component들은 그 결과값으로 다른 component를 <strong>참조할 수</strong> 있다. React app에서 button, form, dialog, screen 등은 모두 component로 표현될 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Welcome</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}.</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span><span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Welcome</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Jennybe"</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Welcome</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Jiseung"</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Welcome</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Juyeon"</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>즉 <code class="highlighter-rouge">Welcome</code>이라는 하나의 component를 여러번 사용하는 App을 만들 수 있다.</p>
+</blockquote>
+
+<p>전형적으로 새로운 React app들은 하나의 App component를 최상위에 가지고 있다. 하지만 만약 React를 기존의 app과 통합하려고 하면, bottom-up 방식으로 button과 같은 작은 components부터 점진적으로 올라가야 한다.</p>
+
+<ul>
+  <li>Note: component들은 언제나 하나의 root element를 반환해야 한다. &lt;div&gt; 태그 안에 <Welcome></Welcome> element에 추가하는 이유다.</li>
+</ul>
+
+<h4 id="4-extracting-components">4. Extracting Components</h4>
+
+<p>작은 component 단위로 쪼개는 것을 두려워할 필요 없다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Comment</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Commnet"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"UserInfo"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Avatar"</span>
+             <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">avatarUrl</span><span class="p">}</span>
+             <span class="nx">alt</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span>
+         <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"UserInfo-name"</span><span class="o">&gt;</span>
+          <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span>
+        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Comment-text"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Comment-date"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">formatDate</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">date</span><span class="p">)}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>위의 예제는 author(객체), text(String), date(date)를 props로 받고 있는 소셜 미디어 웹사이트의 코멘트 란이다.</p>
+</blockquote>
+
+<blockquote>
+  <p>이 컴포넌트는 nesting 때문에 변경이 어렵고 각각의 파트를 재사용하기도 어렵다.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Avatar</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Avatar"</span>
+         <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">avatarUrl</span><span class="p">}</span>
+         <span class="nx">alt</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span>
+    <span class="sr">/</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>Avatar 부분을 뽑아낸 모습이다. Avatar는 Commnet 내부에서 렌더링 되는 내용을 알 필요가 없다.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Commnet</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Comment"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"UserInfo"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Avatar</span> <span class="nx">user</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"UserInfo-name"</span><span class="o">&gt;</span>
+          <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span>
+        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Comment-text"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Comment-date"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">formatDate</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">date</span><span class="p">)}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>위와 같이 Comment 부분을 조금 더 단순화 할 수 있다.
+다음으로 user 이름다음에 오는 Avatar를 렌더링하는 UserInfo component 역시 뽑아낼 수 있다.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">UserInfo</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"UserInfo"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Avatar</span> <span class="nx">user</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"UserInfo-name"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>이를 바탕으로 최종적으로 더 단순화 할 수 있다.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Comment</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Comment"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">UserInfo</span> <span class="nx">user</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Comment-text"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"Comment-date"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">formatDate</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">date</span><span class="p">)}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+</code></pre>
+</div>
+
+<h4 id="5-props-are-read-only">5. Props are Read-Only</h4>
+
+<p>component를 함수나 클래스로 선언하면, 그 자신의 props는 절대로 수정이 불가능하다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>위와 같은 함수를 ‘순수’함수라고 부른다. input 값을 바꾸려고 하지 않으며 항상 같은 input에서 같은 output이 리턴되기 때문이다.</p>
+
+<p>반대로, 아래와 같은 함수들은 스스로 input 값을 변경한다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">withdraw</span><span class="p">(</span><span class="nx">account</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">account</span><span class="p">.</span><span class="nx">total</span> <span class="o">-=</span> <span class="nx">amount</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>React는 매우 유연하지만 한가지 엄격한 룰을 가지고 있다.</p>
+
+<p><strong>모든 React component들은 그들이 가진 props와 함께 순수 함수처럼 작동해야 한다.</strong></p>
+
+<p>다만 State가 React component들이 그들의 output을 사용자의 행동, 네트워크 반응 등에 따라 변경가능하게 해준다.</p>
+
+<h2 id="5-state-and-lifecycle">5. State and Lifecycle</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">tick</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">It</span> <span class="nx">is</span> <span class="p">{</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toLocaleTimeString</span><span class="p">()}.</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+    <span class="nx">element</span><span class="p">,</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">setInterval</span><span class="p">(</span><span class="nx">tick</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">Clock</code> component를 재사용, 캡슐화 할 수 있도록 하는 방법에 대해 배울 예정이다. 먼저, 다음과 같이 캡슐화 할 수 있다.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Clock</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">It</span> <span class="nx">is</span> <span class="p">{</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toLocaleTimeString</span><span class="p">()}.</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">tick</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">Clock</span> <span class="nx">date</span><span class="o">=</span><span class="p">{</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()}</span> <span class="sr">/&gt;</span><span class="err">,
+</span>    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">setInterval</span><span class="p">(</span><span class="nx">tick</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>하지만 위의 예시는 중요한 요구사항을 빠트렸다: Clock이 타이머를 설정하고 매 초마다 UI를 업데이트 한다는 것이 Clock의 세부적인 구현 사항이어야 한다.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Clock</span> <span class="o">/&gt;</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>이상적으로 우리는 이것을 한 번만 쓰고 Clock 자체를 업데이트 시켜야 한다.</p>
+</blockquote>
+
+<blockquote>
+  <p>그러기 위해 우리는 <code class="highlighter-rouge">"state"</code>를 Clock component에 추가해야 한다. State는 props와 비슷하지만, private하며 component에 의해 완전히 제어된다.</p>
+</blockquote>
+
+<blockquote>
+  <p>class로 정의된 component들은 몇가지 추가적인 특징을 가진다. class들에만 가능한 특성인 <code class="highlighter-rouge">Local state</code>가 바로 그런 특징이다.</p>
+</blockquote>
+
+<h4 id="1-converting-a-function-to-a-class">1. Converting a Function to a Class</h4>
+
+<ul>
+  <li>다음과 같은 다섯가지 단계를 통해 Clock과 같은 functional component를 class로 만들 수 있다.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>1. 같은 이름으로 <span class="sb">`</span>React.Component<span class="sb">`</span>를 확장한 ES6 클래스를 만든다.
+2. render<span class="o">()</span>라는 이름의 비어있는 단일 메서드를 추가한다.
+3. render<span class="o">()</span>메서드로 함수의 내용을 이동시킨다.
+4. render<span class="o">()</span> 내부에서 props를 this.props로 변경한다.
+5. 남아있는 빈 함수 선언을 삭제한다.
+</code></pre>
+</div>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">class</span> <span class="nx">Clock</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">It</span> <span class="nx">is</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleTimeString</span><span class="p">()}.</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>이제 Clock은 함수가 아닌 클래스로 재정의 되었다. 이러한 재정의는 우리가 local state와 lifecycle hook과 같은 추가 기능들을 사용할 수 있도록 해준다.</p>
+</blockquote>
+
+<h4 id="2-adding-local-state-to-a-class">2. Adding Local State to a Class</h4>
+
+<p>1) render() 메서드에서 <code class="highlighter-rouge">this.props.date</code>를 <code class="highlighter-rouge">this.state.date</code>로 변경한다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">class</span> <span class="nx">Clock</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">It</span> <span class="nx">is</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleTimeString</span><span class="p">()}.</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>2) <code class="highlighter-rouge">this.state</code>를 초기화하는 class 생성자를 추가한다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">class</span> <span class="nx">Clock</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="na">date</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">It</span> <span class="nx">is</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleTimeString</span><span class="p">()}.</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>이때 우리가 기본 생성자에 어떻게 props를 넘길 것인지 주목해야 한다.</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>       <span class="c1">// 이부분!</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="na">date</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()};</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>클래스 component들은 항상 기본 생성자를 props와 함께 호출해야 한다.</p>
+</blockquote>
+
+<p>3) <Clock></Clock> element에서 <code class="highlighter-rouge">date</code> prop을 제거한다</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Clock</span> <span class="o">/&gt;</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>결과</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">class</span> <span class="nx">Clock</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>    <span class="c1">// 1. 초기화 및 props를 전달하는 부분</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span><span class="na">date</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()};</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">It</span> <span class="nx">is</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleTimeString</span><span class="p">()}.</span><span class="o">&lt;</span><span class="sr">/h2&gt; /</span><span class="o">/</span> <span class="mi">2</span><span class="p">.</span> <span class="err">초기화</span> <span class="err">하는</span> <span class="err">부분</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Clock</span> <span class="o">/&gt;</span><span class="p">,</span>    <span class="c1">// 3. element로 prop을 대체하는 부분</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+<hr />
+
+<h1 id="co-study-day-2062617-points">Co-Study Day-2(06/26/17) points</h1>
+
+<p>React study w/ <a href="https://github.com/rohjs">@jsroh</a>.</p>
+
+<ul>
+  <li><a href="">참고자료 1</a></li>
+  <li><a href="">참고자료 2</a>
+(추후 내용 추가)</li>
+</ul>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jennybe0117.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jennybe0117"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/jennybehan"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:jennybe0117@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jennybe Han. All rights reserved.
+</div>
+
+    
+  </div>
+</body>
+</html>
