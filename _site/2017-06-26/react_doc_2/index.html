@@ -95,7 +95,7 @@
 
 <dl>
   <dt>POINT</dt>
-  <dd>사용자 정의 태그를 이용해 component를 만들 수 있으며 여러 번 재사용 할 수 있지만 언제나 하나의 root element를 반환한다. 계속 쪼개는 연습을 해야 한다. Props는 읽기 전용이다.</dd>
+  <dd>사용자 정의 태그를 이용해 component를 만들 수 있으며 여러 번 재사용 할 수 있지만 언제나 하나의 root element를 반환한다. 계속 쪼개는 연습을 해야 한다. Props는 읽기 전용이다. *props : 일종의 attribute처럼!</dd>
 </dl>
 
 <p><a href="https://facebook.github.io/react/docs/state-and-lifecycle.html">05. State and Lifecycle</a></p>
@@ -137,10 +137,10 @@
 </div>
 
 <blockquote>
-  <p>ES6의 클래스를 사용할 수도 있다.</p>
+  <p>ES6의 클래스를 사용할 수도 있다.
+<code class="highlighter-rouge">extends</code>, <code class="highlighter-rouge">render()</code>
+클래스들은 추가적인 특징을 가지지만, React의 관점에서 위의 두 컴포넌트들은 일단 동일하다.</p>
 </blockquote>
-
-<p>클래스들은 추가적인 특징을 가지지만, React의 관점에서 위의 두 컴포넌트들은 일단 동일하다.</p>
 
 <h4 id="2-rendering-a-component">2. Rendering a Component</h4>
 
@@ -414,7 +414,7 @@ React는 <code class="highlighter-rouge"><span class="p">{</span><span class="er
 <h4 id="1-converting-a-function-to-a-class">1. Converting a Function to a Class</h4>
 
 <ul>
-  <li>다음과 같은 다섯가지 단계를 통해 Clock과 같은 functional component를 class로 만들 수 있다.</li>
+  <li>다음과 같은 다섯가지 단계를 통해 Clock과 같은 (stateless)functional component를 class로 만들 수 있다.</li>
 </ul>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>1. 같은 이름으로 <span class="sb">`</span>React.Component<span class="sb">`</span>를 확장한 ES6 클래스를 만든다.
@@ -426,6 +426,10 @@ React는 <code class="highlighter-rouge"><span class="p">{</span><span class="er
 </div>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">class</span> <span class="nx">Clock</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">component</span> <span class="p">{</span>
+  <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">time</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="na">num</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="p">}</span>
   <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span>
       <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>

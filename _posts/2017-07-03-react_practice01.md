@@ -12,7 +12,7 @@ comments: true
 # 01. Setting
 
 #### 디렉토리 구조
-
+```bash
 react-practice
 ├── package.json
 ├── public            # 서버 public path
@@ -22,10 +22,11 @@ react-practice
 │   │   └── App.js    # App 컴포넌트
 │   └── index.js      # Webpack Entry point
 └── webpack.config.js # Webpack 설정파일
+```
 
-[velopert 블로그 참조 | [React.JS] 강좌 2편 작업환경 설정하기](https://velopert.com/814)
+* [참고 - React.JS 강좌 2편 작업환경 설정하기](https://velopert.com/814)
 
-(추후 내용 추가)
+(추후 내용 추가 예정)
 
 # 02. Basic JSX
 
@@ -45,10 +46,11 @@ class App extends React.Component {
 export default App
 ```
 
-- line 1
-: `var React = require(‘react’)`와 동일
-- line 4
-: `render() {}` render() 메소드에서 컴포넌트에 렌더링 될 데이터 정의를 `{}` 내부에 `return` 한다. 따옹표(`""`)없이 `()`안에 바로 HTML 태그를 작성한다.
+**line 1**
+> `var React = require(‘react’)`와 동일
+
+**line 4**
+> `render() {}` render() 메소드에서 컴포넌트에 렌더링 될 데이터 정의를 `{}` 내부에 `return` 한다. 따옹표(`""`)없이 `()`안에 바로 HTML 태그를 작성한다.
 
 ###### App.js - 2. container element
 
@@ -83,7 +85,7 @@ export default App
 
 다음과 같이 `div` 엘리먼트를 이용해 묶어준다.(wrapper 역할)
 
-###### App.js - 3. JavaScript와 연결하기 `{}`
+###### App.js - 3. JavaScript와 연결하기 : `{}`
 
 ```javascript
 import React from 'react'
@@ -127,10 +129,12 @@ class App extends React.Component {
 export default App
 ```
 
-* 메서드 실행하기
-: render() 메서드 전에 메서드를 선언하고, 태그의 속성으로 메서드를 설정한다.
-: 이때 위에서 변수를 렌더링 할 때 처럼 `{}`를 사용하고, this로 연결한다.
-: 함수를 실행하는 `()`는 사용하지 않는다.
+**메서드 실행하기**
+> render() 메서드 전에 메서드를 선언하고, 태그의 속성으로 메서드를 설정한다.
+
+> 이때 위에서 변수를 렌더링 할 때 처럼 `{}`를 사용하고, this로 연결한다.
+
+> 함수를 실행하는 `()`는 사용하지 않는다.
 
 # 03. 실습
 
@@ -158,8 +162,10 @@ class App extends React.Component {
 }
 
 export default App;
-
-
 ```
+
+서로 다른 여러 개의 변수들을 출력해보고 싶어 오브젝트로 만들어 차례대로 출력해봤다.
+
+> render()에는 원하는 데이터를 정의한다는 것, return 뒤에는 원하는 UI를 만드는 것을 이해하고 class 레벨에서 메서드를 정의해야 한다는 것을 기억해야겠다. (render 메서드 내부에서 메서드 정의 x)
 
 * [참고: [React.JS]강좌 3편 JSX](https://velopert.com/867)
