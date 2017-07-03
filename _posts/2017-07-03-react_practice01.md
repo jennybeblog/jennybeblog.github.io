@@ -1,14 +1,14 @@
 ---
 layout: post
-title: React+Redux | 1. React basic 내용정리
+title: React+Redux | 1. React basic - Get start!
 description: "React 만들면서 내용정리하기"
-# image: ../../assets/images/react_love.png
+image: ../../assets/images/react_setting.png
 tags:
   - react basic
 comments: true
 # link: 'http://tryhelloworld.co.kr/challenge_codes/126'
 ---
-
+![what we need for react](../../assets/images/react_component.png){: .center-image}
 # 01. Setting
 
 #### 디렉토리 구조

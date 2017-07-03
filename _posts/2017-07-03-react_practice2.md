@@ -2,7 +2,7 @@
 layout: post
 title: React+Redux | 2. React basic - Components, props, state
 description: "React 만들면서 내용정리하기"
-# image: ../../assets/images/react_love.png
+image: ../../assets/images/react_component.png
 tags:
   - react basic
   - component
@@ -12,8 +12,9 @@ tags:
 comments: true
 # link: 'http://tryhelloworld.co.kr/challenge_codes/126'
 ---
-
 # 01. Component 모듈화 기본
+
+![react component image](../../assets/images/react_component.png){: .center-image}
 
 ## 1) App.js 파일 업데이트 하기
 
