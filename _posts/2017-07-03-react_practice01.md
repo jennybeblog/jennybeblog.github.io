@@ -8,7 +8,7 @@ tags:
 comments: true
 # link: 'http://tryhelloworld.co.kr/challenge_codes/126'
 ---
-![what we need for react](../../assets/images/react_component.png){: .center-image}
+![what we need for react](../../assets/images/react_setting.png){: .center-image}
 # 01. Setting
 
 #### 디렉토리 구조
