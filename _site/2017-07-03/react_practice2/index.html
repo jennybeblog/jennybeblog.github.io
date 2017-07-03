@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>React+Redux | 2. React basic - Components</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Jennybe / Front-end engineering" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>React+Redux 2. React basic - Components | Jennybe / Front-end engineering</title>
+<meta property="og:title" content="React+Redux 2. React basic - Components" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="React 만들면서 내용정리하기" />
+<meta property="og:description" content="React 만들면서 내용정리하기" />
+<link rel="canonical" href="http://localhost:4000/2017-07-03/react_practice2/" />
+<meta property="og:url" content="http://localhost:4000/2017-07-03/react_practice2/" />
+<meta property="og:site_name" content="Jennybe / Front-end engineering" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-03T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"React+Redux 2. React basic - Components","author":{"@type":"Person","name":null},"datePublished":"2017-07-03T00:00:00+09:00","dateModified":"2017-07-03T00:00:00+09:00","description":"React 만들면서 내용정리하기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017-07-03/react_practice2/"},"url":"http://localhost:4000/2017-07-03/react_practice2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Jennybe / Front-end engineering</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">React+Redux | 2. React basic - Components</div>
+  <span class="post-date">
+    <time>03 Jul 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#react basic">
+          <span>react basic</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#component">
+          <span>component</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#modulize">
+          <span>modulize</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h1 id="01-component-모듈화-기본">01. Component 모듈화 기본</h1>
+
+<h2 id="1-appjs-파일-업데이트-하기">1) App.js 파일 업데이트 하기</h2>
+
+<h4 id="디렉토리-구조">디렉토리 구조</h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>react-practice
+├── package.json
+├── public            <span class="c"># 서버 public path</span>
+│   └── index.html    <span class="c"># 메인 페이지</span>
+├── src               <span class="c"># React.js 프로젝트 루트</span>
+│   ├── components    <span class="c"># 컴포넌트 폴더</span>
+│   │   └── Header.js  <span class="c"># Header 컴포넌트</span>
+│   │   └── Content.js <span class="c"># Content 컴포넌트</span>
+│   │   └── App.js    <span class="c"># App 컴포넌트</span>
+│   └── index.js
+└── webpack.config.js
+</code></pre>
+</div>
+
+<p>한 파일엔 여러 개의 컴포넌트가 함께 조합되어 나타난다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+
+<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Header</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Content</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Header</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">header</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">HEADER</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/header</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Content</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span> <span class="nx">CONTENT</span> <span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span> <span class="nx">Content</span> <span class="err">내용을</span> <span class="err">보여주는</span> <span class="nx">p</span> <span class="err">태그</span> <span class="err">자리</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><code class="highlighter-rouge">React.Component</code>를 상속해서 새로운 Component들을 만든다.</li>
+  <li>이때 App만 export 해줘도 된다.</li>
+</ul>
+
+<h2 id="2-component-모듈화-하기">2) Component 모듈화 하기.</h2>
+
+<p><strong>Components</strong> 폴더에 <code class="highlighter-rouge">Header.js</code>, <code class="highlighter-rouge">Main.js</code>를 각각 만든 뒤 위에서 작성한 내용을 가져다 붙인다.</p>
+
+<blockquote>
+  <p>이때 둘 다 React를 import 해주고 각 컴포넌트를 export 해준다.</p>
+</blockquote>
+
+<h6 id="headerjs">Header.js</h6>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+
+<span class="kr">class</span> <span class="nx">Header</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">header</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">HEADER</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/header</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Header</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/export">참고: ES6의 export</a></li>
+</ul>
+
+<p>App.js에는 각각의 component들을 import 해준다.</p>
+
+<h2 id="3-실습">3) 실습</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+<span class="kr">import</span> <span class="nx">Header</span> <span class="nx">from</span> <span class="s1">'./Header'</span>
+<span class="kr">import</span> <span class="nx">Main</span> <span class="nx">from</span> <span class="s1">'./Main'</span>
+
+<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">sayHi</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">'환영해요!'</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">"first"</span><span class="p">:</span> <span class="s1">'J'</span><span class="p">,</span>
+      <span class="s2">"second"</span><span class="p">:</span> <span class="s1">'Jen'</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Header</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Main</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">I</span> <span class="nx">am</span> <span class="p">{</span><span class="nx">name</span><span class="p">.</span><span class="nx">first</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">I</span> <span class="nx">am</span> <span class="p">{</span><span class="nx">name</span><span class="p">.</span><span class="nx">second</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">click</span> <span class="nx">me</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+
+</code></pre>
+</div>
+
+<h1 id="02-props">02. props</h1>
+
+<ul>
+  <li><strong>변동되지 않는</strong> 데이터를 다루기 위해 사용한다.</li>
+  <li><strong>단방향</strong>으로 데이터를 전달한다. 부모 =&gt; 자식으로만 전달한다.</li>
+</ul>
+
+<h2 id="1-변하지-않는immutable-데이터가-필요한-컴포넌트의-경우">1) 변하지 않는(immutable) 데이터가 필요한 컴포넌트의 경우</h2>
+
+<p><code class="highlighter-rouge">render()</code> 내부에 <code class="highlighter-rouge"><span class="p">{</span><span class="err">this.props.*propsName*</span><span class="p">}</span></code> 형식으로 집어 넣고, 컴포넌트 사용 시 엘리먼트 태그 안에 <code class="highlighter-rouge">*propsName="value"*</code>를 넣어 값을 설정한다.</p>
+
+<h6 id="headerjs-1">Header.js</h6>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+
+<span class="kr">class</span> <span class="nx">Header</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">title</span> <span class="p">}</span> <span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Header</span>
+</code></pre>
+</div>
+
+<h6 id="appjs--props-사용하기">App.js : props 사용하기</h6>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+<span class="kr">import</span> <span class="nx">Header</span> <span class="nx">from</span> <span class="s1">'./Header'</span>
+
+<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Header</span> <span class="nx">title</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">headerTitle</span><span class="p">}</span><span class="sr">/</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span>
+</code></pre>
+</div>
+
+<h6 id="indexjs">index.js</h6>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+<span class="kr">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s1">'react-dom'</span>
+<span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">'./components/App'</span>
+
+<span class="kr">const</span> <span class="nx">rootElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">App</span> <span class="nx">headerTitle</span> <span class="o">=</span> <span class="s2">"Welcome!"</span>
+       <span class="nx">contentTitle</span> <span class="o">=</span> <span class="s2">"Stranger,"</span>
+       <span class="nx">contentBody</span> <span class="o">=</span> <span class="s2">"Welcome to example app"</span>
+  <span class="sr">/&gt;, rootElemen</span><span class="err">t
+</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="2-props-기본-값-설정하기">2) props 기본 값 설정하기</h2>
+
+<p>컴포넌트 클래스 하단에 <code class="highlighter-rouge">*className*.defaultProps={ propName: value }</code> 삽입</p>
+
+<h6 id="appjs">App.js</h6>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+<span class="kr">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s1">'react-dom'</span>
+<span class="kr">import</span> <span class="nx">Header</span> <span class="nx">from</span> <span class="s1">'./Header'</span>
+<span class="kr">import</span> <span class="nx">Content</span> <span class="nx">from</span> <span class="s1">'./Content'</span>
+
+<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Header</span> <span class="nx">title</span> <span class="o">=</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">headerTitle</span> <span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">Content</span> <span class="nx">title</span> <span class="o">=</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">contentTitle</span> <span class="p">}</span>
+                 <span class="nx">body</span> <span class="o">=</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">contentBody</span> <span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">App</span><span class="p">.</span><span class="nx">defaultProps</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">headerTitle</span><span class="p">:</span> <span class="s1">'Default Header'</span><span class="p">,</span>
+  <span class="na">contentTitle</span><span class="p">:</span> <span class="s1">'Default Content Title'</span><span class="p">,</span>
+  <span class="na">contenteBody</span><span class="p">:</span> <span class="s1">'Defualt Content Body'</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span>
+</code></pre>
+</div>
+
+<p>위와 같이 defaultProps를 사용해 기본 값을 object 형식으로 할당한다.
+이제 <code class="highlighter-rouge">index.js</code>가 다시 간단해진다.</p>
+
+<h6 id="indexjs-1">index.js</h6>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+<span class="kr">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s1">'react-dom'</span>
+<span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">'./components/App'</span>
+
+<span class="kr">const</span> <span class="nx">rootElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nx">rootElement</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="3-실습-1">3) 실습</h2>
+
+<h4 id="appjs-1">App.js</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+<span class="kr">import</span> <span class="nx">Header</span> <span class="nx">from</span> <span class="s1">'./Header'</span>
+<span class="kr">import</span> <span class="nx">Main</span> <span class="nx">from</span> <span class="s1">'./Main'</span>
+
+<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">sayHi</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">'환영해요!'</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">"first"</span><span class="p">:</span> <span class="s1">'J'</span><span class="p">,</span>
+      <span class="s2">"second"</span><span class="p">:</span> <span class="s1">'Jen'</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Header</span> <span class="nx">title</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">headerPara</span><span class="p">}</span><span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">Main</span> <span class="nx">body</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">maincontentPara</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">br</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">I</span> <span class="nx">am</span> <span class="p">{</span><span class="nx">name</span><span class="p">.</span><span class="nx">first</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">I</span> <span class="nx">am</span> <span class="p">{</span><span class="nx">name</span><span class="p">.</span><span class="nx">second</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">click</span> <span class="nx">me</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">App</span><span class="p">.</span><span class="nx">defaultProps</span><span class="o">=</span> <span class="p">{</span>
+  <span class="na">headerPara</span><span class="p">:</span> <span class="s2">"This is headerPara from props"</span><span class="p">,</span>
+  <span class="na">maincontentPara</span><span class="p">:</span> <span class="s2">"여기 나오는 내용은 App.defaultProps로 전달한 props 내용이에요."</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>여기서 헷갈린 부분은 App.js에서 <code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">body</code>로 불러온 props를 하위 컴포넌트에서 props 이름으로 정했던 것이다.</p>
+
+<h4 id="headerjs-2">Header.js</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+
+<span class="kr">class</span> <span class="nx">Header</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">header</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">HEADER</span> <span class="nx">component</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">title</span> <span class="p">}</span> <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/header</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Header</span>
+</code></pre>
+</div>
+
+<p>즉, 여기서 <code class="highlighter-rouge">&lt;p&gt; { this.props.headerPara } &lt;/p&gt;</code> 같은 식으로 할당한 것.
+헷갈리지 않으려면 흐름을 잘 파악해야 할 것이다.</p>
+
+<h4 id="mainjs">Main.js</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+
+<span class="kr">class</span> <span class="nx">Main</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span> <span class="nx">CONTENT</span> <span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">body</span> <span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Main</span>
+</code></pre>
+</div>
+
+<h1 id="03-state">03. state</h1>
+
+<ul>
+  <li><strong>유동적인</strong> 데이터를 다룰 때 사용한다.</li>
+</ul>
+
+<h6 id="stateexamplejs">StateExample.js</h6>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">StateExample</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>            <span class="c1">// super 함수: 부모의 constructor 메소드를 실행</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">header</span><span class="p">:</span> <span class="s2">"Header initial state"</span><span class="p">,</span>
+      <span class="na">content</span><span class="p">:</span> <span class="s2">"Content initial state"</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">updateHeader</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+      <span class="na">header</span><span class="p">:</span> <span class="s2">"Header has changed"</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">header</span> <span class="p">}</span> <span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">content</span> <span class="p">}</span> <span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateHeader</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span><span class="o">&gt;</span><span class="nx">Update</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">StateExample</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>초기값 설정 : constructor(생성자) 메서드를 사용해서 <code class="highlighter-rouge">this.state = {}</code>로 설정</li>
+  <li>state 렌더링 : render 메서드 내부의 엘리먼트에서 <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">this.state.*stateName*</span><span class="w"> </span><span class="p">}</span></code>을 사용</li>
+  <li>state 업데이트 : <code class="highlighter-rouge">this.setState()</code> 메소드 사용 (이를 render 시 직접 사용할 때는 this를 bind 해주어야 함수/객체에 접근할 수 있다.)</li>
+</ul>
+
+<blockquote>
+  <p>state를 변경하는 메서드를 정의할 때 <code class="highlighter-rouge">this.setState()</code>를 사용한다는 것을 잊지 말기!</p>
+</blockquote>
+
+<blockquote>
+  <p>state 기본값 설정은 constructor() { super(props) // this.state = { // 내용}}</p>
+</blockquote>
+
+<h2 id="3-실습-2">3) 실습</h2>
+
+<h6 id="randomnumjs">RandomNum.js</h6>
+
+<p>다음 예제는 메서드를 props의 일부로 받아오는 방법을 보여준다.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+<span class="kr">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s1">'react-dom'</span>
+
+<span class="kr">class</span> <span class="nx">RandomNum</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="c1">// 1. 메서드 선언</span>
+  <span class="nx">updateNumber</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">Manth</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">onUpdate</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// 2. constructor 메서드로 props를 받아오고</span>
+  <span class="c1">// 3. updateNumber가 this context를 사용할 수 있도록 bind 한다.</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">updateNumber</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateNumber</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span> <span class="nx">RANDOM</span> <span class="nx">NUMBER</span><span class="err">:</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">number</span> <span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">updateNumber</span><span class="p">}</span><span class="o">&gt;</span><span class="err">랜덤넘버</span> <span class="err">추출</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">RandomNum</span>
+</code></pre>
+</div>
+
+<h6 id="appjs-2">App.js</h6>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">'react'</span>
+<span class="kr">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s1">'react-dom'</span>
+<span class="c1">// ...</span>
+<span class="kr">import</span> <span class="nx">RandomNum</span> <span class="nx">from</span> <span class="s1">'./RandomNum'</span>
+
+<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">value</span> <span class="o">=</span> <span class="s2">""</span>
+      <span class="p">}</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">updateValue</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateValue</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+      <span class="c1">// 아래 updateValue 메서드가 this.setState에 접근할 수 있도록 bind 해주는 것</span>
+  <span class="p">}</span>
+  <span class="c1">// * 메서드로 state를 변경하는 부분? - 그럼 메서드를 통해 state 변경시에는 항상 this.setState가 method 내부에 들어가야 하나?</span>
+  <span class="nx">updateValue</span><span class="p">(</span><span class="nx">randomValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+      <span class="na">value</span><span class="p">:</span> <span class="nx">randomValue</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// immutable data ....</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="c">&lt;!--</span> <span class="p">....</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="nx">RandomNum</span> <span class="nx">number</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">}</span>
+                   <span class="nx">onUpdate</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">updateValue</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ... immutable data things</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span>
+</code></pre>
+</div>
+
+<h4 id="질문거리">질문거리</h4>
+
+<ol>
+  <li>
+    <p>onUpdate =&gt; updateValue (App.js) 가 어떻게 RandomNum.js의 updateNumber 메서드와 연결되는 걸까?</p>
+  </li>
+  <li>
+    <p>App.js에서도, 하위 컴포넌트들에서도 생성자 메서드를 써서 props를 받아오는 이유는? React.Component의 props를 받아오기 때문?</p>
+  </li>
+</ol>
+
+<p>cf. 원래는 App =&gt; RandomNum 으로 데이터를 준다면 RandomNum 에서만 쓰면 되는 거라고 생각함</p>
+
+<ol>
+  <li>실행 순서 헷갈림. 예를 들어 App.js에서 <code class="highlighter-rouge">&lt;RandomNum number={this.state.value} onUpdate={this.updateValue}/&gt;</code>가 먼저 실행되고 나서 Random.js 내부적으로 연결되어 실행되는 건지? (그러면 다시 1번 질문으로 올라감.)</li>
+</ol>
+
+<hr />
+
+<ul>
+  <li><a href="https://velopert.com/921">참고: 컴포넌트의 State 와 Props 사용하기</a></li>
+</ul>
+
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jennybe0117.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jennybe0117"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/jennybehan"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:jennybe0117@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jennybe Han. All rights reserved.
+</div>
+
+    
+  </div>
+</body>
+</html>
