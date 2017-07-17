@@ -5,8 +5,8 @@ permalink: /about/
 
 ## 이 블로그는
 
-Javascript와 HTML5/CSS3를 중심으로 공부한 내용을 정리하고 공유합니다.
-때로 그래픽, 기본 컴퓨터공학, 웹 기술, 프레임웍 등 프론트엔드 웹 개발과 관련있는 내용들이 올라올 예정입니다.
+Javascript와 HTML5/CSS3, React를 중심으로 Front-end 웹개발에 관해 공부한 내용을 정리하고 공유합니다.
+때로 UX, 그래픽, 기본 컴퓨터공학, 웹 기술, 프레임웍 등 프론트엔드 웹 개발 및 전반적인 웹 환경과 관련해 흥미를 가지고 공부하고 있는 내용들이 올라올 예정입니다.
 글 내용에 오류가 있으면 메일<jennybe0117@gmail.com>로 알려주세요.
 
 ## 저는
@@ -27,9 +27,11 @@ Javascript와 HTML5/CSS3를 중심으로 공부한 내용을 정리하고 공유
 
 #### Front-end engineer
 
-현재는 웹 프론트엔드 개발자가 되기 위해 공부하고 있습니다. 시각적 요소와 그것을 매개로 메시지를 전달하는 데에 관심이 있습니다. 넘치는 정보와 문제들을 이야기로 풀어 더 많은 사람들에게 공유하고 싶습니다.
+현재는 웹 프론트엔드 개발과 UX 연구, 데이터 시각화를 다루기 위해 공부하고 있습니다. 시각적 요소와 그것을 매개로 메시지를 전달하는 데에 관심이 있습니다. 넘치는 정보와 문제들을 이야기로 풀어 더 많은 사람들에게 공유하고 싶습니다.
 
-장기적인 목표는 [데이터 시각화](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%8B%9C%EA%B0%81%ED%99%94){:target="_blank"}를 할 수 있는 개발자/[정보디자이너](https://ko.wikipedia.org/wiki/%EC%A0%95%EB%B3%B4_%EB%94%94%EC%9E%90%EC%9D%B8){:target="_blank"}로 성장하는 것입니다. 웹의 시각적/동적 구현을 통해 좀 더 나은 정보의 큐레이션을 가능하게 함으로써 [디지털(기술) 리터러시](https://en.wikipedia.org/wiki/Digital_literacy){:target="_blank"}/정보 접근성 장벽을 동시에 낮추는 데에 기여하는 개발자가 되고 싶습니다.
+ 인간의 감정과 사회에 대한 이해/공감능력/인터뷰 등 정성적 방법론을 주로 다뤄왔습니다. 앞으로는 이뿐만 아니라 정량적 조사/디지털 환경/데이터 기반 UX 분석 작업을 하고 싶습니다.
+
+장기적인 목표는 [데이터 시각화](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%8B%9C%EA%B0%81%ED%99%94){:target="_blank"}를 할 수 있는 개발자/[정보디자이너](https://ko.wikipedia.org/wiki/%EC%A0%95%EB%B3%B4_%EB%94%94%EC%9E%90%EC%9D%B8){:target="_blank"}로 성장하는 것입니다. 웹의 시각적/동적 구현을 통해 좀 더 나은 정보의 큐레이션을 가능하게 함으로써 [디지털(기술) 리터러시](https://en.wikipedia.org/wiki/Digital_literacy){:target="_blank"}/정보 접근성 장벽을 동시에 낮추는 데에 기여하고 싶습니다.
 
 > I'm currently studying to become a web front-end developer. I am interested in visualizing messages. In other words, using visual element to convey messages through it. I want to share the information and problems that are overflowing nowadays with more people.
 
