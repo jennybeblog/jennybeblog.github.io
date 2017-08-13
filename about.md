@@ -5,8 +5,8 @@ permalink: /about/
 
 ## 이 블로그는
 
-Javascript와 HTML5/CSS3, React를 중심으로 Front-end 웹개발에 관해 공부한 내용을 정리하고 공유합니다.
-때로 UX, 그래픽, 기본 컴퓨터공학, 웹 기술, 프레임웍 등 프론트엔드 웹 개발 및 전반적인 웹 환경과 관련해 흥미를 가지고 공부하고 있는 내용들이 올라올 예정입니다.
+Javascript와 HTML5/CSS3, React를 중심으로 프론트엔드 웹 개발 및 전반적인 웹 환경과 관련해 공부한 내용을 정리하고 공유합니다.
+때로 UX, 그래픽, 기본 컴퓨터공학, 웹 기술, 프레임웍 등 흥미를 가지고 있는 내용들이 올라올 예정입니다.
 글 내용에 오류가 있으면 메일<jennybe0117@gmail.com>로 알려주세요.
 
 ## 저는
@@ -27,15 +27,23 @@ Javascript와 HTML5/CSS3, React를 중심으로 Front-end 웹개발에 관해 �
 
 #### Front-end engineer
 
-현재는 웹 프론트엔드 개발과 UX 연구, 데이터 시각화를 다루기 위해 공부하고 있습니다. 시각적 요소와 그것을 매개로 메시지를 전달하는 데에 관심이 있습니다. 넘치는 정보와 문제들을 이야기로 풀어 더 많은 사람들에게 공유하고 싶습니다.
+현재는 웹 프론트엔드 개발과 UX 연구, 데이터 시각화를 다루기 위해 공부하고 있습니다. 시각적 요소와 그것을 매개로 메시지를 전달하는 데에 관심이 있습니다. 넘치는 정보와 문제들을 이야기로 풀어 더 많은 사람들에게 공유하고 싶습니다. 그래서 데이터 시각화에 흥미를 가지고 있습니다.
 
- 인간의 감정과 사회에 대한 이해/공감능력/인터뷰 등 정성적 방법론을 주로 다뤄왔습니다. 앞으로는 이뿐만 아니라 정량적 조사/디지털 환경/데이터 기반 UX 분석 작업을 하고 싶습니다.
+인간의 감정과 사회에 대한 이해를 통해 공감능력과 다양한 인터뷰 방법론 등 정성적 방법론을 주로 다뤄왔습니다. 앞으로는 이뿐만 아니라 데이터에 기반한 정량적 조사를 통해 데이터 기반의 작업들을 하고 싶습니다.
 
-장기적인 목표는 [데이터 시각화](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%8B%9C%EA%B0%81%ED%99%94){:target="_blank"}를 할 수 있는 개발자/[정보디자이너](https://ko.wikipedia.org/wiki/%EC%A0%95%EB%B3%B4_%EB%94%94%EC%9E%90%EC%9D%B8){:target="_blank"}로 성장하는 것입니다. 웹의 시각적/동적 구현을 통해 좀 더 나은 정보의 큐레이션을 가능하게 함으로써 [디지털(기술) 리터러시](https://en.wikipedia.org/wiki/Digital_literacy){:target="_blank"}/정보 접근성 장벽을 동시에 낮추는 데에 기여하고 싶습니다.
+> I've been studying to become a web front-end developer. I am interested in visualizing messages. In other words, using visual element to convey messages through it. I want to share the information and problems that are overflowing nowadays with more people.
 
-> I'm currently studying to become a web front-end developer. I am interested in visualizing messages. In other words, using visual element to convey messages through it. I want to share the information and problems that are overflowing nowadays with more people.
+> I have mainly dealt with qualitative methodologies about human emotion and understanding of society, so I've trained empathy ability, in-depth interview skills, and Ethnographic writing. In the future, I would like to do data-based tasks through quantitative research based on data as well.
 
-> The long-term goal is to grow into a developer who can make information visualization and data visualization. I would like to be a developer who contributes to lowering the digital(tech) literacy / information access barriers at the same time by enabling more efficient information curator through the visual / dynamic implementation of web.
+#### Interests & Goals
+
+목표는 [데이터 시각화](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%8B%9C%EA%B0%81%ED%99%94){:target="_blank"}를 할 수 있는 개발자/[정보디자이너](https://ko.wikipedia.org/wiki/%EC%A0%95%EB%B3%B4_%EB%94%94%EC%9E%90%EC%9D%B8){:target="_blank"}로 성장하는 것입니다. 웹의 시각적/동적 구현을 통해 좀 더 나은 정보의 큐레이션을 가능하게 함으로써 [디지털(기술) 리터러시](https://en.wikipedia.org/wiki/Digital_literacy){:target="_blank"}/정보 접근성 장벽을 동시에 낮추는 데에 기여하고 싶습니다.
+
+보다 장기적인 목표로는 CCS(Critical Code Studies)와 같은 분야에서 연구를 하고 싶습니다. 기술에 대한 문화적/사회과학적 접근 뿐만 아니라, 사회적 메시지 전달을 위해 코드로 무언가 만들어낼 수 있는 양방향적인 사람이 되고자 합니다. 문화인류학, UX, Civic tech, 프론트엔드 개발 등 제가 가지고 있는 다양한 경험들을 종합해 컴퓨터 프로그래밍과 코딩, 디지털 세계에 대한 개인/사회의 이해를 돕는 일들을 하고 싶습니다.
+
+> My goal is to grow into a developer who can make information visualization and data visualization. I would like to be a developer who contributes to lowering the digital(tech) literacy / information access barriers at the same time by enabling more efficient information curator through the visual / dynamic implementation of web.
+
+> For longer term goals, I would like to study in areas such as Critical Code Studies (CCS). I want to be an interactive person who can create something with code to convey social messages as well as a cultural/social scientific approach to technology for sharing black-boxed knowledge. I would like to do my best to help individuals and society understand computer programming, coding, and the digital world by combining my experience with cultural anthropology, UX, Civic tech, and front end development.
 
 ---
 
@@ -85,14 +93,10 @@ Vue.js 프레임웍을 이용해 하루를 돌아보고 자신의 감정과 간�
 - 팀 프로젝트를 통해 팀원들에게서 많은 것을 배우고 공부할 수 있었던 점들을 정리할 수 있었다.
 
 ###### 4) 관련 링크
-- [트렐로 보드](https://trello.com/b/eQ6Hutph/team-8)
-- [데일리 스크럼 정리](https://goo.gl/vzW9J7)
 - [학습 내용 README](https://github.com/jennybehan/FDS_project_JY/blob/master/README.md)
 
 #### 커뮤니티 활동
-
 * [MapoFemiCodingClug](https://github.com/mfcodingclub) (2017-)
-
 > 새로 시작하는 여성 엔지니어들의 모임입니다.
 
 ---
