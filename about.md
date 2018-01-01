@@ -43,12 +43,12 @@ Javascript와 HTML5/CSS3, React를 중심으로 프론트엔드 웹 개발 및 �
 - INDEX: Design to Improve Life에서 덴마크 선생님들을 위한 design thinking [교육 워크북 디벨롭](http://issuu.com/index/docs/design_to_improve_life_education_te)(2012)
 - 녹색당 청년 정치인을 위한 [정책 공보물 디자인](http://cargocollective.com/jennybehan/6)(2014)
 
+![index](../../assets/images/index.jpg)
+
 ##### 경력
 스타트업에서 기술을 사용한 시민 참여, 시빅 테크니션(civic technician), 시의성이 높은 국내외 사회/정치 뉴스와 자료들을 발행하는 업무를 맡아 했습니다(2016).
 
-교육 스타트업에서 웹 프론트엔드 개발자로 일하고 있습니다. (2017.9~)
-
-![index](../../assets/images/index.jpg)
+현재 교육 스타트업에서 웹 프론트엔드 개발자로 일하고 있습니다. (2017.9~)
 
 ---
 
