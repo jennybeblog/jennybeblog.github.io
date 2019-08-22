@@ -18,7 +18,7 @@ permalink: /about/
 
 2012년에 덴마크 시민학교인 [Krogerup Højskole](https://krogerup.dk)에서 국제학을 수료하고 사진, 비판적 문화간섭(Cultural Jamming)과정을 이수했습니다.
 
-![image](../../assets/images/yidss.jpg)
+<!-- ![image](../../assets/images/yidss.jpg) -->
 
 ---
 
@@ -32,19 +32,19 @@ permalink: /about/
 
 #### Activities
 
-##### Student association 학회
+##### Student association
 
 디자인 사고법 기반의 다학제 협업학회 [DEMA studio, 디마 스튜디오](https://demastudio.tistory.com/)에서 프로젝트를 진행했고, 학회장으로 활동했습니다(2014).
 
-![demastudio](../../assets/images/demastudio1.png)
+<!-- ![demastudio](../../assets/images/demastudio1.png) -->
 
-##### Internship 인턴쉽
+##### Internship
 
 - `2011`: 하자 창의허브 코워킹 스페이스 기획 업무
 - `2012`: [The Index Proejct](https://theindexproject.org/)(Formerly 'INDEX: Design to Improve Life')에서 덴마크 선생님들을 위한 디자인 사고법 design thinking [교육 워크북 디벨롭](http://issuu.com/index/docs/design_to_improve_life_education_te)
 - `2014`: 녹색당 청년 정치인을 위한 [정책 공보물 디자인](http://cargocollective.com/jennybehan/6)
 
-![index](../../assets/images/index.jpg)
+<!-- ![index](../../assets/images/index.jpg) -->
 
 ##### Publication
 
