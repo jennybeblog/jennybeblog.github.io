@@ -24,9 +24,9 @@ share: true
     - [REST의 representation이란 무엇인가](https://blog.npcode.com/2017/04/03/rest%ec%9d%98-representation%ec%9d%b4%eb%9e%80-%eb%ac%b4%ec%97%87%ec%9d%b8%ea%b0%80/)라는 글을 읽었는데 매우 인상적이었다. payload가 사실상 리소스가 전달되는 게 아니라 "현재 애플리케이션 상태를 반영하는 내용"이라는 게 명확히 몰랐던 내용이라서 유용했다. 이 부분을 좀 더 알아보고 싶어졌다.
         > HTTP 메시지의 payload로 전달되는 모든 것은 하나의 representation이거나 적어도 그의 일부이다. PUT 메서드를 이용해 “welcome” 이란 텍스트를 전송해서, greeting 리소스의 representation을 업데이트하는 경우, 클라이언트가 서버로 전송한 “welcome”은 representation이다. 업데이트가 성공하여 서버가 “성공적으로 업데이트되었습니다”라는 메시지를 응답의 payload로 돌려보냈다면 이 메시지 역시 representation이다. “권한이 없습니다”라는 에러 메시지로 응답했다면 그 메시지도 역시 representation이다.
 
-        그렇다. 성공시나 에러시의 메시지도 역시 representation이다. 그런데 앞에서 분명 representation은 어떤 “리소스”에 대한 상태를 담은 정보라고 했다. 그렇다면 도대체 “성공적으로 업데이트되었습니다”는 어떤 리소스에 대한 것인가? greeting 리소스의 representation은 “welcome”으로 업데이트되었으니 분명 그것은 아닐 것인데 대체 무엇일까?
+        > 그렇다. 성공시나 에러시의 메시지도 역시 representation이다. 그런데 앞에서 분명 representation은 어떤 “리소스”에 대한 상태를 담은 정보라고 했다. 그렇다면 도대체 “성공적으로 업데이트되었습니다”는 어떤 리소스에 대한 것인가? greeting 리소스의 representation은 “welcome”으로 업데이트되었으니 분명 그것은 아닐 것인데 대체 무엇일까?
 
-        이론적으로 정확한 정답은 “Content-Location 헤더에 들어있는 uri가 가리키는 리소스”이다. 그러나 보통 Content-Location 헤더는 비어 있을 것이므로 현실적인 정답은 “uri를 모르는 어떤 리소스”이다. 그 메시지는 representation이 맞고, 어떤 존재하는 리소스에 대한 것이지만, 그 리소스를 가리키는 uri가 뭔지는 모른다. 이와 같은 representation을 unidentified representation이라고 하며, 어떤 payload가 unidentified representation인지 판단하는 방법은 RFC 7231의 “3.1.4.1. Identifying a Representation” 에 자세히 나와있다.
+        > 이론적으로 정확한 정답은 “Content-Location 헤더에 들어있는 uri가 가리키는 리소스”이다. 그러나 보통 Content-Location 헤더는 비어 있을 것이므로 현실적인 정답은 “uri를 모르는 어떤 리소스”이다. 그 메시지는 representation이 맞고, 어떤 존재하는 리소스에 대한 것이지만, 그 리소스를 가리키는 uri가 뭔지는 모른다. 이와 같은 representation을 unidentified representation이라고 하며, 어떤 payload가 unidentified representation인지 판단하는 방법은 RFC 7231의 “3.1.4.1. Identifying a Representation” 에 자세히 나와있다.
 
 ## 일의 메타
 
@@ -38,21 +38,21 @@ share: true
 
 > 요즘은 100%의 힘을 써서 100%(~80%)의 임팩트만 내는 식의 일 방식을 어떻게 벗어날 수 있을까?가 주요한 고민이다. 고민을 계속 하다보니깐 점점 구체적인 액션 플랜도 나오긴 하는데, 그럼 이제 당장 급하거나 짜치는 업무들을 쳐내는 시간을 쪼개서 장기적인 효율성을 위한 작업을 어떻게 해낼 것인가가 다음 고민이다. 일단 어떻게든 시간을 내서 해야겠다- 가 일단의 아이디어인데.. 고민을 하다보면 뭐가 좀 더 나올까?
 
-글에 나오는 output과 impact에 대한 고민은 어디서 무엇을 하건 아마 유무형의 가치를 생산하고자 하는 한 계속 될 것 같다. 무조건 열심히 해서 결과를 내야한다는 결과지향주의적인 맥락은 아니고, 일은 적게 하고 확실한 효과를 내는 게 좋으니깐..? (자기기만일수도)
+> 글에 나오는 output과 impact에 대한 고민은 어디서 무엇을 하건 아마 유무형의 가치를 생산하고자 하는 한 계속 될 것 같다. 무조건 열심히 해서 결과를 내야한다는 결과지향주의적인 맥락은 아니고, 일은 적게 하고 확실한 효과를 내는 게 좋으니깐..? (자기기만일수도)
 
-하여튼 현재 단계에서 달성 가능한 최대 output이 나오고 나면 바로 다음 단계의 output과 impact를 생각하게 된다. 그 과정에서 에너지를 들인만큼 impact를 가지는가에 대해 연결해서 생각하지 않을 수도 없다.
+> 하여튼 현재 단계에서 달성 가능한 최대 output이 나오고 나면 바로 다음 단계의 output과 impact를 생각하게 된다. 그 과정에서 에너지를 들인만큼 impact를 가지는가에 대해 연결해서 생각하지 않을 수도 없다.
 
-내가 이글의 정확한 타겟(Senior SWE) 독자는 아니지만, 요즘 하는 생각이랑 관련이 있는 것 같기도 하고 또 Senior/Principle이 뭘 해야하는지, 주변에 아무도 정확히 모르는 것 같은 와중 내용이 좋아서 글이 쭉쭉 읽혔다.
+> 내가 이글의 정확한 타겟(Senior SWE) 독자는 아니지만, 요즘 하는 생각이랑 관련이 있는 것 같기도 하고 또 Senior/Principle이 뭘 해야하는지, 주변에 아무도 정확히 모르는 것 같은 와중 내용이 좋아서 글이 쭉쭉 읽혔다.
 
-일단 (Important)Individual contributor(IC) 부터 되어야 할 수도 있지만, 요새는 그저 요구사항에 따른 output을 시간과 에너지를 짜내어서 여러개 내는 거 말고(‘releasing more features’), 좀 더 공들여서 도메인과 코드 베이스를 이해하고 더 나은 코드로 만드는 일을 병행하고 싶었는데, 그게 나에게나 팀에게나 프로덕트에게나 더 나은 임팩트가 되지 않을까 싶어서. 100% 120% 쥐어짜는 과정 속에서 (—물론 배우는 것도 있고 이런 생각을 하는 게 아직 경험도 많지 않은데 너무 이른가? 싶기도 하지만—)나오는 임팩트는 그다지 큰 것 같지 않다고 느낀다.
+> 일단 (Important)Individual contributor(IC) 부터 되어야 할 수도 있지만, 요새는 그저 요구사항에 따른 output을 시간과 에너지를 짜내어서 여러개 내는 거 말고(‘releasing more features’), 좀 더 공들여서 도메인과 코드 베이스를 이해하고 더 나은 코드로 만드는 일을 병행하고 싶었는데, 그게 나에게나 팀에게나 프로덕트에게나 더 나은 임팩트가 되지 않을까 싶어서. 100% 120% 쥐어짜는 과정 속에서 (—물론 배우는 것도 있고 이런 생각을 하는 게 아직 경험도 많지 않은데 너무 이른가? 싶기도 하지만—)나오는 임팩트는 그다지 큰 것 같지 않다고 느낀다.
 
 그 외에도 개인적으로 아래의 내용들이 인상깊었다.
 
-> Writing more code or releasing more features alone doesn’t make you a better senior engineer. It’s about your ability to deliver a meaningful business impact through your execution. This is the change in mindset that will set you on your way to the next level.
+> "Writing more code or releasing more features alone doesn’t make you a better senior engineer. It’s about your ability to deliver a meaningful business impact through your execution. This is the change in mindset that will set you on your way to the next level."
 
-> But the impacts you create by helping 10 engineers be 10% better would be an order of magnitude greater than your maximum output as an individual. That impact is also cumulative and longer-lasting as you help more and more engineers level up.
+> "But the impacts you create by helping 10 engineers be 10% better would be an order of magnitude greater than your maximum output as an individual. That impact is also cumulative and longer-lasting as you help more and more engineers level up."
 
-> You also need to be empathic to different people’s needs and constraints. The “right way” may be too far a stretch for some. It’s not your job to judge others for not reaching your lofty standards. But it is your job to help others improve, even if it means taking baby steps.
+> "You also need to be empathic to different people’s needs and constraints. The “right way” may be too far a stretch for some. It’s not your job to judge others for not reaching your lofty standards. But it is your job to help others improve, even if it means taking baby steps."
 
 그러나 일단 제대로 된 Individual Contributor 부터 되어야겠지..
 
@@ -105,4 +105,5 @@ share: true
 
 - [ ] 회사 일: 위에서 이야기 한 것처럼 코드 개선 관련 작업들을 하고 싶다.
 - [ ] 주문한 책들 읽기
+- [ ] vue-router history mode 관련 내용 체크
 - [ ] 미적분 강의
