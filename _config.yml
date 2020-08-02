@@ -3,7 +3,7 @@
 # # # # # # # # # # # # #
 
 # Basic
-name:               "Jennybe / Front-end engineering"
+name:               "Jennybe | Front-end engineering"
 
 author:
   # facebook:         jennybe0117
@@ -62,8 +62,8 @@ nav:
     url:            "/archive"
   - name:           "Tags"
     url:            "/tags"
-  - name:           "Github"
-    url:            "https://github.com/jennybehan"
+  # - name:           "Github"
+  #   url:            "https://github.com/jennybehan"
 
 # Sass
 sass:
