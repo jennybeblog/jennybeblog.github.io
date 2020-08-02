@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Monthly Retrospect - 2020.MAY
+title: Monthly Retrospect - 2020.JUNE
 description: "2020년 6월 정리"
 tags:
   - Retrospect
@@ -38,7 +38,7 @@ share: true
 
 #### Links
 
-- [Increment | When Frontend means full stack](https://increment.com/frontend/when-frontend-means-full-stack/)
+- [Increment - When Frontend means full stack](https://increment.com/frontend/when-frontend-means-full-stack/)
 - [실용주의 프론트엔드](https://peter-cho.gitbook.io/book/)
 
 ## 다음 달에 해보고 싶은 것
