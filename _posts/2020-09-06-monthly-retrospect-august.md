@@ -1,3 +1,12 @@
+---
+layout: post
+title: Monthly Retrospect - 2020.AUG
+description: "2020년 8월 정리"
+tags:
+  - Retrospect
+share: false
+---
+
 # Summary
 
 ## 공부 및 작업
